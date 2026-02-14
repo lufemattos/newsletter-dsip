@@ -556,22 +556,28 @@
       el.style.display = "none";
     });
 
-    // 3) Pequena pausa para o layout “assentar”
-    await new Promise(r => setTimeout(r, 200));
+    // 3) Aplica escala 75% somente durante a exportação
+    const originalTransform = target.style.transform;
+    const originalTransformOrigin = target.style.transformOrigin;
 
-    // 4) Define nome do arquivo (se existir REPORT.lastUpdate, usa)
-    const lastUpdate = (window.REPORT && REPORT.lastUpdate) ? REPORT.lastUpdate : "newsletter";
-    const safeName = String(lastUpdate).replace(/[^\w\-]+/g, "_");
-    const filename = `Newsletter_DSIP_${safeName}.pdf`;
+    target.style.transformOrigin = "top left";
+    target.style.transform = "scale(0.75)";
 
-    // 5) Opções do PDF (A4, qualidade boa)
+    // Compensa a largura “visual” pra não ficar sobrando espaço/corte
+    const originalWidth = target.style.width;
+    target.style.width = (100 / 0.75) + "%"; // 133.333...%
+
+    // 4) Pequena pausa para o layout “assentar”
+    await new Promise(r => setTimeout(r, 250));
+
+    // 5) Opções do PDF (nome fixo + A4)
     const opt = {
       margin:       [10, 10, 10, 10], // mm
-      filename:     filename,
+      filename:     "Newsletter_DSIP.pdf",
       image:        { type: "jpeg", quality: 0.98 },
       html2canvas:  {
-        scale: 2,               // melhora nitidez
-        useCORS: true,          // tenta respeitar imagens externas
+        scale: 2,
+        useCORS: true,
         backgroundColor: "#ffffff"
       },
       jsPDF:        { unit: "mm", format: "a4", orientation: "portrait" },
@@ -579,12 +585,16 @@
     };
 
     try {
-      // 6) Gera PDF
       await html2pdf().set(opt).from(target).save();
     } catch (e) {
       alert("Não consegui gerar o PDF. Veja o Console (F12) para detalhes.");
       console.error(e);
     } finally {
+      // 6) Restaura escala e estilos do target
+      target.style.transform = originalTransform;
+      target.style.transformOrigin = originalTransformOrigin;
+      target.style.width = originalWidth;
+
       // 7) Restaura elementos escondidos
       hidden.forEach(x => x.el.style.display = x.display);
 
@@ -595,6 +605,7 @@
   });
 })();
 </script>
+
 
     
 </body>
