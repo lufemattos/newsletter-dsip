@@ -1,5 +1,5 @@
 window.REPORT = {
-  lastUpdate: "Fev/2026",
+  lastUpdate: "TESTE DINÂMICO",
 
   justTrackIt: [
     {
