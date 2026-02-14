@@ -26,12 +26,12 @@
             width: 0px;
             background: transparent;
         }
-        
+
         .timeline-node {
             position: relative;
             z-index: 10;
         }
-        
+
         /* Ajuste fino para timeline horizontal caber na tela */
         .horizontal-timeline-container {
             display: flex;
@@ -40,7 +40,7 @@
             width: 100%;
             position: relative;
         }
-        
+
         .season-tag {
             display: inline-block;
             padding: 2px 8px;
@@ -57,7 +57,7 @@
 
     <!-- MAIN CONTAINER -->
     <div id="newsletter" class="max-w-6xl mx-auto bg-white shadow-xl overflow-hidden rounded-sm border border-gray-200">
-        
+
         <!-- HEADER / BRANDING -->
         <div class="bg-black text-white p-6 flex justify-between items-center border-b-4 border-[#E97132]">
             <div>
@@ -144,7 +144,7 @@
         <!-- 2️⃣ SEÇÃO: TIMELINE HORIZONTAL -->
         <section class="py-10 bg-white border-t border-b border-gray-100 overflow-hidden">
             <h3 class="text-center text-2xl font-extrabold uppercase mb-12">HO26 – Calendário de Compras</h3>
-            
+
             <div class="relative w-full px-4 overflow-hidden pb-8">
                 <!-- Linha central -->
                 <div id="timelineLine" class="absolute top-1/2 left-0 h-1 bg-gray-200 transform -translate-y-1/2 z-0"></div>
@@ -392,172 +392,147 @@
 
     <script>
 (function () {
-  if (!window.REPORT || !Array.isArray(REPORT.timeline)) return;
+  if (!window.REPORT || !Array.isArray(REPORT.datesGates)) return;
 
-  const viewport = document.getElementById("timelineViewport");
-  const container = document.getElementById("timelineContainer");
-  const line = document.getElementById("timelineLine");
+  const root = document.getElementById("datesGatesRoot");
+  const container = document.getElementById("datesGatesContainer");
+  const line = document.getElementById("datesGatesLine");
+  if (!root || !container || !line) return;
 
-  if (!viewport || !container || !line) return;
+  // --- helpers ---
+  const esc = (s) => String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
 
-  // ====== AJUSTE IMPORTANTE: "margem de segurança" para não encostar na borda ======
-  // Isso evita cortar tooltip e deixa o lado esquerdo com respiro igual ao direito
-  const SAFE_PADDING = 28; // px (pode ajustar: 20~40 costuma ser bom)
-
-  // aplica padding no viewport (não muda o layout geral, só cria respiro interno)
-  viewport.style.paddingLeft = SAFE_PADDING + "px";
-  viewport.style.paddingRight = SAFE_PADDING + "px";
-
-  // garante que tooltips possam "vazar" sem serem cortados
-  // (se algum pai estiver com overflow hidden, isso ajuda)
-  viewport.style.overflow = "visible";
-
-  // --- Helpers ---
   const toTime = (iso) => {
-    if (!iso) return null;
-    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso);
+    const m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(iso || "");
     if (!m) return null;
-    return new Date(+m[1], +m[2] - 1, +m[3]).getTime();
+    return new Date(+m[1], +m[2] - 1, +m[3]).getTime(); // meia-noite local
   };
 
-  const ensureTodayMarker = () => {
-    let marker = document.getElementById("todayMarker");
-    if (marker) return marker;
+  const todayLocal = (() => {
+    const now = new Date();
+    return new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
+  })();
 
-    marker = document.createElement("div");
-    marker.id = "todayMarker";
-    marker.style.position = "absolute";
-    marker.style.top = "0";
-    marker.style.height = "100%";
-    marker.style.width = "0";
-    marker.style.pointerEvents = "none";
-    marker.style.zIndex = "25";
+  // escolhe o card "de hoje" (o mais próximo dentro do range)
+  const pickTodayIndex = (items) => {
+    const pts = items
+      .map((x, idx) => ({ t: toTime(x.iso), idx }))
+      .filter(x => x.t !== null)
+      .sort((a,b) => a.t - b.t);
 
-    // Linha vertical FININHA e TRACEJADA (discreta)
-    const vline = document.createElement("div");
-    vline.style.position = "absolute";
-    vline.style.top = "0";
-    vline.style.bottom = "0";
-    vline.style.left = "50%";
-    vline.style.transform = "translateX(-50%)";
-    vline.style.width = "1px";
-    vline.style.backgroundImage =
-      "repeating-linear-gradient(to bottom, #ef4444 0 6px, transparent 6px 12px)";
-    vline.style.opacity = "0.6";
+    if (pts.length === 0) return -1;
 
-    marker.appendChild(vline);
-    viewport.appendChild(marker);
-    return marker;
+    const min = pts[0].t;
+    const max = pts[pts.length - 1].t;
+    if (todayLocal < min || todayLocal > max) return -1;
+
+    for (let i = 0; i < pts.length - 1; i++) {
+      const a = pts[i], b = pts[i + 1];
+      if (todayLocal >= a.t && todayLocal <= b.t) {
+        const da = Math.abs(todayLocal - a.t);
+        const db = Math.abs(b.t - todayLocal);
+        return (da <= db) ? a.idx : b.idx;
+      }
+    }
+    return pts[pts.length - 1].idx;
   };
 
-  // --- Render timeline ---
-  container.innerHTML = REPORT.timeline.map(item => {
-    const isTop = item.side === "top";
+  const todayIdx = pickTodayIndex(REPORT.datesGates);
 
-    const boxHtml = (item.boxType === "dark")
-      ? `<div class="bg-gray-900 text-white text-[10px] py-1 px-2 rounded leading-tight shadow-lg">
-           ${item.title}<br><span class="opacity-70">${item.subtitle}</span>
-         </div>`
-      : `<div class="bg-white text-gray-900 text-[10px] py-1 px-2 rounded leading-tight border"
-           style="border-color:${item.color}">
-           ${item.title}<br>${item.subtitle}
-         </div>`;
+  // força quebra de linha p/ não "fugir" da página
+  if (!document.getElementById("datesGatesDynamicStyle")) {
+    const st = document.createElement("style");
+    st.id = "datesGatesDynamicStyle";
+    st.textContent = `
+      .dg-card { max-width: 100%; }
+      .dg-text { overflow-wrap: anywhere; word-break: break-word; hyphens: auto; }
+      .dg-list li { overflow-wrap: anywhere; word-break: break-word; }
+    `;
+    document.head.appendChild(st);
+  }
 
-    // Se você já colocou tooltip via data.js, mantenha seu HTML de tooltip aqui.
-    // Este script só resolve o "corte" e o alinhamento.
-    return `
-      <div class="flex flex-col items-center group w-24" data-iso="${item.iso || ""}">
-        ${isTop ? `
-          <div class="mb-4 text-center transform -translate-y-2">
-            <span class="block text-xs font-bold mb-1" style="color:${item.color}">${item.date}</span>
-            ${boxHtml}
-          </div>
-        ` : `<div class="h-1/2"></div>`}
+  const renderCard = (item, isToday) => {
+    const side = (item.side === "right") ? "right" : "left";
+    const sections = Array.isArray(item.sections) ? item.sections : [];
 
-        <div class="timeline-dot w-4 h-4 rounded-full bg-white border-4"
-             style="border-color:${item.color}"></div>
+    const tagHtml = (sec) => {
+      const bg = sec?.tag?.bg || "#111";
+      const fg = sec?.tag?.fg || "#fff";
+      const text = esc(sec?.tag?.text || "");
+      return `<span class="season-tag" style="background:${bg}; color:${fg}">${text}</span>`;
+    };
 
-        ${!isTop ? `
-          <div class="mt-4 text-center transform translate-y-2">
-            <span class="block text-xs font-bold mb-1" style="color:${item.color}">${item.date}</span>
-            ${boxHtml}
-          </div>
-        ` : `<div class="h-1/2"></div>`}
+    const itemsHtml = (sec) => {
+      const list = Array.isArray(sec.items) ? sec.items : [];
+      return `
+        <ul class="dg-list text-xs text-gray-700 leading-relaxed font-medium dg-text">
+          ${list.map(x => `<li>• ${esc(x)}</li>`).join("")}
+        </ul>
+      `;
+    };
+
+    const contentCommon = `
+      <div class="inline-block bg-black text-white text-xs font-bold px-3 py-1 rounded-full mb-3">${esc(item.label)}</div>
+      ${sections.map(sec => `
+        <div class="mb-3 last:mb-0">
+          ${tagHtml(sec)}
+          ${itemsHtml(sec)}
+        </div>
+      `).join("")}
+    `;
+
+    const leftBlock = `
+      <div class="w-[45%] flex justify-end">
+        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 w-full text-right hover:shadow-md transition-shadow dg-card">
+          ${contentCommon}
+        </div>
       </div>
     `;
-  }).join("");
 
-  // --- Scale + Position Today ---
-  const applyScale = () => {
-    // Reset
-    container.style.transform = "scale(1)";
-    container.style.transformOrigin = "left center";
-    line.style.transform = "scaleX(1)";
-    line.style.transformOrigin = "left center";
+    const rightBlock = `
+      <div class="w-[45%] flex justify-start">
+        <div class="bg-white p-5 rounded-lg shadow-sm border border-gray-100 w-full text-left hover:shadow-md transition-shadow dg-card">
+          ${contentCommon}
+        </div>
+      </div>
+    `;
 
-    // Largura útil = viewport - (padding esquerda + direita)
-    const usableWidth = viewport.clientWidth - (SAFE_PADDING * 2);
-    const contentWidth = container.scrollWidth;
+    const centerDot = `
+      <div class="w-[10%] flex justify-center items-center relative">
+        <div class="w-3 h-3 rounded-full border-2 border-white z-10"
+             style="background:${isToday ? "#E97132" : "#9ca3af"}"></div>
+      </div>
+    `;
 
-    const scale = (contentWidth > usableWidth) ? (usableWidth / contentWidth) : 1;
-
-    container.style.transform = `scale(${scale})`;
-
-    // Linha central: mantém a mesma lógica de antes, mas deslocada pelo padding
-    line.style.width = contentWidth + "px";
-    line.style.transform = `scaleX(${scale})`;
-    line.style.left = SAFE_PADDING + "px"; // <<< agora não cola na borda esquerda
-
-    // Position Today line using REAL dot positions
-    const marker = ensureTodayMarker();
-
-    const now = new Date();
-    const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
-
-    const viewportRect = viewport.getBoundingClientRect();
-
-    const nodes = Array.from(container.querySelectorAll('[data-iso]'))
-      .map(el => {
-        const iso = el.getAttribute('data-iso');
-        const t = toTime(iso);
-        const dot = el.querySelector('.timeline-dot');
-        if (!dot || t === null) return null;
-
-        const r = dot.getBoundingClientRect();
-        const xCenter = (r.left - viewportRect.left) + (r.width / 2);
-        return { t, x: xCenter };
-      })
-      .filter(Boolean)
-      .sort((a, b) => a.t - b.t);
-
-    if (nodes.length < 2) {
-      marker.style.display = "none";
-      return;
+    if (side === "left") {
+      return `
+        <div class="flex justify-between w-full mb-6 dates-item">
+          ${leftBlock}
+          ${centerDot}
+          <div class="w-[45%]"></div>
+        </div>
+      `;
+    } else {
+      return `
+        <div class="flex justify-between w-full mb-6 dates-item">
+          <div class="w-[45%]"></div>
+          ${centerDot}
+          ${rightBlock}
+        </div>
+      `;
     }
-
-    if (today < nodes[0].t || today > nodes[nodes.length - 1].t) {
-      marker.style.display = "none";
-      return;
-    }
-
-    let i = 0;
-    while (i < nodes.length - 2 && today > nodes[i + 1].t) i++;
-
-    const a = nodes[i];
-    const b = nodes[i + 1];
-
-    const ratio = (today - a.t) / (b.t - a.t);
-    const x = a.x + ratio * (b.x - a.x);
-
-    marker.style.display = "block";
-    marker.style.left = `${x}px`;
   };
 
-  applyScale();
-  window.addEventListener("resize", applyScale);
+  container.innerHTML = REPORT.datesGates
+    .map((item, idx) => renderCard(item, idx === todayIdx))
+    .join("");
 })();
 </script>
-
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
 
@@ -581,13 +556,20 @@
       el.style.display = "none";
     });
 
+    // 3) Pequena pausa para o layout “assentar”
+    await new Promise(r => setTimeout(r, 200));
     // 3) Aplica escala 75% somente durante a exportação
     const originalTransform = target.style.transform;
     const originalTransformOrigin = target.style.transformOrigin;
 
+    // 4) Define nome do arquivo (se existir REPORT.lastUpdate, usa)
+    const lastUpdate = (window.REPORT && REPORT.lastUpdate) ? REPORT.lastUpdate : "newsletter";
+    const safeName = String(lastUpdate).replace(/[^\w\-]+/g, "_");
+    const filename = `Newsletter_DSIP_${safeName}.pdf`;
     target.style.transformOrigin = "top left";
     target.style.transform = "scale(0.75)";
 
+    // 5) Opções do PDF (A4, qualidade boa)
     // Compensa a largura “visual” pra não ficar sobrando espaço/corte
     const originalWidth = target.style.width;
     target.style.width = (100 / 0.75) + "%"; // 133.333...%
@@ -598,9 +580,12 @@
     // 5) Opções do PDF (nome fixo + A4)
     const opt = {
       margin:       [10, 10, 10, 10], // mm
+      filename:     filename,
       filename:     "Newsletter_DSIP.pdf",
       image:        { type: "jpeg", quality: 0.98 },
       html2canvas:  {
+        scale: 2,               // melhora nitidez
+        useCORS: true,          // tenta respeitar imagens externas
         scale: 2,
         useCORS: true,
         backgroundColor: "#ffffff"
@@ -610,6 +595,7 @@
     };
 
     try {
+      // 6) Gera PDF
       await html2pdf().set(opt).from(target).save();
     } catch (e) {
       alert("Não consegui gerar o PDF. Veja o Console (F12) para detalhes.");
@@ -632,6 +618,6 @@
 </script>
 
 
-    
+
 </body>
 </html>
