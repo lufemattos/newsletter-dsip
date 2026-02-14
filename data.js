@@ -32,7 +32,7 @@ window.REPORT = {
   { side: "top",    date: "20/01", iso:"2026-01-20", color: "#E97132", boxType: "dark",    title: "X-MPU",        subtitle: "20-22 Jan" },
   { side: "bottom", date: "30/01", iso:"2026-01-30", color: "#60A5FA", boxType: "light",   title: "Abertura",     subtitle: "Portal" },
   { side: "top",    date: "16/02", iso:"2026-02-16", color: "#22C55E", boxType: "light",   title: "Carnaval",     subtitle: "16-18 Fev" },
-  { side: "bottom", date: "02/03", iso:"2026-02-02", color: "#FACC15", boxType: "light",   title: "Fechamento",   subtitle: "Portal" },
+  { side: "bottom", date: "02/03", iso:"2026-03-02", color: "#FACC15", boxType: "light",   title: "Fechamento",   subtitle: "Portal" },
   { side: "top",    date: "03/03", iso:"2026-03-03", color: "#FB923C", boxType: "light",   title: "Bookings",     subtitle: "Prévia" },
   { side: "bottom", date: "04/03", iso:"2026-03-04", color: "#F472B6", boxType: "light",   title: "Booking",      subtitle: "Review" },
   { side: "top",    date: "05/03", iso:"2026-03-05", color: "#A855F7", boxType: "light",   title: "Fechamento",   subtitle: "Final" },
