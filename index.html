@@ -142,10 +142,10 @@
         </section>
 
         <!-- 2️⃣ SEÇÃO: TIMELINE HORIZONTAL -->
-        <section class="py-10 bg-white border-t border-b border-gray-100 overflow-hidden">
+        <section class="py-10 bg-white border-t border-b border-gray-100 overflow-visible">
             <h3 class="text-center text-2xl font-extrabold uppercase mb-12">HO26 – Calendário de Compras</h3>
 
-            <div class="relative w-full px-4 overflow-hidden pb-8">
+            <div class="relative w-full px-4 overflow-visible pb-8">
                 <!-- Linha central -->
                 <div id="timelineLine" class="absolute top-1/2 left-0 h-1 bg-gray-200 transform -translate-y-1/2 z-0"></div>
 
@@ -225,6 +225,16 @@
 
   if (!viewport || !container || !line) return;
 
+  // ====== AJUSTE DE BORDA (respiro interno) ======
+  const SAFE_PADDING = 28; // px (se quiser mais respiro: 36 ou 40)
+
+  // aplica padding "real" no viewport (cria respiro igual esquerda/direita)
+  viewport.style.paddingLeft = SAFE_PADDING + "px";
+  viewport.style.paddingRight = SAFE_PADDING + "px";
+
+  // garante que tooltip não seja cortado dentro do viewport
+  viewport.style.overflow = "visible";
+
   // --- Helpers ---
   const toTime = (iso) => {
     if (!iso) return null;
@@ -243,6 +253,7 @@
       .replaceAll("'", "&#39;");
   };
 
+  // Linha "hoje" tracejada
   const ensureTodayMarker = () => {
     let marker = document.getElementById("todayMarker");
     if (marker) return marker;
@@ -256,14 +267,12 @@
     marker.style.pointerEvents = "none";
     marker.style.zIndex = "25";
 
-    // Linha vertical FININHA e TRACEJADA (discreta)
     const vline = document.createElement("div");
     vline.style.position = "absolute";
     vline.style.top = "0";
     vline.style.bottom = "0";
     vline.style.left = "50%";
     vline.style.transform = "translateX(-50%)";
-
     vline.style.width = "1px";
     vline.style.backgroundImage =
       "repeating-linear-gradient(to bottom, #ef4444 0 6px, transparent 6px 12px)";
@@ -274,7 +283,7 @@
     return marker;
   };
 
-  // --- Render timeline (com tooltip opcional vindo do data.js: item.tooltip) ---
+  // --- Render timeline (tooltip opcional: item.tooltip no data.js) ---
   container.innerHTML = REPORT.timeline.map(item => {
     const isTop = item.side === "top";
     const tip = item.tooltip ? escapeHtml(item.tooltip) : "";
@@ -308,7 +317,7 @@
         ` : `<div class="h-1/2"></div>`}
 
         ${item.tooltip ? `
-          <!-- Tooltip (fica em cima do marco) -->
+          <!-- Tooltip (em cima do marco) -->
           <div class="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 -translate-y-3
                       opacity-0 group-hover:opacity-100 transition-opacity duration-150 z-50"
                style="min-width:220px; max-width:320px;">
@@ -331,13 +340,17 @@
     line.style.transform = "scaleX(1)";
     line.style.transformOrigin = "left center";
 
-    const viewportWidth = viewport.clientWidth;
+    // largura útil = viewport - paddings
+    const usableWidth = viewport.clientWidth - (SAFE_PADDING * 2);
     const contentWidth = container.scrollWidth;
-    const scale = (contentWidth > viewportWidth) ? (viewportWidth / contentWidth) : 1;
+    const scale = (contentWidth > usableWidth) ? (usableWidth / contentWidth) : 1;
 
     container.style.transform = `scale(${scale})`;
+
+    // Linha central: mesma lógica, mas deslocada pra respeitar o padding
     line.style.width = contentWidth + "px";
     line.style.transform = `scaleX(${scale})`;
+    line.style.left = SAFE_PADDING + "px"; // <- não cola na borda
 
     // Position Today line using REAL dot positions
     const marker = ensureTodayMarker();
@@ -361,15 +374,8 @@
       .filter(Boolean)
       .sort((a, b) => a.t - b.t);
 
-    if (nodes.length < 2) {
-      marker.style.display = "none";
-      return;
-    }
-
-    if (today < nodes[0].t || today > nodes[nodes.length - 1].t) {
-      marker.style.display = "none";
-      return;
-    }
+    if (nodes.length < 2) { marker.style.display = "none"; return; }
+    if (today < nodes[0].t || today > nodes[nodes.length - 1].t) { marker.style.display = "none"; return; }
 
     let i = 0;
     while (i < nodes.length - 2 && today > nodes[i + 1].t) i++;
@@ -388,7 +394,6 @@
   window.addEventListener("resize", applyScale);
 })();
 </script>
-
 
     <script>
 (function () {
