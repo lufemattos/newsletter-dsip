@@ -239,6 +239,12 @@ window.REPORT = {
           items: [
             "26.3 – L4L Development Forecast"
           ]
+        },
+        {
+          tag: { text: "FA26 W13", bg: "#c2410c", fg: "#ffffff" },
+          items: [
+            "3.4 – Upload Confirmed FOB L4L"
+          ]
         }
       ]
     },
