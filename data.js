@@ -5,7 +5,8 @@ window.REPORT = {
     {
       accent: true,
       title: "HO26 week 34 Forecast:",
-      text: "6,82M TOTAL = 3,21M APP + 618K EQP + 3,00M FTW / 3,48M IMP + 3,34M L4L"
+      text: "6,82M TOTAL = 3,21M APP + 618K EQP + 3,00M FTW / 3,48M IMP + 3,34M L4L",
+      check: true
     },
     {
       date: "03.Mar",
