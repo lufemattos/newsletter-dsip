@@ -192,15 +192,16 @@
     tbody.innerHTML = REPORT.justTrackIt.map((it) => {
       // Linha “destacada” (a primeira, com borda laranja)
       if (it.accent) {
-        return `
-          <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
-            <td class="py-4 pl-4 border-l-4 border-[#E97132]">
-              <span class="font-bold text-black block md:inline">${it.title || ""}</span> 
-              <span class="text-gray-700">${it.text || ""}</span>
-            </td>
-          </tr>
-        `;
-      }
+  return `
+    <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
+      <td class="py-4 pl-4 border-l-4 border-[#E97132]">
+        <span class="font-bold text-black block md:inline">${it.title || ""}</span> 
+        <span class="text-gray-700">${it.text || ""}</span>
+        ${it.check ? '<span class="ml-2 inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-600 text-white text-xs font-bold">✓</span>' : ""}
+      </td>
+    </tr>
+  `;
+}
 
       // Linhas normais
       return `
