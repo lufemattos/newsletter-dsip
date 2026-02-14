@@ -496,62 +496,44 @@
   const viewport = document.getElementById("timelineViewport");
   const container = document.getElementById("timelineContainer");
   const line = document.getElementById("timelineLine");
+
   if (!viewport || !container || !line) return;
 
-  // --- helper: parse ISO date safely ---
-  const toTime = (iso) => {
-    if (!iso) return null;
-    const t = Date.parse(iso);
-    return Number.isFinite(t) ? t : null;
-  };
+  // Renderiza os itens
+  container.innerHTML = REPORT.timeline.map(item => {
+    const isTop = item.side === "top";
+    const boxHtml = (item.boxType === "dark")
+      ? `<div class="bg-gray-900 text-white text-[10px] py-1 px-2 rounded leading-tight shadow-lg">
+           ${item.title}<br><span class="opacity-70">${item.subtitle}</span>
+         </div>`
+      : `<div class="bg-white text-gray-900 text-[10px] py-1 px-2 rounded leading-tight border"
+           style="border-color:${item.color}">
+           ${item.title}<br>${item.subtitle}
+         </div>`;
 
-  // --- create / get marker ---
-  const ensureTodayMarker = () => {
-    let marker = document.getElementById("todayMarker");
-    if (marker) return marker;
+    return `
+      <div class="flex flex-col items-center group w-24">
+        ${isTop ? `
+          <div class="mb-4 text-center transform -translate-y-2">
+            <span class="block text-xs font-bold mb-1" style="color:${item.color}">${item.date}</span>
+            ${boxHtml}
+          </div>
+        ` : `<div class="h-1/2"></div>`}
 
-    marker = document.createElement("div");
-    marker.id = "todayMarker";
-    marker.style.position = "absolute";
-    marker.style.top = "50%";
-    marker.style.transform = "translate(-50%, -50%)";
-    marker.style.zIndex = "30";
-    marker.style.pointerEvents = "none";
+        <div class="w-4 h-4 rounded-full bg-white border-4" style="border-color:${item.color}"></div>
 
-    // Pin discreto (pontinho + haste curta)
-    marker.innerHTML = `
-      <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
-        <div style="width:8px; height:8px; border-radius:9999px; background:#ef4444; box-shadow:0 0 0 2px #ffffff;"></div>
-        <div style="width:2px; height:18px; background:#ef4444; opacity:.75; border-radius:9999px;"></div>
+        ${!isTop ? `
+          <div class="mt-4 text-center transform translate-y-2">
+            <span class="block text-xs font-bold mb-1" style="color:${item.color}">${item.date}</span>
+            ${boxHtml}
+          </div>
+        ` : `<div class="h-1/2"></div>`}
       </div>
     `;
+  }).join("");
 
-    viewport.appendChild(marker);
-    return marker;
-  };
-
-  // (Opcional) linha fininha horizontal no nível da linha cinza — descomente se quiser
-  // const ensureTodayLine = () => {
-  //   let vline = document.getElementById("todayVLine");
-  //   if (vline) return vline;
-  //   vline = document.createElement("div");
-  //   vline.id = "todayVLine";
-  //   vline.style.position = "absolute";
-  //   vline.style.top = "0";
-  //   vline.style.bottom = "0";
-  //   vline.style.width = "1px";
-  //   vline.style.background = "#ef4444";
-  //   vline.style.opacity = "0.35";
-  //   vline.style.zIndex = "20";
-  //   vline.style.pointerEvents = "none";
-  //   viewport.appendChild(vline);
-  //   return vline;
-  // };
-
-  // ... (aqui continua seu render do container.innerHTML = REPORT.timeline.map...)
-
+  // Calcula largura real e aplica scale para caber no viewport
   const applyScale = () => {
-    // reset scale
     container.style.transform = "scale(1)";
     line.style.transform = "scaleX(1)";
     line.style.transformOrigin = "left center";
@@ -564,34 +546,9 @@
     container.style.transform = `scale(${scale})`;
     line.style.width = contentWidth + "px";
     line.style.transform = `scaleX(${scale})`;
-
-    // --- position "today" marker ---
-    const times = REPORT.timeline.map(i => toTime(i.iso)).filter(t => t !== null).sort((a,b)=>a-b);
-    if (times.length >= 2) {
-      const start = times[0];
-      const end = times[times.length - 1];
-      const now = Date.now();
-
-      // Se hoje estiver fora do range, escondemos (para não confundir)
-      const marker = ensureTodayMarker();
-      // const vline = ensureTodayLine(); // opcional
-
-      if (now < start || now > end) {
-        marker.style.display = "none";
-        // if (vline) vline.style.display = "none";
-      } else {
-        marker.style.display = "block";
-        // if (vline) vline.style.display = "block";
-
-        const ratio = (now - start) / (end - start); // 0..1
-        const x = ratio * contentWidth * scale;
-
-        marker.style.left = `${x}px`;
-        // if (vline) vline.style.left = `${x}px`;
-      }
-    }
   };
 
+  // roda agora e quando a tela mudar de tamanho
   applyScale();
   window.addEventListener("resize", applyScale);
 })();
