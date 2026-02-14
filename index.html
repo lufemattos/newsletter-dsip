@@ -56,7 +56,7 @@
 <body class="antialiased min-h-screen p-4 md:p-8">
 
     <!-- MAIN CONTAINER -->
-    <div class="max-w-6xl mx-auto bg-white shadow-xl overflow-hidden rounded-sm border border-gray-200">
+    <div id="newsletter" class="max-w-6xl mx-auto bg-white shadow-xl overflow-hidden rounded-sm border border-gray-200">
         
         <!-- HEADER / BRANDING -->
         <div class="bg-black text-white p-6 flex justify-between items-center border-b-4 border-[#E97132]">
@@ -81,7 +81,7 @@
         JUST TRACK IT!
     </h2>
 
-    <div class="flex gap-3">
+    <div class="flex gap-3 no-export">
 
         <a href="kpis.html"
            class="inline-flex items-center border border-[#E97132] text-[#E97132] px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-[#E97132] hover:text-white transition-colors">
@@ -92,6 +92,11 @@
            class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
            ORGANOGRAMA
             </a>
+
+        <button id="exportPdfBtn"
+          class="inline-flex items-center border border-gray-400 text-gray-200 px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-gray-200 hover:text-black transition-colors">
+          Exportar PDF
+        </button>
 
         </div>
     </div>
@@ -528,6 +533,69 @@
     .join("");
 })();
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+<script>
+(function () {
+  const btn = document.getElementById("exportPdfBtn");
+  const target = document.getElementById("newsletter");
+
+  if (!btn || !target) return;
+
+  btn.addEventListener("click", async function () {
+    // 1) Desabilita o botão e dá feedback
+    const originalText = btn.textContent;
+    btn.textContent = "Gerando PDF...";
+    btn.disabled = true;
+
+    // 2) Esconde elementos marcados como "no-export"
+    const hidden = [];
+    document.querySelectorAll(".no-export").forEach(el => {
+      hidden.push({ el, display: el.style.display });
+      el.style.display = "none";
+    });
+
+    // 3) Pequena pausa para o layout “assentar”
+    await new Promise(r => setTimeout(r, 200));
+
+    // 4) Define nome do arquivo (se existir REPORT.lastUpdate, usa)
+    const lastUpdate = (window.REPORT && REPORT.lastUpdate) ? REPORT.lastUpdate : "newsletter";
+    const safeName = String(lastUpdate).replace(/[^\w\-]+/g, "_");
+    const filename = `Newsletter_DSIP_${safeName}.pdf`;
+
+    // 5) Opções do PDF (A4, qualidade boa)
+    const opt = {
+      margin:       [10, 10, 10, 10], // mm
+      filename:     filename,
+      image:        { type: "jpeg", quality: 0.98 },
+      html2canvas:  {
+        scale: 2,               // melhora nitidez
+        useCORS: true,          // tenta respeitar imagens externas
+        backgroundColor: "#ffffff"
+      },
+      jsPDF:        { unit: "mm", format: "a4", orientation: "portrait" },
+      pagebreak:    { mode: ["css", "legacy"] }
+    };
+
+    try {
+      // 6) Gera PDF
+      await html2pdf().set(opt).from(target).save();
+    } catch (e) {
+      alert("Não consegui gerar o PDF. Veja o Console (F12) para detalhes.");
+      console.error(e);
+    } finally {
+      // 7) Restaura elementos escondidos
+      hidden.forEach(x => x.el.style.display = x.display);
+
+      // 8) Restaura botão
+      btn.textContent = originalText;
+      btn.disabled = false;
+    }
+  });
+})();
+</script>
+
     
 </body>
 </html>
