@@ -520,19 +520,20 @@
     marker.style.pointerEvents = "none";
     marker.style.zIndex = "25";
 
-    // linha vertical fina
-    const line = document.createElement("div");
-    line.style.position = "absolute";
-    line.style.top = "0";
-    line.style.bottom = "0";
-    line.style.left = "50%";
-    line.style.width = "2px";
-    line.style.transform = "translateX(-50%)";
-    line.style.background = "#ef4444";
-    line.style.opacity = "0.65";
-    line.style.borderRadius = "9999px";
+    // Linha vertical FININHA e TRACEJADA (discreta)
+    const vline = document.createElement("div");
+    vline.style.position = "absolute";
+    vline.style.top = "0";
+    vline.style.bottom = "0";
+    vline.style.left = "50%";
+    vline.style.transform = "translateX(-50%)";
 
-    marker.appendChild(line);
+    // Fininha + tracejada
+    vline.style.width = "1px";
+    vline.style.backgroundImage = "repeating-linear-gradient(to bottom, #ef4444 0 6px, transparent 6px 12px)";
+    vline.style.opacity = "0.6";
+
+    marker.appendChild(vline);
     viewport.appendChild(marker);
     return marker;
   };
@@ -574,7 +575,6 @@
 
   // --- Scale + Position Today ---
   const applyScale = () => {
-
     // Reset
     container.style.transform = "scale(1)";
     container.style.transformOrigin = "left center";
@@ -589,7 +589,7 @@
     line.style.width = contentWidth + "px";
     line.style.transform = `scaleX(${scale})`;
 
-    // --- Position Today Line using REAL dot positions ---
+    // Position Today line using REAL dot positions
     const marker = ensureTodayMarker();
 
     const now = new Date();
@@ -606,7 +606,6 @@
 
         const r = dot.getBoundingClientRect();
         const xCenter = (r.left - viewportRect.left) + (r.width / 2);
-
         return { t, x: xCenter };
       })
       .filter(Boolean)
