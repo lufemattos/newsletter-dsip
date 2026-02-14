@@ -88,7 +88,7 @@
             <div class="p-8 bg-white border-b border-gray-100">
                 <div class="w-full">
                     <table class="w-full text-left border-collapse">
-                        <tbody class="text-sm md:text-base text-gray-800 font-medium">
+                        <tbody id="justTrackItBody" class="text-sm md:text-base text-gray-800 font-medium">
                             <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
                                 <td class="py-4 pl-4 border-l-4 border-[#E97132]">
                                     <span class="font-bold text-black block md:inline">HO26 Bottoms Up Forecast:</span> 
@@ -571,5 +571,41 @@
         </footer>
 
     </div>
+
+    <script src="data.js"></script>
+<script>
+  (function () {
+    // Se o data.js não carregou, não faz nada
+    if (!window.REPORT || !Array.isArray(REPORT.justTrackIt)) return;
+
+    const tbody = document.getElementById("justTrackItBody");
+    if (!tbody) return;
+
+    tbody.innerHTML = REPORT.justTrackIt.map((it) => {
+      // Linha “destacada” (a primeira, com borda laranja)
+      if (it.accent) {
+        return `
+          <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
+            <td class="py-4 pl-4 border-l-4 border-[#E97132]">
+              <span class="font-bold text-black block md:inline">${it.title || ""}</span> 
+              <span class="text-gray-700">${it.text || ""}</span>
+            </td>
+          </tr>
+        `;
+      }
+
+      // Linhas normais
+      return `
+        <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
+          <td class="py-4 pl-4 border-l-4 border-gray-200 group-hover:border-gray-400 transition-colors">
+            <span class="font-bold text-black">${it.date || ""}</span> – ${it.text || ""}
+            ${it.warn ? '<span class="text-lg ml-1">⚠️</span>' : ""}
+          </td>
+        </tr>
+      `;
+    }).join("");
+  })();
+</script>
+
 </body>
 </html>
