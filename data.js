@@ -4,7 +4,7 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "FA26 Bottoms Up Forecast:",
+      title: "HO26 Bottoms Up Forecast:",
       text: "6,82M TOTAL = 3,21M APP + 618K EQP + 3,00M FTW / 3,48M IMP + 3,34M L4L"
     },
     {
