@@ -531,6 +531,35 @@
       </div>
     `;
   }).join("");
+    
+const toTime = (iso) => {
+  if (!iso) return null;
+  const t = Date.parse(iso);
+  return Number.isFinite(t) ? t : null;
+};
+
+const ensureTodayMarker = () => {
+  let marker = document.getElementById("todayMarker");
+  if (marker) return marker;
+
+  marker = document.createElement("div");
+  marker.id = "todayMarker";
+  marker.style.position = "absolute";
+  marker.style.top = "50%";
+  marker.style.transform = "translate(-50%, -50%)";
+  marker.style.zIndex = "30";
+  marker.style.pointerEvents = "none";
+
+  marker.innerHTML = `
+    <div style="display:flex; flex-direction:column; align-items:center; gap:4px;">
+      <div style="width:8px; height:8px; border-radius:9999px; background:#ef4444; box-shadow:0 0 0 2px #ffffff;"></div>
+      <div style="width:2px; height:18px; background:#ef4444; opacity:.75; border-radius:9999px;"></div>
+    </div>
+  `;
+
+  viewport.appendChild(marker);
+  return marker;
+};
 
   // Calcula largura real e aplica scale para caber no viewport
   const applyScale = () => {
@@ -546,6 +575,32 @@
     container.style.transform = `scale(${scale})`;
     line.style.width = contentWidth + "px";
     line.style.transform = `scaleX(${scale})`;
+
+      // --- position "today" marker (requires timeline[].iso like "2026-03-05") ---
+const times = REPORT.timeline
+  .map(i => toTime(i.iso))
+  .filter(t => t !== null)
+  .sort((a, b) => a - b);
+
+if (times.length >= 2) {
+  const start = times[0];
+  const end = times[times.length - 1];
+  const now = Date.now();
+
+  const marker = ensureTodayMarker();
+
+  // hide if out of range
+  if (now < start || now > end) {
+    marker.style.display = "none";
+  } else {
+    marker.style.display = "block";
+
+    const ratio = (now - start) / (end - start); // 0..1
+    const x = ratio * contentWidth * scale;
+
+    marker.style.left = `${x}px`;
+  }
+}
   };
 
   // roda agora e quando a tela mudar de tamanho
