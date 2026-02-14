@@ -595,7 +595,7 @@ if (times.length >= 2) {
   const start = times[0];
   const end = times[times.length - 1];
   const now = new Date();
-  const nowLocal = toTime("2026-02-14");
+  const nowLocal = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();;
 
 
   const marker = ensureTodayMarker();
