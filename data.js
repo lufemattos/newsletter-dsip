@@ -38,7 +38,8 @@ window.REPORT = {
   { side: "top",    date: "05/03", color: "#A855F7", boxType: "light",   title: "Fechamento",   subtitle: "Final" },
   { side: "bottom", date: "09/03", color: "#2DD4BF", boxType: "light",   title: "Bookings",     subtitle: "Finais" },
   { side: "top",    date: "12/03", color: "#F87171", boxType: "light",   title: "Alinhamento",  subtitle: "Liderança" },
-  { side: "bottom", date: "18/03", color: "#EAB308", boxType: "light",   title: "POs Deadline", subtitle: "SAP Nike" }
+  { side: "bottom", date: "18/03", color: "#EAB308", boxType: "light",   title: "POs Deadline", subtitle: "SAP Nike" },
+  { side: "Top",    date: "22/03", color: "#F87171", boxType: "light",   title: "Data Lufe",    subtitle: "Lufinho" }
 ],
   
 };
