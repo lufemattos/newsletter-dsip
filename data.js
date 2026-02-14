@@ -268,6 +268,32 @@ window.REPORT = {
           ]
         }
       ]
+    },
+    // CARD 10: ABR.23 (right)
+    {
+      side: "right",
+      label: "MAR.30",
+      iso: "2026-03-30",
+      sections: [
+        {
+          tag: { text: "SU26 W0", bg: "#E97132", fg: "#ffffff" },
+          items: [
+            "1.4 – Season Start"
+          ]
+        },
+        {
+          tag: { text: "FA26 W13", bg: "#c2410c", fg: "#ffffff" },
+          items: [
+            "3.4 – Upload Confirmed FOB L4L"
+          ]
+        },
+        {
+          tag: { text: "SP27 W39", bg: "#eab308", fg: "#111111" },
+          items: [
+            "3.4 – Allocated Gate 1 - Early FK & HH"
+          ]
+        }
+      ]
     }
   ]
 };
