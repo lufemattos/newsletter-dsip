@@ -25,10 +25,17 @@
         </p>
       </div>
 
-      <a href="index.html"
-         class="inline-flex items-center border border-[#E97132] text-[#E97132] px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-[#E97132] hover:text-white transition-colors">
-         VOLTAR PARA JUST TRACK IT
-      </a>
+      <div class="flex gap-3">
+        <button onclick="openFullscreen()"
+          class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">
+          Abrir em Tela Cheia
+        </button>
+
+        <a href="index.html"
+          class="inline-flex items-center border border-[#E97132] text-[#E97132] px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-[#E97132] hover:text-white transition-colors">
+          VOLTAR PARA JUST TRACK IT
+        </a>
+      </div>
     </header>
 
     <!-- CONTEÚDO -->
@@ -36,9 +43,9 @@
 
       <div class="card p-6">
 
-        <!-- Container com scroll interno se necessário -->
         <div class="overflow-auto">
-          <img src="organograma.png"
+          <img id="organogramaImage"
+               src="organograma.png"
                alt="Organograma DS&IP"
                class="w-full h-auto border border-gray-200 rounded shadow-sm">
         </div>
@@ -54,6 +61,20 @@
     </footer>
 
   </div>
+
+<script>
+function openFullscreen() {
+  const elem = document.getElementById("organogramaImage");
+
+  if (elem.requestFullscreen) {
+    elem.requestFullscreen();
+  } else if (elem.webkitRequestFullscreen) { /* Safari */
+    elem.webkitRequestFullscreen();
+  } else if (elem.msRequestFullscreen) { /* IE11 */
+    elem.msRequestFullscreen();
+  }
+}
+</script>
 
 </body>
 </html>
