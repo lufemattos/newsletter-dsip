@@ -26,7 +26,7 @@ window.REPORT = {
       date: "3.4",
       text: "Demand Planning 3YLP Forecast"
     }
-  ]
+  ],
 
   timeline: [
   { side: "top",    date: "20/01", color: "#E97132", boxType: "dark",    title: "X-MPU",        subtitle: "20-22 Jan" },
