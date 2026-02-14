@@ -125,13 +125,15 @@
         <section class="py-10 bg-white border-t border-b border-gray-100 overflow-hidden">
             <h3 class="text-center text-2xl font-extrabold uppercase mb-12">HO26 – Calendário de Compras</h3>
             
-            <div class="relative w-full px-4 overflow-x-auto pb-8">
+            <div class="relative w-full px-4 overflow-hidden pb-8">
                 <!-- Linha central -->
                 <div id="timelineLine" class="absolute top-1/2 left-0 h-1 bg-gray-200 transform -translate-y-1/2 z-0"></div>
 
                 <!-- Container Flex -->
-                <div id="timelineContainer" class="flex justify-between items-center relative z-10 px-4 h-48">
+                <div id="timelineViewport" class="relative z-10 px-4 h-48">
+                <div id="timelineContainer" class="flex justify-between items-center h-48" style="transform-origin: left center;"></div>
                 </div>
+
 
             </div>
         </section>
@@ -491,32 +493,30 @@
 (function () {
   if (!window.REPORT || !Array.isArray(REPORT.timeline)) return;
 
+  const viewport = document.getElementById("timelineViewport");
   const container = document.getElementById("timelineContainer");
   const line = document.getElementById("timelineLine");
 
-  const itemWidth = 120; // largura aproximada por milestone
-  const totalWidth = REPORT.timeline.length * itemWidth;
+  if (!viewport || !container || !line) return;
 
-  container.style.minWidth = totalWidth + "px";
-  line.style.width = totalWidth + "px";
-
+  // Renderiza os itens
   container.innerHTML = REPORT.timeline.map(item => {
-
     const isTop = item.side === "top";
+    const boxHtml = (item.boxType === "dark")
+      ? `<div class="bg-gray-900 text-white text-[10px] py-1 px-2 rounded leading-tight shadow-lg">
+           ${item.title}<br><span class="opacity-70">${item.subtitle}</span>
+         </div>`
+      : `<div class="bg-white text-gray-900 text-[10px] py-1 px-2 rounded leading-tight border"
+           style="border-color:${item.color}">
+           ${item.title}<br>${item.subtitle}
+         </div>`;
 
     return `
       <div class="flex flex-col items-center group w-24">
         ${isTop ? `
           <div class="mb-4 text-center transform -translate-y-2">
-            <span class="block text-xs font-bold mb-1" style="color:${item.color}">
-              ${item.date}
-            </span>
-            <div class="${item.boxType === "dark"
-              ? "bg-gray-900 text-white"
-              : "bg-white text-gray-900 border"} text-[10px] py-1 px-2 rounded leading-tight shadow-lg border"
-              style="${item.boxType === "light" ? `border-color:${item.color}` : ""}">
-              ${item.title}<br><span class="opacity-70">${item.subtitle}</span>
-            </div>
+            <span class="block text-xs font-bold mb-1" style="color:${item.color}">${item.date}</span>
+            ${boxHtml}
           </div>
         ` : `<div class="h-1/2"></div>`}
 
@@ -524,19 +524,33 @@
 
         ${!isTop ? `
           <div class="mt-4 text-center transform translate-y-2">
-            <span class="block text-xs font-bold mb-1" style="color:${item.color}">
-              ${item.date}
-            </span>
-            <div class="bg-white text-gray-900 text-[10px] py-1 px-2 rounded leading-tight border"
-              style="border-color:${item.color}">
-              ${item.title}<br>${item.subtitle}
-            </div>
+            <span class="block text-xs font-bold mb-1" style="color:${item.color}">${item.date}</span>
+            ${boxHtml}
           </div>
         ` : `<div class="h-1/2"></div>`}
       </div>
     `;
   }).join("");
 
+  // Calcula largura real e aplica scale para caber no viewport
+  const applyScale = () => {
+    container.style.transform = "scale(1)";
+    line.style.transform = "scaleX(1)";
+    line.style.transformOrigin = "left center";
+
+    const viewportWidth = viewport.clientWidth;
+    const contentWidth = container.scrollWidth;
+
+    const scale = (contentWidth > viewportWidth) ? (viewportWidth / contentWidth) : 1;
+
+    container.style.transform = `scale(${scale})`;
+    line.style.width = contentWidth + "px";
+    line.style.transform = `scaleX(${scale})`;
+  };
+
+  // roda agora e quando a tela mudar de tamanho
+  applyScale();
+  window.addEventListener("resize", applyScale);
 })();
 </script>
     
