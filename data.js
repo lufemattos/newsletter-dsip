@@ -9,8 +9,23 @@ window.REPORT = {
       check: true
     },
     {
+      date: "20.Fev",
+      text: "DEADLINE DIGITAÇÃO PEDIDOS DE Alocados/NBA/NOCTA/ZELUS – CANAIS",
+      warn: true
+    },
+    {
+      date: "23.Fev",
+      text: "EXTRACT DOS BOOKINGS DE Alocados/NBA/NOCTA/ZELUS – MPO",
+      warn: true
+    },
+    {
+      date: "25.Fev",
+      text: "DEADLINE DE COLOCAÇÃO DE PEDIDOS (Alocados/NBA/NOCTA/ZELUS) - SUPPLY",
+      warn: true
+    },
+    {
       date: "03.Mar",
-      text: "DEADLINE BOOKINGS HO26 (prévia) – MPO",
+      text: "EXTRACT BOOKINGS HO26 (prévia EX-DISTRIBUIDORES) – MPO",
       warn: true
     },
     {
@@ -20,12 +35,8 @@ window.REPORT = {
     },
     {
       date: "09.Mar",
-      text: "DEADLINE BOOKINGS HO26 (final) – MPO",
+      text: "EXTRACT BOOKINGS HO26 (final) – MPO",
       warn: true
-    },
-    {
-      date: "03.Abr",
-      text: "Demand Planning 3YLP Forecast"
     }
   ],
 
