@@ -1,341 +1,378 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <title>KPIs DS&IP</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: 'Inter', sans-serif; background:#f8f9fa; color:#111; }
-        .card { background: white; border: 1px solid #e5e7eb; border-radius: .5rem; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
-        .bar { height: 12px; border-radius: 9999px; }
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>KPIs DS&IP</title>
 
-        /* >>> Demand Planning (exec-table) styles */
-        .exec-table th {
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            padding: 8px 6px;
-            white-space: nowrap;
-        }
-        .exec-table td {
-            font-size: 0.75rem;
-            padding: 6px 6px;
-            white-space: nowrap;
-            text-align: center;
-            border-bottom: 1px solid #f3f4f6;
-        }
-        .yoy { display:block; font-size:0.65rem; font-weight:600; color:#2563eb; }
-        .yoy-neg { color:#dc2626; }
-        .bg-header-orange { background-color:#c2410c; color:white; }
-        .border-r-strong { border-right:2px solid #e5e7eb; }
-        .exec-table { min-width: 1200px; } /* força overflow-x em telas pequenas */
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
-        /* Capacity chart container */
-        .chart-card .chart-wrapper { height: 320px; min-height: 260px; }
-    </style>
+  <style>
+    body { font-family: 'Inter', sans-serif; background:#f8f9fa; color:#111; }
+    .card { background: white; border: 1px solid #e5e7eb; border-radius: .5rem; box-shadow: 0 2px 8px rgba(0,0,0,.05); }
+    .bar { height: 12px; border-radius: 9999px; }
 
-    <!-- Chart.js (CDN) -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    /* >>> Demand Planning (exec-table) styles */
+    .exec-table th {
+        font-size: 0.7rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 8px 6px;
+        white-space: nowrap;
+    }
+    .exec-table td {
+        font-size: 0.75rem;
+        padding: 6px 6px;
+        white-space: nowrap;
+        text-align: center;
+        border-bottom: 1px solid #f3f4f6;
+    }
+    .yoy { display:block; font-size:0.65rem; font-weight:600; color:#2563eb; }
+    .yoy-neg { color:#dc2626; }
+    .bg-header-orange { background-color:#c2410c; color:white; }
+    .border-r-strong { border-right:2px solid #e5e7eb; }
+    .exec-table { min-width: 1200px; } /* força overflow-x */
+
+    /* Chart + Insights layout */
+    .chart-card .chart-wrapper { height: 320px; min-height: 260px; }
+    .insights-card { background:#fafafa; border:1px solid #eef2f6; padding:16px; border-radius:8px; }
+
+    /* Insights items */
+    .insights-block { padding:12px; border-radius:8px; background:white; border:1px solid #eef2f6; }
+    .insights-title { font-size:12px; font-weight:700; color:#6b7280; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:8px; }
+    .alert-item { display:flex; gap:12px; align-items:flex-start; margin-bottom:10px; }
+    .dot-red { width:8px; height:8px; background:#dc2626; border-radius:9999px; margin-top:6px; }
+    .dot-green { width:8px; height:8px; background:#16a34a; border-radius:9999px; margin-top:6px; }
+    .alert-heading { font-weight:700; color:#111827; }
+    .alert-sub { font-size:13px; color:#6b7280; line-height:1.15; }
+
+    /* small helper for horizontal alignment */
+    .small-sep { height:1px; background:#eef2f6; margin:10px 0; border-radius:2px; }
+
+    /* responsive tweaks */
+    @media (min-width: 768px) {
+      .grid-2-1 { display:grid; grid-template-columns: 2fr 1fr; gap:24px; }
+    }
+
+    /* small adjustments for upload button area */
+    .top-actions { display:flex; gap:8px; align-items:center; }
+    input[type=file] { display:none; }
+  </style>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <!-- SheetJS (XLSX) -->
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
 </head>
 <body class="antialiased min-h-screen p-4 md:p-8">
-    <div class="max-w-6xl mx-auto bg-white shadow-xl overflow-hidden rounded-sm border border-gray-200">
-        <!-- HEADER -->
-        <header class="bg-black text-white p-6 flex justify-between items-center border-b-4 border-[#E97132]">
-            <div>
-                <h1 class="text-3xl font-extrabold tracking-tighter uppercase">KPIs</h1>
-                <p class="text-sm text-gray-300">DS<span class="text-[#E97132]">&</span>IP | Painel executivo</p>
+  <div class="max-w-6xl mx-auto bg-white shadow-xl overflow-hidden rounded-sm border border-gray-200">
+
+    <!-- Header -->
+    <header class="bg-black text-white p-6 flex justify-between items-center border-b-4 border-[#E97132]">
+      <div>
+        <h1 class="text-3xl font-extrabold tracking-tighter uppercase">KPIs</h1>
+        <p class="text-sm text-gray-300">DS<span class="text-[#E97132]">&</span>IP | Painel executivo</p>
+      </div>
+      <a href="index.html" class="inline-flex items-center border border-[#E97132] text-[#E97132] px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-[#E97132] hover:text-white transition-colors">Voltar para Just Track It</a>
+    </header>
+
+    <main class="p-6 md:p-8 space-y-8">
+
+      <!-- 1) Demand Planning -->
+      <section class="card p-0 overflow-hidden">
+        <div class="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
+          <div>
+            <h2 class="text-lg font-black uppercase text-gray-900">1) Demand Planning — HO26 Buying Summary</h2>
+            <p class="text-xs text-gray-500 mt-1">Comparativo de Unidades e Custo (R$ MM) por Canal e Origem vs YoY</p>
+          </div>
+
+          <div class="top-actions">
+            <label for="dpUploadInput" class="inline-flex items-center px-3 py-1 text-xs border rounded bg-white hover:bg-gray-50 cursor-pointer" title="Fazer upload de um arquivo Excel para atualizar a tabela">
+              Upload Excel
+            </label>
+
+            <input id="dpUploadInput" type="file" accept=".xlsx,.xls,.csv" />
+
+            <button id="dpExportBtn" class="px-3 py-1 text-xs border rounded bg-white hover:bg-gray-50">Exportar tabela (XLSX)</button>
+
+            <span class="px-2 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold rounded uppercase">YoY Growth</span>
+            <span class="px-2 py-1 bg-orange-50 text-orange-800 text-[10px] font-bold rounded uppercase">Local vs Import</span>
+          </div>
+        </div>
+
+        <div id="dpTableWrap" class="overflow-x-auto p-4">
+          <!-- Tabela inicial (mantive a versão que você já tinha) -->
+          <table class="w-full exec-table border-collapse">
+            <thead>
+              <tr class="bg-[#E97132] text-white">
+                <th class="text-left pl-4 w-32 bg-gray-900 border-r border-gray-700">HO26</th>
+                <th class="text-left w-24 bg-gray-900 border-r border-gray-700">MU</th>
+                <th colspan="6" class="border-r border-orange-400 text-center text-sm py-2">UNIDADES (Milhões)</th>
+                <th colspan="6" class="text-center text-sm py-2">CUSTO (R$ MM)</th>
+              </tr>
+              <tr class="bg-gray-100 text-gray-700 border-b-2 border-gray-300">
+                <th class="bg-white border-r border-gray-200"></th>
+                <th class="bg-white border-r border-gray-200"></th>
+                <th class="w-20">NDDC</th>
+                <th class="w-20">NVS</th>
+                <th class="w-20">NDIS</th>
+                <th class="w-20">WHSL</th>
+                <th class="w-20">CNTO</th>
+                <th class="w-24 bg-orange-50 border-r-strong text-orange-800">FISIA</th>
+                <th class="w-20">NDDC</th>
+                <th class="w-20">NVS</th>
+                <th class="w-20">NDIS</th>
+                <th class="w-20">WHSL</th>
+                <th class="w-20">CNTO</th>
+                <th class="w-24 bg-orange-50 text-orange-800">FISIA</th>
+              </tr>
+            </thead>
+            <tbody class="text-gray-700">
+              <!-- conteúdo original (mantido) -->
+              <tr>
+                <td rowspan="2" class="font-bold text-left pl-4 bg-gray-50 border-r border-gray-200 align-middle">LOCAL</td>
+                <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">FOOTWEAR</td>
+                <td>0,53M<span class="yoy">+3% YoY</span></td>
+                <td>0,30M<span class="yoy">+16% YoY</span></td>
+                <td>0,00M<span class="yoy text-red-500">-14% YoY</span></td>
+                <td>0,42M<span class="yoy text-red-500">-15% YoY</span></td>
+                <td>0,44M<span class="yoy text-red-500">-17% YoY</span></td>
+                <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,69M<span class="yoy text-red-500">-6% YoY</span></td>
+                <td>88,69M<span class="yoy">+4% YoY</span></td>
+                <td>51,96M<span class="yoy">+24% YoY</span></td>
+                <td>0,90M<span class="yoy text-red-500">-3% YoY</span></td>
+                <td>75,04M<span class="yoy text-red-500">-4% YoY</span></td>
+                <td>66,36M<span class="yoy text-red-500">-17% YoY</span></td>
+                <td class="bg-orange-50 font-bold text-gray-900">282,95M<span class="yoy text-red-500">-1% YoY</span></td>
+              </tr>
+              <tr>
+                <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">APPAREL</td>
+                <td>0,45M<span class="yoy text-red-500">-1% YoY</span></td>
+                <td>0,45M<span class="yoy">+356% YoY</span></td>
+                <td>0,03M<span class="yoy">+87% YoY</span></td>
+                <td>0,34M<span class="yoy text-red-500">-46% YoY</span></td>
+                <td>0,52M<span class="yoy text-red-500">-7% YoY</span></td>
+                <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,79M<span class="yoy">+2% YoY</span></td>
+                <td>21,94M<span class="yoy">+12% YoY</span></td>
+                <td>19,35M<span class="yoy">+284% YoY</span></td>
+                <td>1,58M<span class="yoy">+86% YoY</span></td>
+                <td>20,59M<span class="yoy text-red-500">-44% YoY</span></td>
+                <td>25,47M<span class="yoy">+5% YoY</span></td>
+                <td class="bg-orange-50 font-bold text-gray-900">88,92M<span class="yoy">+3% YoY</span></td>
+              </tr>
+
+              <tr class="bg-orange-100/50 font-bold">
+                <td colspan="2" class="text-right pr-4 text-xs uppercase tracking-wider text-orange-900 border-r border-orange-200">Local Total</td>
+                <td>0,98M<span class="yoy text-blue-800">+1% YoY</span></td>
+                <td>0,75M<span class="yoy text-blue-800">+111% YoY</span></td>
+                <td>0,03M<span class="yoy text-blue-800">+67% YoY</span></td>
+                <td>0,76M<span class="yoy text-red-700">-32% YoY</span></td>
+                <td>0,96M<span class="yoy text-red-700">-12% YoY</span></td>
+                <td class="bg-orange-100 border-r-strong text-gray-900">3,48M<span class="yoy text-red-700">-2% YoY</span></td>
+                <td>110,63M<span class="yoy text-blue-800">+5% YoY</span></td>
+                <td>71,31M<span class="yoy text-blue-800">+52% YoY</span></td>
+                <td>2,48M<span class="yoy text-blue-800">+40% YoY</span></td>
+                <td>95,63M<span class="yoy text-red-700">-17% YoY</span></td>
+                <td>91,82M<span class="yoy text-red-700">-12% YoY</span></td>
+                <td class="bg-orange-100 text-gray-900">371,87M<span class="yoy text-gray-600">0% YoY</span></td>
+              </tr>
+
+              <tr>
+                <td rowspan="3" class="font-bold text-left pl-4 bg-gray-50 border-r border-gray-200 align-middle">IMPORT</td>
+                <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">FOOTWEAR</td>
+                <td>0,50M<span class="yoy">+8% YoY</span></td>
+                <td>0,17M<span class="yoy text-red-500">-5% YoY</span></td>
+                <td>0,07M<span class="yoy">+25% YoY</span></td>
+                <td>0,53M<span class="yoy">+1% YoY</span></td>
+                <td>0,25M<span class="yoy text-red-500">-2% YoY</span></td>
+                <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,52M<span class="yoy">+3% YoY</span></td>
+                <td>104,73M<span class="yoy text-red-500">-4% YoY</span></td>
+                <td>31,20M<span class="yoy text-red-500">-7% YoY</span></td>
+                <td>20,56M<span class="yoy">+4% YoY</span></td>
+                <td>121,41M<span class="yoy text-red-500">-10% YoY</span></td>
+                <td>54,18M<span class="yoy text-red-500">-10% YoY</span></td>
+                <td class="bg-orange-50 font-bold text-gray-900">332,08M<span class="yoy text-red-500">-7% YoY</span></td>
+              </tr>
+              <tr>
+                <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">APPAREL</td>
+                <td>0,37M<span class="yoy">+81% YoY</span></td>
+                <td>0,58M<span class="yoy text-red-500">-5% YoY</span></td>
+                <td>0,14M<span class="yoy">+27% YoY</span></td>
+                <td>0,29M<span class="yoy text-red-500">-40% YoY</span></td>
+                <td>0,29M<span class="yoy">+25% YoY</span></td>
+                <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,68M<span class="yoy">+2% YoY</span></td>
+                <td>33,98M<span class="yoy">+70% YoY</span></td>
+                <td>48,28M<span class="yoy text-red-500">-9% YoY</span></td>
+                <td>13,99M<span class="yoy">+20% YoY</span></td>
+                <td>29,13M<span class="yoy text-red-500">-52% YoY</span></td>
+                <td>23,48M<span class="yoy">+16% YoY</span></td>
+                <td class="bg-orange-50 font-bold text-gray-900">148,85M<span class="yoy text-red-500">-11% YoY</span></td>
+              </tr>
+              <tr>
+                <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">EQP</td>
+                <td>0,13M<span class="yoy">+16% YoY</span></td>
+                <td>0,33M<span class="yoy">+629% YoY</span></td>
+                <td>0,02M<span class="yoy">+96% YoY</span></td>
+                <td>0,09M<span class="yoy text-red-500">-31% YoY</span></td>
+                <td>0,15M<span class="yoy">+23% YoY</span></td>
+                <td class="bg-orange-50 font-bold border-r-strong text-gray-900">0,72M<span class="yoy">+46% YoY</span></td>
+                <td>8,30M<span class="yoy text-red-500">-3% YoY</span></td>
+                <td>11,35M<span class="yoy">+284% YoY</span></td>
+                <td>0,71M<span class="yoy">+33% YoY</span></td>
+                <td>4,15M<span class="yoy text-red-500">-50% YoY</span></td>
+                <td>7,23M<span class="yoy text-red-500">-44% YoY</span></td>
+                <td class="bg-orange-50 font-bold text-gray-900">31,73M<span class="yoy text-red-500">-1% YoY</span></td>
+              </tr>
+
+              <tr class="bg-orange-100/50 font-bold">
+                <td colspan="2" class="text-right pr-4 text-xs uppercase tracking-wider text-orange-900 border-r border-orange-200">Import Total</td>
+                <td>1,01M<span class="yoy text-blue-800">+29% YoY</span></td>
+                <td>1,08M<span class="yoy text-blue-800">+30% YoY</span></td>
+                <td>0,23M<span class="yoy text-blue-800">+29% YoY</span></td>
+                <td>0,92M<span class="yoy text-red-700">-20% YoY</span></td>
+                <td>0,70M<span class="yoy text-blue-800">+1% YoY</span></td>
+                <td class="bg-orange-100 border-r-strong text-gray-900">3,92M<span class="yoy text-blue-800">+8% YoY</span></td>
+                <td>147,01M<span class="yoy text-blue-800">+6% YoY</span></td>
+                <td>90,82M<span class="yoy text-blue-800">+1% YoY</span></td>
+                <td>35,25M<span class="yoy text-blue-800">+10% YoY</span></td>
+                <td>154,69M<span class="yoy text-red-700">-24% YoY</span></td>
+                <td>84,89M<span class="yoy text-red-700">-9% YoY</span></td>
+                <td class="bg-orange-100 text-gray-900">512,66M<span class="yoy text-red-700">-8% YoY</span></td>
+              </tr>
+
+              <tr class="bg-[#E97132] text-white font-extrabold text-sm border-t-4 border-orange-600">
+                <td colspan="2" class="text-right pr-4 uppercase tracking-wider border-r border-orange-400">Fisia Total</td>
+                <td>1,98M<br><span class="text-[10px] text-white opacity-80">+14% YoY</span></td>
+                <td>1,82M<br><span class="text-[10px] text-white opacity-80">+54% YoY</span></td>
+                <td>0,26M<br><span class="text-[10px] text-white opacity-80">+33% YoY</span></td>
+                <td>1,68M<br><span class="text-[10px] text-white opacity-80">-26% YoY</span></td>
+                <td>1,66M<br><span class="text-[10px] text-white opacity-80">-6% YoY</span></td>
+                <td class="bg-gray-900 border-r border-gray-700">7,40M<br><span class="text-[10px] text-[#E97132]">+3% YoY</span></td>
+                <td>257,6M<br><span class="text-[10px] text-white opacity-80">+6% YoY</span></td>
+                <td>162,1M<br><span class="text-[10px] text-white opacity-80">+19% YoY</span></td>
+                <td>37,7M<br><span class="text-[10px] text-white opacity-80">+11% YoY</span></td>
+                <td>250,3M<br><span class="text-[10px] text-white opacity-80">-21% YoY</span></td>
+                <td>176,7M<br><span class="text-[10px] text-white opacity-80">-11% YoY</span></td>
+                <td class="bg-gray-900 text-white">884,5M<br><span class="text-[10px] text-red-400">-5% YoY</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- 2) Capacidade Fabril + Insights (novo layout com painel à direita) -->
+      <section class="card p-6">
+        <div class="flex justify-between items-end mb-4">
+          <div>
+            <h2 class="text-xl font-black uppercase text-gray-900">2) Capacidade Fabril Local vs Demanda HO26</h2>
+            <p class="text-sm text-gray-500">Comparativo Detalhado por Fábrica: Capacidade Confirmada x Pedidos (FTW & APP)</p>
+          </div>
+        </div>
+
+        <!-- GRID: chart (2fr) + insights (1fr) -->
+        <div class="grid-2-1">
+          <div class="chart-wrapper chart-card">
+            <canvas id="capacityChart" style="width:100%; height:100%; display:block;"></canvas>
+          </div>
+
+          <!-- INSIGHTS: panel no estilo da imagem -->
+          <aside class="insights-card">
+            <div class="insights-block">
+              <div class="insights-title">ALERTAS FOOTWEAR (FTW)</div>
+
+              <div class="alert-item">
+                <div class="dot-red"></div>
+                <div>
+                  <div class="alert-heading">Fábrica BD</div>
+                  <div class="alert-sub"><strong>Demanda excede capacidade em 50k.</strong> <span style="color:#dc2626; font-weight:700">Risco crítico.</span></div>
+                </div>
+              </div>
+
+              <div class="alert-item">
+                <div class="dot-green"></div>
+                <div>
+                  <div class="alert-heading">Fábrica BP &amp; B8</div>
+                  <div class="alert-sub">Operando dentro da margem segura (90-95% ocupação).</div>
+                </div>
+              </div>
+
+              <div class="small-sep"></div>
+
+              <div class="insights-title">ALERTAS APPAREL (APP)</div>
+
+              <div class="alert-item">
+                <div class="dot-red"></div>
+                <div>
+                  <div class="alert-heading">Fábrica CSS</div>
+                  <div class="alert-sub"><strong>Gargalo identificado.</strong> Sobrecarga de <span style="color:#dc2626; font-weight:700">50k</span> unidades.</div>
+                </div>
+              </div>
+
+              <div class="alert-item">
+                <div class="dot-green"></div>
+                <div>
+                  <div class="alert-heading">PTT &amp; HJH</div>
+                  <div class="alert-sub">Estáveis, com potencial para absorver excedente de CSS.</div>
+                </div>
+              </div>
+
             </div>
-            <a href="index.html" class="inline-flex items-center border border-[#E97132] text-[#E97132] px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-[#E97132] hover:text-white transition-colors">Voltar para Just Track It</a>
-        </header>
+          </aside>
+        </div>
+      </section>
 
-        <main class="p-6 md:p-8 space-y-8">
-            <!-- 1) Demand Planning (SUBSTITUIR) -->
-            <section class="card p-0 overflow-hidden">
-              <div class="p-4 border-b border-gray-100 bg-gray-50 flex justify-between items-center">
-                  <div>
-                      <h2 class="text-lg font-black uppercase text-gray-900">1) Demand Planning — HO26 Buying Summary</h2>
-                      <p class="text-xs text-gray-500 mt-1">Comparativo de Unidades e Custo (R$ MM) por Canal e Origem vs YoY</p>
-                  </div>
+      <!-- 3) Inventory (mantido) -->
+      <section class="card p-6">
+        <h2 class="text-xl font-black uppercase mb-1">3) Inventory</h2>
+        <p class="text-sm text-gray-600 mb-5">Dispo, produtos em estoque disponíveis para faturamento com farol por franquia.</p>
+        <div class="overflow-x-auto">
+          <table class="w-full text-sm border-collapse">
+            <thead>
+              <tr class="bg-gray-100 text-left">
+                <th class="p-2">Franquia</th>
+                <th class="p-2">Disponível</th>
+                <th class="p-2">Cobertura (semanas)</th>
+                <th class="p-2">Farol</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="border-t"><td class="p-2">Running</td><td class="p-2">12.4k un</td><td class="p-2">8.1</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-green-100 text-green-700 font-semibold">Verde</span></td></tr>
+              <tr class="border-t"><td class="p-2">Sportswear</td><td class="p-2">9.2k un</td><td class="p-2">5.3</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">Amarelo</span></td></tr>
+              <tr class="border-t"><td class="p-2">Football</td><td class="p-2">4.7k un</td><td class="p-2">3.1</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-red-100 text-red-700 font-semibold">Vermelho</span></td></tr>
+              <tr class="border-t"><td class="p-2">Training</td><td class="p-2">6.0k un</td><td class="p-2">4.2</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">Amarelo</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
 
-                  <div class="flex gap-2 items-center">
-                      <!-- botão que exporta a tabela exec-table para CSV -->
-                      <button id="dpExportBtn" class="px-3 py-1 text-xs border rounded bg-white hover:bg-gray-50">Exportar tabela</button>
-                      <span class="px-2 py-1 bg-blue-50 text-blue-700 text-[10px] font-bold rounded uppercase">YoY Growth</span>
-                      <span class="px-2 py-1 bg-orange-50 text-orange-800 text-[10px] font-bold rounded uppercase">Local vs Import</span>
-                  </div>
-              </div>
+    </main>
 
-              <div class="overflow-x-auto p-4">
-                  <!-- tabela executiva (igual ao que você forneceu) -->
-                  <table class="w-full exec-table border-collapse">
-                      <thead>
-                          <tr class="bg-[#E97132] text-white">
-                              <th class="text-left pl-4 w-32 bg-gray-900 border-r border-gray-700">HO26</th>
-                              <th class="text-left w-24 bg-gray-900 border-r border-gray-700">MU</th>
-                              <th colspan="6" class="border-r border-orange-400 text-center text-sm py-2">UNIDADES (Milhões)</th>
-                              <th colspan="6" class="text-center text-sm py-2">CUSTO (R$ MM)</th>
-                          </tr>
-                          <tr class="bg-gray-100 text-gray-700 border-b-2 border-gray-300">
-                              <th class="bg-white border-r border-gray-200"></th>
-                              <th class="bg-white border-r border-gray-200"></th>
-                              <th class="w-20">NDDC</th>
-                              <th class="w-20">NVS</th>
-                              <th class="w-20">NDIS</th>
-                              <th class="w-20">WHSL</th>
-                              <th class="w-20">CNTO</th>
-                              <th class="w-24 bg-orange-50 border-r-strong text-orange-800">FISIA</th>
-                              <th class="w-20">NDDC</th>
-                              <th class="w-20">NVS</th>
-                              <th class="w-20">NDIS</th>
-                              <th class="w-20">WHSL</th>
-                              <th class="w-20">CNTO</th>
-                              <th class="w-24 bg-orange-50 text-orange-800">FISIA</th>
-                          </tr>
-                      </thead>
+    <footer class="bg-black text-white py-6 text-center border-t-4 border-[#E97132]">
+      <p class="text-sm font-light text-gray-400">Newsletter Confidencial | Uso Interno</p>
+      <p class="text-xs text-[#E97132] font-bold mt-1 tracking-widest">JUST DO IT.</p>
+    </footer>
+  </div>
 
-                      <tbody class="text-gray-700">
-                          <!-- CONTENT (mantive idêntico ao que você enviou) -->
-                          <!-- LOCAL BLOCK -->
-                          <tr>
-                              <td rowspan="2" class="font-bold text-left pl-4 bg-gray-50 border-r border-gray-200 align-middle">LOCAL</td>
-                              <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">FOOTWEAR</td>
-                              <td>0,53M<span class="yoy">+3% YoY</span></td>
-                              <td>0,30M<span class="yoy">+16% YoY</span></td>
-                              <td>0,00M<span class="yoy text-red-500">-14% YoY</span></td>
-                              <td>0,42M<span class="yoy text-red-500">-15% YoY</span></td>
-                              <td>0,44M<span class="yoy text-red-500">-17% YoY</span></td>
-                              <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,69M<span class="yoy text-red-500">-6% YoY</span></td>
-                              <td>88,69M<span class="yoy">+4% YoY</span></td>
-                              <td>51,96M<span class="yoy">+24% YoY</span></td>
-                              <td>0,90M<span class="yoy text-red-500">-3% YoY</span></td>
-                              <td>75,04M<span class="yoy text-red-500">-4% YoY</span></td>
-                              <td>66,36M<span class="yoy text-red-500">-17% YoY</span></td>
-                              <td class="bg-orange-50 font-bold text-gray-900">282,95M<span class="yoy text-red-500">-1% YoY</span></td>
-                          </tr>
-                          <tr>
-                              <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">APPAREL</td>
-                              <td>0,45M<span class="yoy text-red-500">-1% YoY</span></td>
-                              <td>0,45M<span class="yoy">+356% YoY</span></td>
-                              <td>0,03M<span class="yoy">+87% YoY</span></td>
-                              <td>0,34M<span class="yoy text-red-500">-46% YoY</span></td>
-                              <td>0,52M<span class="yoy text-red-500">-7% YoY</span></td>
-                              <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,79M<span class="yoy">+2% YoY</span></td>
-                              <td>21,94M<span class="yoy">+12% YoY</span></td>
-                              <td>19,35M<span class="yoy">+284% YoY</span></td>
-                              <td>1,58M<span class="yoy">+86% YoY</span></td>
-                              <td>20,59M<span class="yoy text-red-500">-44% YoY</span></td>
-                              <td>25,47M<span class="yoy">+5% YoY</span></td>
-                              <td class="bg-orange-50 font-bold text-gray-900">88,92M<span class="yoy">+3% YoY</span></td>
-                          </tr>
-
-                          <!-- LOCAL TOTAL -->
-                          <tr class="bg-orange-100/50 font-bold">
-                              <td colspan="2" class="text-right pr-4 text-xs uppercase tracking-wider text-orange-900 border-r border-orange-200">Local Total</td>
-                              <td>0,98M<span class="yoy text-blue-800">+1% YoY</span></td>
-                              <td>0,75M<span class="yoy text-blue-800">+111% YoY</span></td>
-                              <td>0,03M<span class="yoy text-blue-800">+67% YoY</span></td>
-                              <td>0,76M<span class="yoy text-red-700">-32% YoY</span></td>
-                              <td>0,96M<span class="yoy text-red-700">-12% YoY</span></td>
-                              <td class="bg-orange-100 border-r-strong text-gray-900">3,48M<span class="yoy text-red-700">-2% YoY</span></td>
-                              <td>110,63M<span class="yoy text-blue-800">+5% YoY</span></td>
-                              <td>71,31M<span class="yoy text-blue-800">+52% YoY</span></td>
-                              <td>2,48M<span class="yoy text-blue-800">+40% YoY</span></td>
-                              <td>95,63M<span class="yoy text-red-700">-17% YoY</span></td>
-                              <td>91,82M<span class="yoy text-red-700">-12% YoY</span></td>
-                              <td class="bg-orange-100 text-gray-900">371,87M<span class="yoy text-gray-600">0% YoY</span></td>
-                          </tr>
-
-                          <!-- IMPORT BLOCK -->
-                          <tr>
-                              <td rowspan="3" class="font-bold text-left pl-4 bg-gray-50 border-r border-gray-200 align-middle">IMPORT</td>
-                              <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">FOOTWEAR</td>
-                              <td>0,50M<span class="yoy">+8% YoY</span></td>
-                              <td>0,17M<span class="yoy text-red-500">-5% YoY</span></td>
-                              <td>0,07M<span class="yoy">+25% YoY</span></td>
-                              <td>0,53M<span class="yoy">+1% YoY</span></td>
-                              <td>0,25M<span class="yoy text-red-500">-2% YoY</span></td>
-                              <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,52M<span class="yoy">+3% YoY</span></td>
-                              <td>104,73M<span class="yoy text-red-500">-4% YoY</span></td>
-                              <td>31,20M<span class="yoy text-red-500">-7% YoY</span></td>
-                              <td>20,56M<span class="yoy">+4% YoY</span></td>
-                              <td>121,41M<span class="yoy text-red-500">-10% YoY</span></td>
-                              <td>54,18M<span class="yoy text-red-500">-10% YoY</span></td>
-                              <td class="bg-orange-50 font-bold text-gray-900">332,08M<span class="yoy text-red-500">-7% YoY</span></td>
-                          </tr>
-                          <tr>
-                              <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">APPAREL</td>
-                              <td>0,37M<span class="yoy">+81% YoY</span></td>
-                              <td>0,58M<span class="yoy text-red-500">-5% YoY</span></td>
-                              <td>0,14M<span class="yoy">+27% YoY</span></td>
-                              <td>0,29M<span class="yoy text-red-500">-40% YoY</span></td>
-                              <td>0,29M<span class="yoy">+25% YoY</span></td>
-                              <td class="bg-orange-50 font-bold border-r-strong text-gray-900">1,68M<span class="yoy">+2% YoY</span></td>
-                              <td>33,98M<span class="yoy">+70% YoY</span></td>
-                              <td>48,28M<span class="yoy text-red-500">-9% YoY</span></td>
-                              <td>13,99M<span class="yoy">+20% YoY</span></td>
-                              <td>29,13M<span class="yoy text-red-500">-52% YoY</span></td>
-                              <td>23,48M<span class="yoy">+16% YoY</span></td>
-                              <td class="bg-orange-50 font-bold text-gray-900">148,85M<span class="yoy text-red-500">-11% YoY</span></td>
-                          </tr>
-                          <tr>
-                              <td class="text-left text-xs font-semibold bg-gray-50 border-r border-gray-200">EQP</td>
-                              <td>0,13M<span class="yoy">+16% YoY</span></td>
-                              <td>0,33M<span class="yoy">+629% YoY</span></td>
-                              <td>0,02M<span class="yoy">+96% YoY</span></td>
-                              <td>0,09M<span class="yoy text-red-500">-31% YoY</span></td>
-                              <td>0,15M<span class="yoy">+23% YoY</span></td>
-                              <td class="bg-orange-50 font-bold border-r-strong text-gray-900">0,72M<span class="yoy">+46% YoY</span></td>
-                              <td>8,30M<span class="yoy text-red-500">-3% YoY</span></td>
-                              <td>11,35M<span class="yoy">+284% YoY</span></td>
-                              <td>0,71M<span class="yoy">+33% YoY</span></td>
-                              <td>4,15M<span class="yoy text-red-500">-50% YoY</span></td>
-                              <td>7,23M<span class="yoy text-red-500">-44% YoY</span></td>
-                              <td class="bg-orange-50 font-bold text-gray-900">31,73M<span class="yoy text-red-500">-1% YoY</span></td>
-                          </tr>
-
-                          <!-- IMPORT TOTAL -->
-                          <tr class="bg-orange-100/50 font-bold">
-                              <td colspan="2" class="text-right pr-4 text-xs uppercase tracking-wider text-orange-900 border-r border-orange-200">Import Total</td>
-                              <td>1,01M<span class="yoy text-blue-800">+29% YoY</span></td>
-                              <td>1,08M<span class="yoy text-blue-800">+30% YoY</span></td>
-                              <td>0,23M<span class="yoy text-blue-800">+29% YoY</span></td>
-                              <td>0,92M<span class="yoy text-red-700">-20% YoY</span></td>
-                              <td>0,70M<span class="yoy text-blue-800">+1% YoY</span></td>
-                              <td class="bg-orange-100 border-r-strong text-gray-900">3,92M<span class="yoy text-blue-800">+8% YoY</span></td>
-                              <td>147,01M<span class="yoy text-blue-800">+6% YoY</span></td>
-                              <td>90,82M<span class="yoy text-blue-800">+1% YoY</span></td>
-                              <td>35,25M<span class="yoy text-blue-800">+10% YoY</span></td>
-                              <td>154,69M<span class="yoy text-red-700">-24% YoY</span></td>
-                              <td>84,89M<span class="yoy text-red-700">-9% YoY</span></td>
-                              <td class="bg-orange-100 text-gray-900">512,66M<span class="yoy text-red-700">-8% YoY</span></td>
-                          </tr>
-
-                          <!-- GRAND TOTAL -->
-                          <tr class="bg-[#E97132] text-white font-extrabold text-sm border-t-4 border-orange-600">
-                              <td colspan="2" class="text-right pr-4 uppercase tracking-wider border-r border-orange-400">Fisia Total</td>
-                              <td>1,98M<br><span class="text-[10px] text-white opacity-80">+14% YoY</span></td>
-                              <td>1,82M<br><span class="text-[10px] text-white opacity-80">+54% YoY</span></td>
-                              <td>0,26M<br><span class="text-[10px] text-white opacity-80">+33% YoY</span></td>
-                              <td>1,68M<br><span class="text-[10px] text-white opacity-80">-26% YoY</span></td>
-                              <td>1,66M<br><span class="text-[10px] text-white opacity-80">-6% YoY</span></td>
-                              <td class="bg-gray-900 border-r border-gray-700">7,40M<br><span class="text-[10px] text-[#E97132]">+3% YoY</span></td>
-                              <td>257,6M<br><span class="text-[10px] text-white opacity-80">+6% YoY</span></td>
-                              <td>162,1M<br><span class="text-[10px] text-white opacity-80">+19% YoY</span></td>
-                              <td>37,7M<br><span class="text-[10px] text-white opacity-80">+11% YoY</span></td>
-                              <td>250,3M<br><span class="text-[10px] text-white opacity-80">-21% YoY</span></td>
-                              <td>176,7M<br><span class="text-[10px] text-white opacity-80">-11% YoY</span></td>
-                              <td class="bg-gray-900 text-white">884,5M<br><span class="text-[10px] text-red-400">-5% YoY</span></td>
-                          </tr>
-                      </tbody>
-                  </table>
-              </div>
-            </section>
-
-            <!-- 2) Capacidade Fabril (GRÁFICO) - adicionado após Demand Planning -->
-            <section class="card p-6 chart-card">
-                <div class="flex justify-between items-end mb-4">
-                    <div>
-                        <h2 class="text-xl font-black uppercase text-gray-900">2) Capacidade Fabril Local vs Demanda HO26</h2>
-                        <p class="text-sm text-gray-500">Comparativo Detalhado por Fábrica: Capacidade Confirmada x Pedidos (FTW & APP)</p>
-                    </div>
-                </div>
-
-                <div class="chart-wrapper relative">
-                    <!-- canvas que faltava -->
-                    <canvas id="capacityChart" style="width:100%; height:100%; display:block;"></canvas>
-                </div>
-            </section>
-
-            <!-- 3) Inventory (mantido intacto) -->
-            <section class="card p-6">
-                <h2 class="text-xl font-black uppercase mb-1">3) Inventory</h2>
-                <p class="text-sm text-gray-600 mb-5">Dispo, produtos em estoque disponíveis para faturamento com farol por franquia.</p>
-                <div class="overflow-x-auto">
-                    <table class="w-full text-sm border-collapse">
-                        <thead>
-                            <tr class="bg-gray-100 text-left">
-                                <th class="p-2">Franquia</th>
-                                <th class="p-2">Disponível</th>
-                                <th class="p-2">Cobertura (semanas)</th>
-                                <th class="p-2">Farol</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr class="border-t"><td class="p-2">Running</td><td class="p-2">12.4k un</td><td class="p-2">8.1</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-green-100 text-green-700 font-semibold">Verde</span></td></tr>
-                            <tr class="border-t"><td class="p-2">Sportswear</td><td class="p-2">9.2k un</td><td class="p-2">5.3</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">Amarelo</span></td></tr>
-                            <tr class="border-t"><td class="p-2">Football</td><td class="p-2">4.7k un</td><td class="p-2">3.1</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-red-100 text-red-700 font-semibold">Vermelho</span></td></tr>
-                            <tr class="border-t"><td class="p-2">Training</td><td class="p-2">6.0k un</td><td class="p-2">4.2</td><td class="p-2"><span class="px-2 py-1 rounded-full bg-yellow-100 text-yellow-700 font-semibold">Amarelo</span></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-            </section>
-
-            <!-- 4) Buys (mantido) -->
-            <section class="card p-6">
-                <h2 class="text-xl font-black uppercase mb-1">4) Buys</h2>
-                <p class="text-sm text-gray-600 mb-5">Chegadas de produtos e cobertura da coleção vigente SP26 por sourcing, merchandising unit e franquias.</p>
-                <div class="grid md:grid-cols-3 gap-4 text-sm">
-                    <div class="border border-gray-200 rounded p-4 bg-gray-50">
-                        <p class="text-xs uppercase text-gray-500 mb-2">Por Sourcing</p>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between"><span>Ásia</span><span class="font-semibold">72%</span></li>
-                            <li class="flex justify-between"><span>Brasil</span><span class="font-semibold">18%</span></li>
-                            <li class="flex justify-between"><span>LATAM</span><span class="font-semibold">10%</span></li>
-                        </ul>
-                    </div>
-                    <div class="border border-gray-200 rounded p-4 bg-gray-50">
-                        <p class="text-xs uppercase text-gray-500 mb-2">Por Merchandising Unit</p>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between"><span>Footwear</span><span class="font-semibold">84%</span></li>
-                            <li class="flex justify-between"><span>Apparel</span><span class="font-semibold">79%</span></li>
-                            <li class="flex justify-between"><span>Equipment</span><span class="font-semibold">67%</span></li>
-                        </ul>
-                    </div>
-                    <div class="border border-gray-200 rounded p-4 bg-gray-50">
-                        <p class="text-xs uppercase text-gray-500 mb-2">Por Franquia</p>
-                        <ul class="space-y-2">
-                            <li class="flex justify-between"><span>Running</span><span class="font-semibold">88%</span></li>
-                            <li class="flex justify-between"><span>Sportswear</span><span class="font-semibold">76%</span></li>
-                            <li class="flex justify-between"><span>Football</span><span class="font-semibold">69%</span></li>
-                        </ul>
-                    </div>
-                </div>
-            </section>
-        </main>
-
-        <footer class="bg-black text-white py-6 text-center border-t-4 border-[#E97132]">
-            <p class="text-sm font-light text-gray-400">Newsletter Confidencial | Uso Interno</p>
-            <p class="text-xs text-[#E97132] font-bold mt-1 tracking-widest">JUST DO IT.</p>
-        </footer>
-    </div>
-
-    <!-- SCRIPTS (Chart init + Export CSV) -->
-    <script>
-    // ===== Chart.js render (capacityChart) =====
-    (function () {
-      const canvas = document.getElementById('capacityChart');
-      if (!canvas) return;
-
+  <!-- SCRIPTS: Chart + XLSX export and upload handling -->
+  <script>
+  (function () {
+    // --- Chart init (same as before) ---
+    const canvas = document.getElementById('capacityChart');
+    if (canvas) {
       const ctx = canvas.getContext('2d');
-
-      // Labels e dados (edite conforme necessidade)
       const labels = ['BP (FTW)', 'BD (FTW)', 'B8 (FTW)', 'CSS (APP)', 'PTT (APP)', 'HJH (APP)'];
       const capacityData = [0.85, 0.50, 0.40, 0.90, 0.60, 0.35];
       const demandData   = [0.80, 0.55, 0.34, 0.95, 0.50, 0.34];
 
-      // Ajuste de altura do canvas para manter proporção visual
       function resizeCanvas() {
         const wrapper = canvas.parentElement;
-        if (!wrapper) return;
-        const h = Math.max(220, Math.round(wrapper.clientHeight));
+        const h = Math.max(240, Math.round(wrapper.clientHeight || 320));
         canvas.style.height = h + 'px';
       }
       resizeCanvas();
       window.addEventListener('resize', resizeCanvas);
 
-      // Cria o gráfico
       new Chart(ctx, {
         type: 'bar',
         data: {
@@ -382,9 +419,7 @@
               padding: 10,
               cornerRadius: 4,
               callbacks: {
-                label: function(context) {
-                  return context.dataset.label + ': ' + context.raw + 'M';
-                }
+                label: function(context) { return context.dataset.label + ': ' + context.raw + 'M'; }
               }
             }
           },
@@ -403,62 +438,136 @@
           layout: { padding: 0 }
         }
       });
-    })();
-    </script>
+    }
+  })();
+  </script>
 
-    <script>
-    // ===== Export exec-table -> CSV (botão dpExportBtn) =====
-    (function () {
-      const btn = document.getElementById('dpExportBtn');
-      if (!btn) return;
+  <script>
+  (function () {
+    // --- Helpers for XLSX operations ---
+    const dpExportBtn = document.getElementById('dpExportBtn');
+    const dpUploadInput = document.getElementById('dpUploadInput');
+    const dpTableWrap = document.getElementById('dpTableWrap');
 
-      btn.addEventListener('click', function () {
-        // find the exec table
-        const table = document.querySelector('.exec-table');
-        if (!table) {
-          alert('Tabela não encontrada para exportar.');
-          return;
-        }
+    // Export visible table (.exec-table) to XLSX
+    function exportTableToXLSX() {
+      const table = dpTableWrap.querySelector('.exec-table');
+      if (!table) { alert('Tabela não encontrada para exportar.'); return; }
 
-        // Convert table to CSV rows
-        const rows = [];
-        // header rows: take visible text from <thead>
-        const headRows = table.querySelectorAll('thead tr');
-        headRows.forEach(tr => {
-          const cols = Array.from(tr.querySelectorAll('th')).map(th => th.innerText.trim().replace(/\s+/g, ' '));
-          if (cols.length) rows.push(cols.join(','));
-        });
+      // Use SheetJS to convert the DOM table to a workbook and download
+      try {
+        const wb = XLSX.utils.table_to_book(table, { sheet: "DemandPlanning" });
+        const filename = 'KPIs_DemandPlanning.xlsx';
+        XLSX.writeFile(wb, filename);
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao gerar o XLSX. Veja console para detalhes.');
+      }
+    }
 
-        // body rows
-        const bodyRows = table.querySelectorAll('tbody tr');
-        bodyRows.forEach(tr => {
-          const cols = Array.from(tr.querySelectorAll('td')).map(td => {
-            // replace internal linebreaks and commas
-            let text = td.innerText.trim().replace(/\r?\n|\r/g, ' | ').replace(/,/g, '');
-            text = text.replace(/\s+/g, ' ');
-            // wrap in quotes if contains spaces
-            if (text.indexOf(' ') >= 0) return `"${text}"`;
-            return text;
+    // Upload handler: reads the first sheet and replaces the table with a generated table
+    async function handleUploadFile(file) {
+      if (!file) return;
+      const allowed = ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/vnd.ms-excel', 'text/csv'];
+      // no hard validation for csv, we handle csv below
+      try {
+        const data = await file.arrayBuffer();
+        const workbook = XLSX.read(data, { type: 'array' });
+        const firstSheetName = workbook.SheetNames[0];
+        const sheet = workbook.Sheets[firstSheetName];
+
+        // Get sheet as array of arrays
+        const rows = XLSX.utils.sheet_to_json(sheet, { header: 1, raw: false });
+
+        if (!rows || rows.length === 0) { alert('Planilha vazia.'); return; }
+
+        // Build a new table element, copy classes for styling
+        const newTable = document.createElement('table');
+        newTable.className = 'w-full exec-table border-collapse';
+
+        // Decide how many header rows: if rows.length >= 2 and first row contains text, use first 2 as thead (common for your layout)
+        const headerRows = (rows.length >= 2) ? 2 : 1;
+
+        // Build THEAD
+        const thead = document.createElement('thead');
+        for (let r = 0; r < headerRows; r++) {
+          const tr = document.createElement('tr');
+          // if it's first header row and it likely contains merged-like labels, keep as th
+          rows[r].forEach(cell => {
+            const th = document.createElement('th');
+            th.innerText = (cell === undefined || cell === null) ? '' : String(cell);
+            // Try to preserve some spacing/padding for the first two columns if present
+            if (r === 0 && tr.childElementCount < 2) {
+              th.className = 'text-left pl-4';
+            }
+            tr.appendChild(th);
           });
-          rows.push(cols.join(','));
-        });
+          thead.appendChild(tr);
+        }
+        newTable.appendChild(thead);
 
-        // build csv string
-        const csvContent = rows.join('\n');
-        const filename = 'KPIs_DemandPlanning.csv';
+        // Build TBODY with remaining rows
+        const tbody = document.createElement('tbody');
+        for (let r = headerRows; r < rows.length; r++) {
+          const tr = document.createElement('tr');
+          // guard against ragged rows by using length equal to maximum columns
+          const row = rows[r] || [];
+          const maxCols = Math.max.apply(null, rows.map(x => (x || []).length));
+          for (let c = 0; c < maxCols; c++) {
+            const td = document.createElement('td');
+            const cellVal = (row[c] === undefined || row[c] === null) ? '' : String(row[c]);
+            // preserve newlines in cell by replacing with <br>
+            td.innerHTML = cellVal.replace(/\r\n|\n/g, '<br>');
+            tr.appendChild(td);
+          }
+          tbody.appendChild(tr);
+        }
+        newTable.appendChild(tbody);
 
-        // create blob and download
-        const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.setAttribute('download', filename);
-        document.body.appendChild(a);
-        a.click();
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
+        // Replace current table inside dpTableWrap
+        dpTableWrap.innerHTML = ''; // clear wrapper
+        dpTableWrap.appendChild(newTable);
+
+        // Inform user
+        alert('Tabela atualizada a partir do Excel (primeira sheet).');
+      } catch (err) {
+        console.error(err);
+        alert('Erro ao ler o arquivo. Verifique se é um .xlsx/.xls/.csv válido. Veja o console para detalhes.');
+      }
+    }
+
+    // Wire events
+    if (dpExportBtn) {
+      dpExportBtn.addEventListener('click', function () {
+        exportTableToXLSX();
+      });
+    }
+
+    if (dpUploadInput) {
+      dpUploadInput.addEventListener('change', function (ev) {
+        const f = ev.target.files && ev.target.files[0];
+        if (!f) return;
+        handleUploadFile(f);
+        // reset input so same file can be uploaded again if needed
+        dpUploadInput.value = '';
+      });
+    }
+
+    // Accessibility: allow drag & drop onto dpTableWrap to update table
+    (function enableDragDrop() {
+      const area = dpTableWrap;
+      if (!area) return;
+      area.addEventListener('dragover', (e) => { e.preventDefault(); area.style.opacity = 0.9; });
+      area.addEventListener('dragleave', (e) => { e.preventDefault(); area.style.opacity = 1; });
+      area.addEventListener('drop', (e) => {
+        e.preventDefault();
+        area.style.opacity = 1;
+        const f = e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) handleUploadFile(f);
       });
     })();
-    </script>
+
+  })();
+  </script>
 </body>
 </html>
