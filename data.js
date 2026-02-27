@@ -9,19 +9,10 @@ window.REPORT = {
       check: true
     },
     {
-      date: "20.Fev",
-      text: "DEADLINE DIGITAÇÃO PEDIDOS DE Alocados/NBA/NOCTA/ZELUS – CANAIS",
-      warn: true
-    },
-    {
-      date: "23.Fev",
-      text: "EXTRACT DOS BOOKINGS DE Alocados/NBA/NOCTA/ZELUS – MPO",
-      warn: true
-    },
-    {
-      date: "25.Fev",
-      text: "DEADLINE DE COLOCAÇÃO DE PEDIDOS (Alocados/NBA/NOCTA/ZELUS) - SUPPLY",
-      warn: true
+      accent: true,
+      title: "BUYS UNITS 25.02:",
+      text: "ZELUS 155,7K / NBA 12,3K / ALLOCATIONS 40,4K / NOCTA 0",
+      check: true
     },
     {
       date: "03.Mar",
