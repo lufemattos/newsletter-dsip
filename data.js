@@ -1,5 +1,5 @@
 window.REPORT = {
-  lastUpdate: "Fev/2026",
+  lastUpdate: "Mar/2026",
 
   justTrackIt: [
     {
@@ -45,100 +45,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "FEV.02",
-      iso: "2026-02-02",
-      sections: [
-        {
-          tag: { text: "HO26 W34", bg: "#16a34a", fg: "#ffffff" },
-          items: [
-            "2.2 – Hedge Momento 2 (70-90%)",
-            "5.2 – Bottoms Up Forecast"
-          ]
-        },
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "2.2 – Fechamento JAN.26 (DISPO + Curva)"
-          ]
-        }
-      ]
-    },
-    {
-      side: "right",
-      label: "FEV.09",
-      iso: "2026-02-09",
-      sections: [
-        {
-          tag: { text: "SU26 W7", bg: "#E97132", fg: "#ffffff" },
-          items: [
-            "13.2 – Unplanned Clean Up IMP"
-          ]
-        },
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "9.2 – Simulado 1+1 (prévia)",
-            "9.2 – Dispo semanal"
-          ]
-        }
-      ]
-    },
-    {
-      side: "left",
-      label: "FEV.16",
-      iso: "2026-02-16",
-      sections: [
-        {
-          tag: { text: "SU26 W6", bg: "#E97132", fg: "#ffffff" },
-          items: [
-            "16.2 – Hedge Momento 5 (95-100%)"
-          ]
-        },
-        {
-          tag: { text: "FA26 W25", bg: "#c2410c", fg: "#ffffff" },
-          items: [
-            "16.2 – Hedge Momento 4 (90-95%)"
-          ]
-        },
-        {
-          tag: { text: "HO26 W32", bg: "#16a34a", fg: "#ffffff" },
-          items: [
-            "19.2 – 3rd Blind Buys + FK Alloc. OED",
-            "20.2 – L4L Consensus"
-          ]
-        },
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "16.2 – Simulado 1+1 (final)",
-            "16.2 – Dispo semanal"
-          ]
-        }
-      ]
-    },
-    {
-      side: "right",
-      label: "FEV.23",
-      iso: "2026-02-23",
-      sections: [
-        {
-          tag: { text: "SU26 W5", bg: "#E97132", fg: "#ffffff" },
-          items: [
-            "27.2 – PR-PO Conversion"
-          ]
-        },
-        {
-          tag: { text: "HO26 W31", bg: "#16a34a", fg: "#ffffff" },
-          items: [
-            "25.2 – Allocated Buys: Others",
-            "25.2 – NBA Buys OED",
-            "26.2 – Bottoms Up - Forecast (opt)"
-          ]
-        }
-      ]
-    },
     {
       side: "left",
       label: "MAR.02",
@@ -250,7 +156,48 @@ window.REPORT = {
         {
           tag: { text: "SP27 W39", bg: "#eab308", fg: "#111111" },
           items: [
-            "3.4 – Allocated Gate 1 - Early FK & HH"
+            "01.4 – Channels Allocated Gate 1 - Early FK & HH",
+            "02.4 - W39 ZELUS bottoms up forecast"
+          ]
+        },
+        {
+          tag: { text: "FA27 W65", bg: "#0081E2", fg: "#111111" },
+          items: [
+            "01.4 – Channels Allocated Gate 1 - Early FK & HH",
+            "02.4 - W39 ZELUS bottoms up forecast"
+      ]
+    }
+  ]
+    },
+     {
+      side: "right",
+      label: "APR.06",
+      iso: "2026-04-06",
+      sections: [
+        {
+          tag: { text: "HO26 W25", bg: "#16a34a", fg: "#ffffff" },
+          items: [
+            "8.4 – Top Up Meeting"
+          ]
+        },
+        {
+          tag: { text: "SP27 W38", bg: "#eab308", fg: "#111111" },
+          items: [
+            "6.4 – Allocated Gate 1 - Early FK & HH"
+          ]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "APR.13",
+      iso: "2026-04-13",
+      sections: [
+        {
+          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
+          items: [
+            "15.4 – Allocated Gate 2 - BIG 3",
+            "16.4 - Bottoms Up Forecast"
           ]
         }
       ]
