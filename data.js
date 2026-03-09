@@ -4,31 +4,30 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "HO26 week 34 Forecast:",
-      text: "6,82M TOTAL = 3,21M APP + 618K EQP + 3,00M FTW / 3,48M IMP + 3,34M L4L",
+      title: "OTB 02/mar:",
+      text: "6.6M units = 2.88M FTW + 3.15M APP + 0.59M EQP / 3.2M L4L + 3.42 IMP",
       check: true
     },
     {
       accent: true,
-      title: "BUYS UNITS 25.02:",
-      text: "ZELUS 155,7K / NBA 12,3K / ALLOCATIONS 40,4K / NOCTA 0",
+      title: "Early Buys 05/mar:",
+      text: "49.5K units",
       check: true
-    },
-    {
-      date: "03.Mar",
-      text: "EXTRACT BOOKINGS HO26 (prévia EX-DISTRIBUIDORES) – MPO",
-      warn: true
-    },
-    {
-      date: "05.Mar",
-      text: "DEADLINE BOOKINGS REVIEW FEEDBACK – MERCH",
-      warn: true
     },
     {
       date: "09.Mar",
       text: "EXTRACT BOOKINGS HO26 (final) – MPO",
       warn: true
-    }
+    },
+    {
+      date: "12.Mar",
+      text: "Alinhamento e aprovação de Buys com Diretoria",
+      warn: true
+    },
+    {
+      date: "18.Mar",
+      text: "Finalização do Processo de Buys",
+      warn: true
   ],
 
   timeline: [
