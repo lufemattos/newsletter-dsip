@@ -28,6 +28,7 @@ window.REPORT = {
       date: "18.Mar",
       text: "Finalização do Processo de Buys",
       warn: true
+    }
   ],
 
   timeline: [
