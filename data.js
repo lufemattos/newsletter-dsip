@@ -4,29 +4,35 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "OTB 02/mar:",
-      text: "6.6M units = 2.88M FTW + 3.15M APP + 0.59M EQP / 3.2M L4L + 3.42 IMP",
+      title: "Total NIKE Bookings:",
+      text: "6.9M units = NDDC 1.6M units (-8.3% YoY) R$195M (+3.8% YoY) / NDIS 0.3M untis (+74.6% YoY) R$44.5M (+115%) / NVS 1.6M (+38% YoY) R$162.2 (+62% YoY) / CNTO 1.3M units (-25% YoY) R$122.4M (-24.3% YoY) / ROT 2M units (-13% YoY) R$256.7M (11% YoY) ",
       check: true
     },
     {
       accent: true,
-      title: "Early Buys 05/mar:",
-      text: "49.5K units",
+      title: "Total NIKE Buys",
+      text: "6.826.790 units - R$781,1M",
       check: true
     },
     {
-      date: "09.Mar",
-      text: "EXTRACT BOOKINGS HO26 (final) – MPO",
-      warn: true
-    },
-    {
-      date: "12.Mar",
-      text: "Alinhamento e aprovação de Buys com Diretoria",
-      warn: true
+      accent: true,
+      title: "Total ZELUS",
+      text: "Bookings 174.3K / Buys 166.5M - 36K Galo e 130.7K Vasco",
+      check: true
     },
     {
       date: "18.Mar",
       text: "Finalização do Processo de Buys",
+      warn: true
+    },
+    {
+      date: "18.Mar",
+      text: "SP27 TOP DOWN PLAN (W41)",
+      warn: true
+    },
+    {
+      date: "20.Mar",
+      text: "SP27 OTB REVIEW - GATE I",
       warn: true
     } // <-- Adicionei a chave de fechamento do último objeto
   ], // <-- Adicionei o colchete de fechamento do array
@@ -111,7 +117,8 @@ window.REPORT = {
           tag: { text: "SP27 W41", bg: "#eab308", fg: "#111111" },
           items: [
             "16.3 – Hedge Momento 1 (50-70%)",
-            "18.3 – Top Down Plan Forecast"
+            "18.3 – Top Down Plan Forecast",
+            "20.3 - OTB Review Gate I"
           ]
         },
         {
@@ -183,7 +190,8 @@ window.REPORT = {
         {
           tag: { text: "SP27 W38", bg: "#eab308", fg: "#111111" },
           items: [
-            "6.4 – Allocated Gate 1 - Early FK & HH"
+            "6.4 – Allocated Gate 1 - Early FK & HH",
+            "10.4 - OTB Review Gate II"
           ]
         }
       ]
