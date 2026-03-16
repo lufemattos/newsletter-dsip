@@ -170,8 +170,7 @@ window.REPORT = {
         {
           tag: { text: "FA27 W65", bg: "#0081E2", fg: "#111111" },
           items: [
-            "01.4 – Channels Allocated Gate 1 - Early FK & HH",
-            "02.4 - W39 ZELUS bottoms up forecast"
+            "01.4 – W65 Long Range Plan FTW L4L",
       ]
     }
   ]
