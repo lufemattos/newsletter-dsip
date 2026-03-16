@@ -5,13 +5,13 @@ window.REPORT = {
     {
       accent: true,
       title: "Total NIKE Bookings:",
-      text: "6.9M units = NDDC 1.6M units (-8.3% YoY) R$195M (+3.8% YoY) / NDIS 0.3M untis (+74.6% YoY) R$44.5M (+115%) / NVS 1.6M (+38% YoY) R$162.2 (+62% YoY) / CNTO 1.3M units (-25% YoY) R$122.4M (-24.3% YoY) / ROT 2M units (-13% YoY) R$256.7M (11% YoY) ",
+      text: "6.9M units R$781.1M => NDDC 1.6M units (-8.3% YoY) R$195M (+3.8% YoY) / NDIS 0.3M untis (+74.6% YoY) R$44.5M (+115%) / NVS 1.6M (+38% YoY) R$162.2 (+62% YoY) / CNTO 1.3M units (-25% YoY) R$122.4M (-24.3% YoY) / ROT 2M units (-13% YoY) R$256.7M (11% YoY) ",
       check: true
     },
     {
       accent: true,
       title: "Total NIKE Buys",
-      text: "6.826.790 units - R$781,1M",
+      text: "6.826.790 units - R$774.8M",
       check: true
     },
     {
