@@ -23,12 +23,12 @@ window.REPORT = {
       date: "26.Mar",
       text: "SP27 L4L BOTTOMS UP (W40)",
       warn: true
-    } // <-- Adicionei a chave de fechamento do último objeto
-  ], // <-- Adicionei o colchete de fechamento do array
+    }
+  ],
 
   timeline: [
     { side: "top",    date: "20/Jan", iso: "2026-01-20", color: "#E97132", boxType: "dark",  title: "X-MPU",       subtitle: "20-22 Jan",    tooltip: "Reunião de Merch para fazer o download da coleção" },
-    { side: "bottom", date: "30/Jan", iso: "2026-01-30", color: "#60A5FA", boxType: "light", title: "Abertura",    subtitle: "Portal",            tooltip: "Primeira abertura de portal" },
+    { side: "bottom", date: "30/Jan", iso: "2026-01-30", color: "#60A5FA", boxType: "light", title: "Abertura",    subtitle: "Portal",           tooltip: "Primeira abertura de portal" },
     { side: "top",    date: "16/Fev", iso: "2026-02-16", color: "#22C55E", boxType: "light", title: "Carnaval",    subtitle: "16-18 Fev",    tooltip: "Feríado nacional" },
     { side: "bottom", date: "02/Mar", iso: "2026-03-02", color: "#FACC15", boxType: "light", title: "Fechamento", subtitle: "Portal (ex-Distr)", tooltip: "Finalização de pedidos desconsiderando Distribuidores" },
     { side: "top",    date: "03/Mar", iso: "2026-03-03", color: "#FB923C", boxType: "light", title: "Bookings",    subtitle: "Prévia (MPO)",      tooltip: "MPO gera os bookings prévio com o que tem no SAP" },
@@ -84,7 +84,8 @@ window.REPORT = {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
           items: [
             "24.3 – Envio plano S&OP - MBR"
-         }
+          ]
+        }
       ]
     },
     {
@@ -114,12 +115,12 @@ window.REPORT = {
         {
           tag: { text: "FA27 W65", bg: "#0081E2", fg: "#111111" },
           items: [
-            "02.4 – W65 Long Range Plan FTW L4L",
+            "02.4 – W65 Long Range Plan FTW L4L"
+          ]
+        }
       ]
-    }
-  ]
     },
-     {
+    {
       side: "right",
       label: "APR.06",
       iso: "2026-04-06",
@@ -147,7 +148,7 @@ window.REPORT = {
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
           items: [
-            "14.4 - Abertura XMPU (14/abr a 17/abr)"
+            "14.4 - Abertura XMPU (14/abr a 17/abr)",
             "15.4 – Allocated Gate 2 - BIG 3",
             "16.4 - Bottoms Up Forecast"
           ]
