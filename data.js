@@ -4,35 +4,24 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "Total NIKE Bookings:",
-      text: "6.9M units R$781.1M => NDDC 1.6M units (-8.3% YoY) R$195M (+3.8% YoY) / NDIS 0.3M untis (+74.6% YoY) R$44.5M (+115%) / NVS 1.6M (+38% YoY) R$162.2 (+62% YoY) / CNTO 1.3M units (-25% YoY) R$122.4M (-24.3% YoY) / ROT 2M units (-13% YoY) R$256.7M (11% YoY) ",
+      title: "HO26 Total NIKE:",
+      text: "Bookings: 6.9M units R$781.1M / Buys 6.82M R$774.8M",
       check: true
     },
     {
       accent: true,
-      title: "Total NIKE Buys",
-      text: "6.826.790 units - R$774.8M",
+      title: "SP27 TOP DOWN PLAN FORECAST (W41)",
+      text: "TOTAL 5.93M units / L4L 2.79M IMP 3.14M / FTW 2.8M APP 2.6M EQP 0.53M",
       check: true
     },
     {
-      accent: true,
-      title: "Total ZELUS",
-      text: "Bookings 174.3K / Buys 166.5M - 36K Galo e 130.7K Vasco",
-      check: true
-    },
-    {
-      date: "18.Mar",
-      text: "Finalização do Processo de Buys",
+      date: "24.Mar",
+      text: "Deadline de reenvio POs IDOC",
       warn: true
     },
     {
-      date: "18.Mar",
-      text: "SP27 TOP DOWN PLAN (W41)",
-      warn: true
-    },
-    {
-      date: "20.Mar",
-      text: "SP27 OTB REVIEW - GATE I",
+      date: "26.Mar",
+      text: "SP27 L4L BOTTOMS UP (W40)",
       warn: true
     } // <-- Adicionei a chave de fechamento do último objeto
   ], // <-- Adicionei o colchete de fechamento do array
@@ -51,57 +40,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "MAR.02",
-      iso: "2026-03-02",
-      sections: [
-        {
-          tag: { text: "HO26 W30", bg: "#16a34a", fg: "#ffffff" },
-          items: [
-            "2.3 – Fechamento Portal (s/ Distr.)",
-            "3.3 – Prévia Bookings (MPO)",
-            "4.3 – Bookings Review (prévia)",
-            "5.3 – Fechamento Portal (todos)",
-            "5.3 – Early Buys + FK Alloc. OED"
-          ]
-        },
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "2.3 – Fechamento FEV.26"
-          ]
-        }
-      ]
-    },
-    {
-      side: "right",
-      label: "MAR.09",
-      iso: "2026-03-09",
-      sections: [
-        {
-          tag: { text: "SU26 W3", bg: "#E97132", fg: "#ffffff" },
-          items: [
-            "15.3 – Unplanned Clean Up L4L"
-          ]
-        },
-        {
-          tag: { text: "HO26 W29", bg: "#16a34a", fg: "#ffffff" },
-          items: [
-            "9.3 – Bookings Finais (MPO)",
-            "9.3 – Hedge Momento 3 (70-90%)",
-            "10.3 – Bookings Review (final)"
-          ]
-        },
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "9.3 – Simulado 2+10 (prévia)",
-            "9.3 – Dispo semanal"
-          ]
-        }
-      ]
-    },
     {
       side: "left",
       label: "MAR.16",
@@ -138,9 +76,15 @@ window.REPORT = {
         {
           tag: { text: "SP27 W40", bg: "#eab308", fg: "#111111" },
           items: [
+            "24.3 – Deadline reenvio pedidos IDOC",
             "26.3 – L4L Development Forecast"
           ]
-        }
+        },
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [
+            "24.3 – Envio plano S&OP - MBR"
+         }
       ]
     },
     {
@@ -203,6 +147,7 @@ window.REPORT = {
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
           items: [
+            "14.4 - Abertura XMPU (14/abr a 17/abr)"
             "15.4 – Allocated Gate 2 - BIG 3",
             "16.4 - Bottoms Up Forecast"
           ]
