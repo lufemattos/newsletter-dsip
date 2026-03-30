@@ -56,16 +56,11 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "SP27 W40", bg: "#eab308", fg: "#111111" },
-          items: [
-            "24.3 – Deadline reenvio pedidos IDOC",
-            "26.3 – L4L Development Forecast"
-          ]
+          items: ["24.3 – Deadline reenvio pedidos IDOC", "26.3 – L4L Development Forecast"]
         },
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "24.3 – Envio plano S&OP - MBR"
-          ]
+          items: ["24.3 – Envio plano S&OP - MBR"]
         }
       ]
     },
@@ -76,28 +71,19 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "SU26 W0", bg: "#E97132", fg: "#ffffff" },
-          items: [
-            "1.4 – Season Start"
-          ]
+          items: ["1.4 – Season Start"]
         },
         {
           tag: { text: "FA26 W13", bg: "#c2410c", fg: "#ffffff" },
-          items: [
-            "3.4 – Upload Confirmed FOB L4L"
-          ]
+          items: ["3.4 – Upload Confirmed FOB L4L"]
         },
         {
           tag: { text: "SP27 W39", bg: "#eab308", fg: "#111111" },
-          items: [
-            "01.4 – Channels Allocated Gate 1 - Early FK & HH",
-            "02.4 - W39 ZELUS bottoms up forecast"
-          ]
+          items: ["01.4 – Channels Allocated Gate 1 - Early FK & HH", "02.4 - W39 ZELUS bottoms up forecast"]
         },
         {
           tag: { text: "FA27 W65", bg: "#0081E2", fg: "#111111" },
-          items: [
-            "02.4 – W65 Long Range Plan FTW L4L"
-          ]
+          items: ["02.4 – W65 Long Range Plan FTW L4L"]
         }
       ]
     },
@@ -108,28 +94,19 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "HO26 W25", bg: "#16a34a", fg: "#ffffff" },
-          items: [
-            "8.4 – Top Up Meeting"
-          ]
+          items: ["8.4 – Top Up Meeting"]
         },
         {
           tag: { text: "SP27 W38", bg: "#eab308", fg: "#111111" },
-          items: [
-            "6.4 – Allocated Gate 1 - Early FK & HH",
-            "10.4 - OTB Review Gate II"
-          ]
+          items: ["6.4 – Allocated Gate 1 - Early FK & HH", "10.4 - OTB Review Gate II"]
         },
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "10.4 – S&OP 4+8 prévia"
-          ]
+          items: ["10.4 – S&OP 4+8 prévia"]
         },
         {
           tag: { text: "3YLP", bg: "#E97132", fg: "#ffffff" },
-          items: [
-            "10.4 –Envio 3YLP (FA26 a SU29)"
-          ]
+          items: ["10.4 – Envio 3YLP (FA26 a SU29)"]
         }
       ]
     },
@@ -140,33 +117,4 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: [
-            "14.4 - Abertura XMPU (14/abr a 17/abr)",
-            "15.4 – Allocated Gate 2 - BIG 3",
-            "16.4 - Bottoms Up Forecast"
-          ]
-        }
-      ]
-    },
-    {
-      side: "right",
-      label: "APR.20",
-      iso: "2026-04-20",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "23.4 – S&OP 4+8 final"
-          ]
-        },
-        {
-          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: [
-            "24.4 - Deadline contas Allocations GATE III - Others"
-          ]
-        }
-      ]
-    },
-    {
-      side: "left",
-      label
+          items: ["14.4 - Abertura XMPU (14/abr a 17/abr)", "
