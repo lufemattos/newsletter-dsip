@@ -13,7 +13,7 @@ window.REPORT = {
       text: "Inventário - fechamento do mês",
       warn: true
     },
-      {
+    {
       date: "01.Abr",
       text: "SP27 ALLOCATIONS GATE I - deadline forecast contas",
       warn: true
@@ -41,7 +41,7 @@ window.REPORT = {
     { side: "top",    date: "22/Mai", iso: "2026-05-22", color: "#22C55E", boxType: "light", title: "Bookings",    subtitle: "Alocados, Zelus, NBA e NOCTA",    tooltip: "Digitação de bookings para early buys Alocados, NBA, Zelus e Nocta" },
     { side: "bottom", date: "01/Jun", iso: "2026-06-01", color: "#FACC15", boxType: "light", title: "Fechamento", subtitle: "Portal (ex-Distr)", tooltip: "Finalização de pedidos desconsiderando Distribuidores" },
     { side: "top",    date: "02/Jun", iso: "2026-06-02", color: "#FB923C", boxType: "light", title: "Bookings",    subtitle: "Prévia (MPO)",      tooltip: "MPO gera os bookings prévio com o que tem no SAP" },
-    { side: "bottom", date: "03/Jun", iso: "2026-06-03", color: "#F472B6", boxType: "light", title: "Booking",     subtitle: "Review (Supply)",   tooltip: "Supply analisa, prepara e disponibiliza a base para Merch" },
+    { side: "bottom", date: "03/Jun", iso: "2026-06-03", color: "#F472B6", boxType: "light", title: "Booking",      subtitle: "Review (Supply)",   tooltip: "Supply analisa, prepara e disponibiliza a base para Merch" },
     { side: "top",    date: "07/Jun", iso: "2026-06-07", color: "#A855F7", boxType: "light", title: "Fechamento", subtitle: "Final",              tooltip: "Encerramento de colocação de pedidos da coleção" },
     { side: "bottom", date: "08/Jun", iso: "2026-06-09", color: "#2DD4BF", boxType: "light", title: "Bookings",    subtitle: "Finais (MPO)",      tooltip: "MPO gera os bookings finais, que serão a base de compra oficial" },
     { side: "top",    date: "10/Jun", iso: "2026-06-10", color: "#F87171", boxType: "light", title: "Alinhamento", subtitle: "Liderança",          tooltip: "Reunião de alinhamento com a liderança para fins de auditoria e transparência" },
@@ -119,7 +119,7 @@ window.REPORT = {
             "10.4 - OTB Review Gate II"
           ]
         },
-          {
+        {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
           items: [
             "10.4 – S&OP 4+8 prévia"
@@ -131,8 +131,8 @@ window.REPORT = {
             "10.4 –Envio 3YLP (FA26 a SU29)"
           ]
         }
-        ]
-      },
+      ]
+    },
     {
       side: "left",
       label: "APR.13",
@@ -148,7 +148,7 @@ window.REPORT = {
         }
       ]
     },
-   {
+    {
       side: "right",
       label: "APR.20",
       iso: "2026-04-20",
@@ -159,30 +159,14 @@ window.REPORT = {
             "23.4 – S&OP 4+8 final"
           ]
         },
-         {
-        tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
+        {
+          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
           items: [
             "24.4 - Deadline contas Allocations GATE III - Others"
-            }
+          ]
+        }
       ]
     },
     {
       side: "left",
-      label: "APR.27",
-      iso: "2026-04-27",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [
-            "28.4 – MBR"
-  ]
-        },
-        {
-        tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: [
-            "28.4 - Allocations GATE III - Others",
-            "30.04 - W35 ZELUS forecast"
-            ]
-        }
-        ]
-};
+      label
