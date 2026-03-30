@@ -44,7 +44,7 @@ window.REPORT = {
     { side: "bottom", date: "03/Jun", iso: "2026-06-03", color: "#F472B6", boxType: "light", title: "Booking",      subtitle: "Review (Supply)",   tooltip: "Supply analisa, prepara e disponibiliza a base para Merch" },
     { side: "top",    date: "07/Jun", iso: "2026-06-07", color: "#A855F7", boxType: "light", title: "Fechamento", subtitle: "Final",          tooltip: "Encerramento de colocação de pedidos da coleção" },
     { side: "bottom", date: "08/Jun", iso: "2026-06-09", color: "#2DD4BF", boxType: "light", title: "Bookings",    subtitle: "Finais (MPO)",      tooltip: "MPO gera os bookings finais, que serão a base de compra oficial" },
-    { side: "top",    date: "10/Jun", iso: "2026-06-10", color: "#F87171", boxType: "light", title: "Alinhamento", subtitle: "Liderança",      tooltip: "Reunião de alinhamento com a liderança para fins de auditoria e transparência" },
+    { side: "top",    date: "11/Jun", iso: "2026-06-11", color: "#F87171", boxType: "light", title: "Alinhamento", subtitle: "Liderança",      tooltip: "Reunião de alinhamento com a liderança para fins de auditoria e transparência" },
     { side: "bottom", date: "17/Jun", iso: "2026-06-17", color: "#EAB308", boxType: "light", title: "POs Deadline", subtitle: "(Upload SAP)",  tooltip: "Envio via EDI dos pedidos para a Nike" }
   ],
 
