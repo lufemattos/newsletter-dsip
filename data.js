@@ -117,11 +117,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: [
-            "14.4 - Abertura XMPU (14/abr a 17/abr)",
-            "15.4 – Allocated Gate 2 - BIG 3",
-            "16.4 - Bottoms Up Forecast"
-          ]
+          items: ["14.4 - Abertura XMPU", "15.4 – Allocated Gate 2", "16.4 - Bottoms Up Forecast"]
         }
       ]
     },
@@ -136,7 +132,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: ["24.4 - Deadline contas Allocations GATE III - Others"]
+          items: ["24.4 - Deadline contas Allocations GATE III"]
         }
       ]
     },
@@ -151,10 +147,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: [
-            "28.4 - Allocations GATE III - Others",
-            "30.04 - W35 ZELUS forecast"
-          ]
+          items: ["28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast"]
         }
       ]
     }
