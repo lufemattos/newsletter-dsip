@@ -98,4 +98,33 @@ window.REPORT = {
       iso: "2026-04-20",
       sections: [
         {
-          tag: { text: "INVENTORY", bg: "#6d28d
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["23.4 – S&OP 4+8 final"]
+        },
+        {
+          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
+          items: ["24.4 - Deadline contas Allocations GATE III"]
+        },
+        {
+          tag: { text: "3YLP", bg: "#E97132", fg: "#ffffff" },
+          items: ["10.4 – Envio 3YLP (FA26 a SU29)"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "APR.27",
+      iso: "2026-04-27",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["28.4 – MBR"]
+        },
+        {
+          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
+          items: ["28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast"]
+        }
+      ]
+    }
+  ]
+};
