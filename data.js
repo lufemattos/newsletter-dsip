@@ -9,28 +9,18 @@ window.REPORT = {
       check: true
     },
     {
-      date: "01.Abr",
-      text: "Inventário - fechamento do mês",
+      date: "06.Abr",
+      text: "Gate I - Allocations FK",
       warn: true
     },
     {
-      date: "01.Abr",
-      text: "SP27 ALLOCATIONS GATE I - deadline forecast contas",
+      date: "08.Abr",
+      text: "SP27 ALLOCATIONS GATE II - deadline forecast contas",
       warn: true
     },
     {
-      date: "02.Abr",
-      text: "SP27 W39 ZELUS",
-      warn: true
-    },
-    {
-      date: "02.Abr",
-      text: "FA27 W65 LONG RANGE PLAN & Wishlist",
-      warn: true
-    },
-    {
-      date: "03.Abr",
-      text: "FERIADO - Paixão de Cristo",
+      date: "10.Abr",
+      text: "Demand&Buy Review",
       warn: true
     }
   ],
@@ -49,21 +39,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "MAR.23",
-      iso: "2026-03-23",
-      sections: [
-        {
-          tag: { text: "SP27 W40", bg: "#eab308", fg: "#111111" },
-          items: ["24.3 – Deadline reenvio pedidos IDOC", "26.3 – L4L Development Forecast"]
-        },
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["24.3 – Envio plano S&OP - MBR"]
-        }
-      ]
-    },
     {
       side: "left",
       label: "MAR.30",
@@ -98,16 +73,11 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27 W38", bg: "#eab308", fg: "#111111" },
-          items: ["6.4 – Allocated Gate 1 - Early FK & HH", "10.4 - OTB Review Gate II"]
-        },
+          items: ["6.4 – Allocated Gate 1 - Early FK & HH", "10.4 - OTB Review Gate II", "8.4 – Deadline Channels Allocated Gate 2 - BIG 3"],
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
           items: ["10.4 – S&OP 4+8 prévia"]
         },
-        {
-          tag: { text: "3YLP", bg: "#E97132", fg: "#ffffff" },
-          items: ["10.4 – Envio 3YLP (FA26 a SU29)"]
-        }
       ]
     },
     {
@@ -133,6 +103,10 @@ window.REPORT = {
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
           items: ["24.4 - Deadline contas Allocations GATE III"]
+        },
+          {
+          tag: { text: "3YLP", bg: "#E97132", fg: "#ffffff" },
+          items: ["10.4 – Envio 3YLP (FA26 a SU29)"]
         }
       ]
     },
