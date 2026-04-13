@@ -1,5 +1,5 @@
 window.REPORT = {
-  lastUpdate: "Mar/2026",
+  lastUpdate: "Abr/2026",
 
   justTrackIt: [
     {
@@ -9,20 +9,25 @@ window.REPORT = {
       check: true
     },
     {
-      date: "06.Abr",
-      text: "Gate I - Allocations FK",
+      date: "16.Abr",
+      text: "W37 - Bottoms Up IMP+L4L",
       warn: true
     },
     {
-      date: "08.Abr",
-      text: "SP27 ALLOCATIONS GATE II - deadline forecast contas",
+      date: "14.Abr",
+      text: "SP27 ALLOCATIONS GATE II - BIG 3",
       warn: true
     },
     {
-      date: "10.Abr",
-      text: "Demand&Buy Review",
+      date: "14.Abr a 16.Abr",
+      text: "X-MPU - Merch Sessions",
       warn: true
-    }
+    },
+     {
+      date: "17.Abr",
+      text: "IBP Call",
+      warn: true
+     }
   ],
 
   timeline: [
@@ -39,30 +44,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "MAR.30",
-      iso: "2026-03-30",
-      sections: [
         {
-          tag: { text: "SU26 W0", bg: "#E97132", fg: "#ffffff" },
-          items: ["1.4 – Season Start"]
-        },
-        {
-          tag: { text: "FA26 W13", bg: "#c2410c", fg: "#ffffff" },
-          items: ["3.4 – Upload Confirmed FOB L4L"]
-        },
-        {
-          tag: { text: "SP27 W39", bg: "#eab308", fg: "#111111" },
-          items: ["01.4 – Channels Allocated Gate 1 - Early FK & HH", "02.4 - W39 ZELUS bottoms up forecast"]
-        },
-        {
-          tag: { text: "FA27 W65", bg: "#0081E2", fg: "#111111" },
-          items: ["02.4 – W65 Long Range Plan FTW L4L"]
-        }
-      ]
-    },
-    {
       side: "right",
       label: "APR.06",
       iso: "2026-04-06",
@@ -88,7 +70,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: ["14.4 - Abertura XMPU", "15.4 – Allocated Gate 2", "16.4 - Bottoms Up Forecast"]
+          items: ["14.4 - Abertura XMPU", "15.4 – Allocated Gate 2", "16.4 - Bottoms Up Forecast", "17.4 IBP Call"]
         }
       ]
     },
@@ -122,7 +104,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: ["28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast"]
+          items: ["27.4 SP27 Consensus L4L", "28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast"]
         }
       ]
     }
