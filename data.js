@@ -24,7 +24,7 @@ window.REPORT = {
       warn: true
     },
      {
-      date: "17.Abr",
+      date: "22.Abr",
       text: "IBP Call",
       warn: true
      }
@@ -70,7 +70,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: ["14.4 - Abertura XMPU", "15.4 – Allocated Gate 2", "16.4 - Bottoms Up Forecast", "17.4 IBP Call"]
+          items: ["14.4 - Abertura XMPU", "15.4 – Allocated Gate 2", "16.4 - Bottoms Up Forecast"]
         }
       ]
     },
@@ -89,7 +89,7 @@ window.REPORT = {
         },
         {
           tag: { text: "3YLP", bg: "#E97132", fg: "#ffffff" },
-          items: ["10.4 – Envio 3YLP (FA26 a SU29)"]
+          items: ["10.4 – Envio 3YLP (FA26 a SU29)", "22.4 IBP CALL"]
         }
       ]
     },
