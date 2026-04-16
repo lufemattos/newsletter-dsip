@@ -14,11 +14,6 @@ window.REPORT = {
       warn: true
     },
     {
-      date: "14.Abr",
-      text: "SP27 ALLOCATIONS GATE II - BIG 3",
-      warn: true
-    },
-    {
       date: "22.Abr",
       text: "IBP Call",
       warn: true
