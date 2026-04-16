@@ -4,13 +4,13 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "SP27 L4L BOTTOMS UP (W40)",
-      text: "TOTAL L4L 2.79M units / FTW 1.41M APP 1.39M / IMP 3.14M",
+      title: "SP27 BOTTOMS UP (W37)",
+      text: "TOTAL 5.59M units: 2.68M L4L 2.91M IMP / FTW 2.55M APP 2.58M EQP 0.46M",
       check: true
     },
     {
-      date: "16.Abr",
-      text: "W37 - Bottoms Up IMP+L4L",
+      date: "21.Abr",
+      text: "FERIADO - TIRADENTES / 20.04 emenda",
       warn: true
     },
     {
@@ -19,15 +19,20 @@ window.REPORT = {
       warn: true
     },
     {
-      date: "14.Abr a 16.Abr",
-      text: "X-MPU - Merch Sessions",
-      warn: true
-    },
-     {
       date: "22.Abr",
       text: "IBP Call",
       warn: true
-     }
+     },
+    {
+      date: "24.Abr",
+      text: "3YLP",
+      warn: true
+    },
+    {
+      date: "24.Abr",
+      text: "Deadline forecast Allocation OTHERS - channels",
+      warn: true
+    }
   ],
 
   timeline: [
@@ -44,26 +49,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-        {
-      side: "right",
-      label: "APR.06",
-      iso: "2026-04-06",
-      sections: [
-        {
-          tag: { text: "HO26 W25", bg: "#16a34a", fg: "#ffffff" },
-          items: ["8.4 – Top Up Meeting"]
-        },
-        {
-          tag: { text: "SP27 W38", bg: "#eab308", fg: "#111111" },
-          items: ["6.4 – Allocated Gate 1 - Early FK & HH", "10.4 - OTB Review Gate II", "8.4 – Deadline Channels Allocated Gate 2 - BIG 3"]
-        },
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["10.4 – S&OP 4+8 prévia"]
-        }
-      ]
-    },
-    {
+           {
       side: "left",
       label: "APR.13",
       iso: "2026-04-13",
