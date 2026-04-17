@@ -65,7 +65,7 @@ window.REPORT = {
           items: ["23.4 – S&OP 4+8 final"]
         },
         {
-          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
           items: ["24.4 - Deadline contas Allocations GATE III"]
         },
         {
@@ -84,10 +84,40 @@ window.REPORT = {
           items: ["28.4 – MBR"]
         },
         {
-          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
           items: ["27.4 SP27 Consensus L4L", "28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast"]
         }
       ]
-    }
+    },
+     {
+      side: "right",
+      label: "MAI.04",
+      iso: "2026-05-04",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["28.4 – MBR"]
+        },
+        {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["07.5 W34 BOTTOMS UP Forecast"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "MAI.11",
+      iso: "2026-05-11",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["28.4 – MBR"]
+        },
+        {
+          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
+          items: ["14.5 W59 BOTTOMS UP Forecast"]
+        }
+      ]
+    },
   ]
 };
