@@ -85,7 +85,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["27.4 SP27 Consensus L4L", "28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast"]
+          items: ["27.4 SP27 Consensus L4L", "28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast", "30.04 1st Blind Buy"]
         }
       ]
     },
@@ -96,7 +96,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["28.4 – MBR"]
+          items: [""] 
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
@@ -111,13 +111,96 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["28.4 – MBR"]
+          items: [""]
         },
         {
-          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: ["14.5 W59 BOTTOMS UP Forecast"]
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["14.5 2nd Blind Buy"]
+        },
+        {
+          tag: { text: "FA27", bg: "#E97132", fg: "#ffffff" },
+          items: ["14.5 ZELUS W59 BOTTOMS UP Forecast"]
         }
       ]
     },
+    {
+      side: "right",
+      label: "MAI.18",
+      iso: "2026-05-18",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["22.5 Deadline digitação BKGS Allocations, NBA, NOCTA, ZELUS"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "MAI.25",
+      iso: "2026-05-25",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["25.5 Base final de BKGS antecipados", "28.05 3rd Blind Buy & Allocations/NBA/NOCTA buy gate", "28.05 W31 Bottoms Up Optional Forecast", "29.05 Deadline BGKS SP27 (Nike+JR286) - ND, CNTO e MKT"]
+        }
+      ]
+    },
+    {
+      side: "right",
+      label: "JUN.01",
+      iso: "2026-06-01",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["01.6 Deadline BGKS SP27 (Nike+JR286) - WHSL exceto Distro", "02.6 Base BKGS Prévia", "04.6 FERIADO PROLONGADO - Corpus Christie" ]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "JUN.08",
+      iso: "2026-06-08",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["08.6 Base BKGS FINAL", "11.6 BKGS Review Leadership"]
+        }
+      ]
+    },
+    {
+      side: "right",
+      label: "JUN.15",
+      iso: "2026-06-15",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["17.6 BUYS SP27"]
+        },
+         {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["18.6 W41 SU27 TOP DOWN PLAN"]
+        }
+      ]
+    }
   ]
 };
