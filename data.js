@@ -104,7 +104,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["14.5 2nd Blind Buy"]
+          items: ["14.5 2nd Blind Buy","14.5 IBP CALL"]
         },
         {
           tag: { text: "FA27", bg: "#E97132", fg: "#ffffff" },
@@ -149,7 +149,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["01.6 Fechamento de Maio"]
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
@@ -164,7 +164,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["10.6 Simulador 5+7 Prévia"]
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
@@ -179,7 +179,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["15.6 Reunião S&OP"]
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
