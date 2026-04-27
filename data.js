@@ -70,7 +70,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["28.4 – MBR"]
+          items: [""]
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
@@ -85,7 +85,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""] 
+          items: ["04.5 Fechamento de Abril"] 
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
@@ -100,7 +100,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["11.5 Simulador 4+8 Prévia", "13.5 Reunião S&OP"]
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
@@ -119,7 +119,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["22.5 Simulador 4+8 - Final"]
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
