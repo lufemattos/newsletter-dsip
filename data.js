@@ -9,23 +9,23 @@ window.REPORT = {
       check: true
     },
     {
-      date: "21.Abr",
-      text: "FERIADO - TIRADENTES / 20.04 emenda",
+      date: "27.Abr",
+      text: "SP27 Consensus L4L",
       warn: true
     },
     {
-      date: "22.Abr",
-      text: "IBP Call",
+      date: "28.Abr",
+      text: "Deadline forecast Allocation OTHERS",
       warn: true
      },
     {
-      date: "24.Abr",
-      text: "3YLP",
+      date: "30.Abr",
+      text: "SP27 W35 Forecast ZELUS",
       warn: true
     },
     {
-      date: "24.Abr",
-      text: "Deadline forecast Allocation OTHERS - channels",
+      date: "01.Mai",
+      text: "Feriado - Dia do Trabalho",
       warn: true
     }
   ],
@@ -44,17 +44,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-           {
-      side: "left",
-      label: "APR.13",
-      iso: "2026-04-13",
-      sections: [
-        {
-          tag: { text: "SP27 W37", bg: "#eab308", fg: "#111111" },
-          items: ["14.4 - Abertura XMPU", "15.4 – Allocated Gate 2", "16.4 - Bottoms Up Forecast"]
-        }
-      ]
-    },
     {
       side: "right",
       label: "APR.20",
