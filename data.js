@@ -4,30 +4,20 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "SP27 BOTTOMS UP (W37)",
-      text: "TOTAL 5.59M units: 2.68M L4L 2.91M IMP / FTW 2.55M APP 2.58M EQP 0.46M",
+      title: "SP27 BOTTOMS UP (W34) - PRE SEASON BKGS",
+      text: "TOTAL 5.35M units: FTW 2.57M APP 2.34M EQP 0.4OM",
       check: true
     },
     {
-      date: "27.Abr",
-      text: "SP27 Consensus L4L",
+      date: "04.Mai",
+      text: "Inventário - Fechamento Abril",
       warn: true
     },
     {
-      date: "28.Abr",
-      text: "Deadline forecast Allocation OTHERS",
+      date: "07.Mai",
+      text: "SP27 Bottons Up W34",
       warn: true
-     },
-    {
-      date: "30.Abr",
-      text: "SP27 W35 Forecast ZELUS",
-      warn: true
-    },
-    {
-      date: "01.Mai",
-      text: "Feriado - Dia do Trabalho",
-      warn: true
-    }
+     }
   ],
 
   timeline: [
@@ -44,25 +34,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "APR.20",
-      iso: "2026-04-20",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["23.4 – S&OP 4+8 final"]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["24.4 - Deadline contas Allocations GATE III"]
-        },
-        {
-          tag: { text: "3YLP", bg: "#E97132", fg: "#ffffff" },
-          items: ["10.4 – Envio 3YLP (FA26 a SU29)", "22.4 IBP CALL"]
-        }
-      ]
-    },
     {
       side: "left",
       label: "APR.27",
