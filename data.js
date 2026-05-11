@@ -9,13 +9,23 @@ window.REPORT = {
       check: true
     },
     {
-      date: "04.Mai",
-      text: "Inventário - Fechamento Abril",
+      date: "13.Mai",
+      text: "S&OP Meeting",
       warn: true
     },
     {
-      date: "07.Mai",
-      text: "SP27 Bottons Up W34",
+      date: "14.Mai",
+      text: "IBP Call",
+      warn: true
+    },
+    {
+      date: "14.Mai",
+      text: "FA27 ZELUS Top Down Plan",
+      warn: true
+     },
+     {
+      date: "14.Mai",
+      text: "SP27 2nd Blind Buy",
       warn: true
      }
   ],
@@ -34,21 +44,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "APR.27",
-      iso: "2026-04-27",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["27.4 SP27 Consensus L4L", "28.4 - Allocations GATE III", "30.04 - W35 ZELUS forecast", "30.04 1st Blind Buy"]
-        }
-      ]
-    },
      {
       side: "right",
       label: "MAI.04",
@@ -94,7 +89,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["22.5 Deadline digitação BKGS Allocations, NBA, NOCTA, ZELUS"]
+          items: ["22.5 Deadline digitação BKGS Allocations, NBA, NOCTA, ZELUS","18.5 Buy Review NDDC","20.5 Buy Review NDS"]
         }
       ]
     },
