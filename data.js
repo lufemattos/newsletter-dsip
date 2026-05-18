@@ -9,23 +9,24 @@ window.REPORT = {
       check: true
     },
     {
-      date: "13.Mai",
-      text: "S&OP Meeting",
-      warn: true
+      accent: true,
+      title: "ZELUS TOP DOWN PLAN - units",
+      text: "SP27 115.8M / SU27 252.9M / FA27 147.8M",
+      check: true
     },
     {
-      date: "14.Mai",
+      date: "18.Mai",
       text: "IBP Call",
       warn: true
     },
     {
-      date: "14.Mai",
-      text: "FA27 ZELUS Top Down Plan",
+      date:"20.Mai",
+      text: "Buy Reviews NDS e NDDC",
       warn: true
-     },
-     {
-      date: "14.Mai",
-      text: "SP27 2nd Blind Buy",
+    },
+    {
+      date: "22.Mai",
+      text: "SP27 ALLOCATIONS, NOCTA E NBA - Deadline digitação BKGS",
       warn: true
      }
   ],
@@ -44,22 +45,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-     {
-      side: "right",
-      label: "MAI.04",
-      iso: "2026-05-04",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["04.5 Fechamento de Abril"] 
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["07.5 W34 BOTTOMS UP Forecast"]
-        }
-      ]
-    },
-    {
+      {
       side: "left",
       label: "MAI.11",
       iso: "2026-05-11",
