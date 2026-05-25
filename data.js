@@ -4,7 +4,7 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "SP27 BOTTOMS UP (W34) - PRE SEASON BKGS",
+      title: "SP27 BOTTOMS UP (W31) - PRE SEASON BKGS",
       text: "TOTAL 5.35M units: FTW 2.57M APP 2.34M EQP 0.4OM",
       check: true
     },
@@ -15,18 +15,28 @@ window.REPORT = {
       check: true
     },
     {
-      date: "18.Mai",
-      text: "IBP Call",
+      date: "25.Mai",
+      text: "Bookings Review Allocations/NOCTA/NBA",
       warn: true
     },
     {
-      date:"20.Mai",
-      text: "Buy Reviews NDS e NDDC",
+      date:"26.Mai",
+      text: "Buy Review SP27",
       warn: true
     },
     {
-      date: "22.Mai",
-      text: "SP27 ALLOCATIONS, NOCTA E NBA - Deadline digitação BKGS",
+      date: "27.Mai",
+      text: "3rd Blind Buy & Allocations/NBA/NOCTA buy gate",
+      warn: true
+     },
+    {
+      date: "28.Mai",
+      text: "W31 Bottoms Up Forecast",
+      warn: true
+     },
+    {
+      date: "29.Mai",
+      text: "Deadline BGKS SP27 (Nike+JR286) - ND, CNTO e MKT",
       warn: true
      }
   ],
@@ -50,20 +60,6 @@ window.REPORT = {
       label: "MAI.11",
       iso: "2026-05-11",
       sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["11.5 Simulador 4+8 Prévia", "13.5 Reunião S&OP"]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["14.5 2nd Blind Buy","14.5 IBP CALL"]
-        },
-        {
-          tag: { text: "FA27", bg: "#E97132", fg: "#ffffff" },
-          items: ["14.5 ZELUS W59 BOTTOMS UP Forecast"]
-        }
-      ]
-    },
     {
       side: "right",
       label: "MAI.18",
@@ -90,7 +86,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["25.5 Base final de BKGS antecipados", "28.05 3rd Blind Buy & Allocations/NBA/NOCTA buy gate", "28.05 W31 Bottoms Up Optional Forecast", "29.05 Deadline BGKS SP27 (Nike+JR286) - ND, CNTO e MKT"]
+          items: ["25.5 Base final de BKGS antecipados", "28.05 3rd Blind Buy & Allocations/NBA/NOCTA buy gate", "28.05 W31 Bottoms Up Forecast", "29.05 Deadline BGKS SP27 (Nike+JR286) - ND, CNTO e MKT"]
         }
       ]
     },
