@@ -5,7 +5,7 @@ window.REPORT = {
     {
       accent: true,
       title: "SP27 BOTTOMS UP (W31) - PRE SEASON BKGS",
-      text: "TOTAL 5.35M units: FTW 2.57M APP 2.34M EQP 0.40M",
+      text: "TOTAL 5.35M units: FTW 2.57M APP 2.34M EQP 0.44M",
       check: true
     },
     {
@@ -66,7 +66,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["22.5 Deadline digitação BKGS Allocations, NBA, NOCTA, ZELUS","18.5 Buy Review NDDC","20.5 Buy Review NDS"]
+          items: ["22.5 Deadline BKGS Allocations, NBA, NOCTA, ZELUS", "18.5 Buy Review NDDC", "20.5 Buy Review NDS"]
         }
       ]
     },
@@ -75,10 +75,6 @@ window.REPORT = {
       label: "MAI.25",
       iso: "2026-05-25",
       sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: []
-        },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
           items: ["25.5 Base final de BKGS antecipados", "28.05 3rd Blind Buy & Allocations/NBA/NOCTA buy gate", "28.05 W31 Bottoms Up Forecast", "29.05 Deadline BKGS SP27 (Nike+JR286) - ND, CNTO e MKT"]
@@ -96,7 +92,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["01.6 Deadline BKGS SP27 (Nike+JR286) - WHSL exceto Distro", "02.6 Base BKGS Prévia", "04.6 FERIADO PROLONGADO - Corpus Christi" ]
+          items: ["01.6 Deadline BKGS SP27 (Nike+JR286) - WHSL exceto Distro", "02.6 Base BKGS Prévia", "04.6 FERIADO - Corpus Christi"]
         }
       ]
     },
