@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards KPIs | DS&IP</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8f9fa; }
+        .nike-orange { color: #E97132; }
+        .bg-nike-orange { background-color: #E97132; }
+        .kpi-card { background: white; border-radius: 4px; border: 1px solid #e5e7eb; margin-bottom: 2rem; overflow: hidden; }
+        .iframe-container { position: relative; width: 100%; padding-top: 56.25%; /* Proporção 16:9 */ }
+        .iframe-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
+    </style>
+</head>
+<body class="p-4 md:p-8">
+    <div class="max-w-6xl mx-auto">
+        <div class="bg-black text-white p-6 flex justify-between items-center border-b-4 border-[#E97132] mb-8">
+            <div>
+                <h1 class="text-3xl font-extrabold tracking-tighter uppercase">Dashboards</h1>
+                <h2 class="text-xl font-light text-gray-300 tracking-widest">DS<span class="text-[#E97132]">&</span>IP</h2>
+            </div>
+            <a href="index.html" class="border border-white px-4 py-2 text-xs font-bold uppercase hover:bg-white hover:text-black transition">Voltar</a>
+        </div>
+
+        <div class="kpi-card shadow-lg">
+            <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                <h3 class="text-xl font-black uppercase tracking-tight">01. DEMAND DRIVE</h3>
+                <a href="LINK_WEB_DEMAND" target="_blank" class="bg-black text-white px-4 py-2 text-xs font-bold rounded hover:bg-nike-orange transition">ABRIR VERSÃO WEB ↗</a>
+            </div>
+            <div class="iframe-container">
+                <iframe src="LINK_EMBED_DEMAND" allowFullScreen="true"></iframe>
+            </div>
+        </div>
+
+        <div class="kpi-card shadow-lg">
+            <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                <h3 class="text-xl font-black uppercase tracking-tight">02. SUPPLY CONTROL</h3>
+                <a href="LINK_WEB_SUPPLY" target="_blank" class="bg-black text-white px-4 py-2 text-xs font-bold rounded hover:bg-nike-orange transition">ABRIR VERSÃO WEB ↗</a>
+            </div>
+            <div class="iframe-container">
+                <iframe src="LINK_EMBED_SUPPLY" allowFullScreen="true"></iframe>
+            </div>
+        </div>
+
+        <div class="kpi-card shadow-lg">
+            <div class="p-4 bg-gray-50 border-b flex justify-between items-center">
+                <h3 class="text-xl font-black uppercase tracking-tight">03. INVENTORY PLANNING</h3>
+                <a href="LINK_WEB_INVENTORY" target="_blank" class="bg-black text-white px-4 py-2 text-xs font-bold rounded hover:bg-nike-orange transition">ABRIR VERSÃO WEB ↗</a>
+            </div>
+            <div class="iframe-container">
+                <iframe src="LINK_EMBED_INVENTORY" allowFullScreen="true"></iframe>
+            </div>
+        </div>
+
+        <footer class="text-center py-6">
+            <p class="text-xs text-gray-400 uppercase font-bold tracking-widest">Just do it.</p>
+        </footer>
+    </div>
+</body>
+</html>
