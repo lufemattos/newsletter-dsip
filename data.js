@@ -55,11 +55,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-      {
-      side: "left",
-      label: "MAI.11",
-      iso: "2026-05-11",
-      sections: [
     {
       side: "right",
       label: "MAI.18",
