@@ -36,7 +36,7 @@ window.REPORT = {
     },
     {
       date: "29.Mai",
-      text: "Deadline BKGS SP27 (Nike+JR286) - ND, CNTO e MKT",
+      text: "Deadline BKGS SP27 (Nike+JR286+ZELUS) - ND, CNTO e MKT",
       warn: true
     }
   ],
@@ -77,7 +77,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["25.5 Base final de BKGS antecipados", "28.05 3rd Blind Buy & Allocations/NBA/NOCTA buy gate", "28.05 W31 Bottoms Up Forecast", "29.05 Deadline BKGS SP27 (Nike+JR286) - ND, CNTO e MKT"]
+          items: ["25.5 Base final de BKGS antecipados", "28.05 3rd Blind Buy & Allocations/NBA/NOCTA buy gate", "28.05 W31 Bottoms Up Forecast", "29.05 Deadline BKGS SP27 (Nike+JR286+ZELUS) - ND, CNTO e MKT"]
         }
       ]
     },
