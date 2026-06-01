@@ -82,7 +82,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["08.6 Base BKGS FINAL", "11.6 BKGS Review Leadership"]
+          items: ["08.6 Base BKGS FINAL", "11.6 BKGS Review Leadership","12.6 OTB Revisão 1"]
         }
       ]
     },
@@ -104,6 +104,59 @@ window.REPORT = {
           items: ["18.6 W41 SU27 TOP DOWN PLAN"]
         }
       ]
-    }
+    },
+    {
+      side: "left",
+      label: "JUN.22",
+      iso: "2026-06-22",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["26.6 BUYS HAF SP27"]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["25.6 W40 SU27 BOTTOMS UP L4L"]
+        }
   ]
+    },
+    {
+      side: "right",
+      label: "JUN.29",
+      iso: "2026-06-29",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["01.7 Fechamento Inventário"]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["02.7 W39 SU27 ZELUS BOTTOMS UP"]
+        },
+        {
+          tag: { text: "HO27", bg: "#eab308", fg: "#111111" },
+          items: ["02.7 HO27 W65 LONG RANGE PLAN - L4L "]
+        }
+  ]
+    },
+    {
+      side: "left",
+      label: "JUL.06",
+      iso: "2026-07-06",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["10.7 SU27 OTB Revisão 2"]
+        },
+  ]
+    }
+    ]
 };
