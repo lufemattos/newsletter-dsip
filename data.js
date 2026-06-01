@@ -15,28 +15,18 @@ window.REPORT = {
       check: true
     },
     {
-      date: "25.Mai",
-      text: "Bookings Review Allocations/NOCTA/NBA",
+      date: "01.Jun",
+      text: "Fechamento Portal - exceto DISTRO",
       warn: true
     },
     {
-      date: "26.Mai",
-      text: "Buy Review SP27",
+      date: "02.Jun",
+      text: "SP27 BASE BKGS Extract - prévia",
       warn: true
     },
     {
-      date: "27.Mai",
-      text: "3rd Blind Buy & Allocations/NBA/NOCTA buy gate",
-      warn: true
-    },
-    {
-      date: "28.Mai",
-      text: "W31 Bottoms Up Forecast",
-      warn: true
-    },
-    {
-      date: "29.Mai",
-      text: "Deadline BKGS SP27 (Nike+JR286+ZELUS) - ND, CNTO e MKT",
+      date: "03.Jun",
+      text: "Bookings Review - Supply",
       warn: true
     }
   ],
@@ -55,21 +45,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "MAI.18",
-      iso: "2026-05-18",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["22.5 Simulador 4+8 - Final"]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["22.5 Deadline BKGS Allocations, NBA, NOCTA, ZELUS", "18.5 Buy Review NDDC", "20.5 Buy Review NDS"]
-        }
-      ]
-    },
     {
       side: "left",
       label: "MAI.25",
