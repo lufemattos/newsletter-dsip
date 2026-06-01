@@ -82,7 +82,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["08.6 Base BKGS FINAL", "11.6 BKGS Review Leadership","12.6 OTB Revisão 1"]
+          items: ["08.6 Base BKGS FINAL", "11.6 BKGS Review Leadership", "12.6 OTB Revisão 1"]
         }
       ]
     },
@@ -122,7 +122,7 @@ window.REPORT = {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
           items: ["25.6 W40 SU27 BOTTOMS UP L4L"]
         }
-  ]
+      ]
     },
     {
       side: "right",
@@ -141,7 +141,7 @@ window.REPORT = {
           tag: { text: "HO27", bg: "#eab308", fg: "#111111" },
           items: ["02.7 HO27 W65 LONG RANGE PLAN - L4L "]
         }
-  ]
+      ]
     },
     {
       side: "left",
@@ -155,8 +155,8 @@ window.REPORT = {
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
           items: ["10.7 SU27 OTB Revisão 2"]
-        },
-  ]
+        }
+      ]
     }
-    ]
+  ]
 };
