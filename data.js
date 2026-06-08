@@ -1,5 +1,5 @@
 window.REPORT = {
-  lastUpdate: "Mai/2026",
+  lastUpdate: "Jun/2026",
 
   justTrackIt: [
     {
@@ -15,18 +15,18 @@ window.REPORT = {
       check: true
     },
     {
-      date: "01.Jun",
-      text: "Fechamento Portal - exceto DISTRO",
+      date: "08.Jun",
+      text: "SP27 BASE BKGS Extract - FINAL",
       warn: true
     },
     {
-      date: "02.Jun",
-      text: "SP27 BASE BKGS Extract - prévia",
+      date: "11.Jun",
+      text: "SP27 Bookings Review - Leadership",
       warn: true
     },
     {
-      date: "03.Jun",
-      text: "Bookings Review - Supply",
+      date: "12.Jun",
+      text: "SU27 OTB - Revisão 1 deadline",
       warn: true
     }
   ],
@@ -45,17 +45,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "MAI.25",
-      iso: "2026-05-25",
-      sections: [
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["25.5 Base final de BKGS antecipados", "28.05 3rd Blind Buy & Allocations/NBA/NOCTA buy gate", "28.05 W31 Bottoms Up Forecast", "29.05 Deadline BKGS SP27 (Nike+JR286+ZELUS) - ND, CNTO e MKT"]
-        }
-      ]
-    },
     {
       side: "right",
       label: "JUN.01",
