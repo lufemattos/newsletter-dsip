@@ -4,29 +4,29 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "SP27 BOTTOMS UP (W31) - PRE SEASON BKGS",
-      text: "TOTAL 5.35M units: FTW 2.57M APP 2.34M EQP 0.44M",
+      title: "SP27 BOOKINGS NIKE",
+      text: "TOTAL R$ 637.2M CMV (+5% YoY) e 6.23M units (+15% YoY), sendo 57% IMP e 43% L4L",
       check: true
     },
     {
       accent: true,
-      title: "ZELUS TOP DOWN PLAN - units",
-      text: "SP27 115.8M / SU27 252.9M / FA27 147.8M",
+      title: "SP27 BOOKINGS LICENCIADOS - units",
+      text: "HAF 13.4K pcs | JR286 73.4K pcs | ZELUS 193.5K pcs",
       check: true
     },
     {
-      date: "08.Jun",
-      text: "SP27 BASE BKGS Extract - FINAL",
+      date: "15.Jun",
+      text: "S&OP Meeting",
       warn: true
     },
     {
-      date: "11.Jun",
-      text: "SP27 Bookings Review - Leadership",
+      date: "17.Jun",
+      text: "Deadline envio de POs",
       warn: true
     },
     {
-      date: "12.Jun",
-      text: "SU27 OTB - Revisão 1 deadline",
+      date: "18.Jun",
+      text: "SU27 W41 Forecast - Top Down PLan",
       warn: true
     }
   ],
@@ -45,22 +45,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "JUN.01",
-      iso: "2026-06-01",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["01.6 Fechamento de Maio"]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["01.6 Deadline BKGS SP27 (Nike+JR286) - WHSL exceto Distro", "02.6 Base BKGS Prévia", "04.6 FERIADO - Corpus Christi"]
-        }
-      ]
-    },
-    {
+       {
       side: "left",
       label: "JUN.08",
       iso: "2026-06-08",
