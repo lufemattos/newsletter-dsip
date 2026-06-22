@@ -10,23 +10,28 @@ window.REPORT = {
     },
     {
       accent: true,
-      title: "SP27 BOOKINGS LICENCIADOS - units",
-      text: "HAF 13.4K pcs | JR286 73.4K pcs | ZELUS 193.5K pcs",
+      title: "SU27 W41 - units",
+      text: "TOTAL 7.4M pcs | IMP 4.1M e L4L 3.2M pcs",
       check: true
     },
     {
-      date: "15.Jun",
-      text: "S&OP Meeting",
+      date: "23.Jun",
+      text: "IBP CALL",
       warn: true
     },
     {
-      date: "17.Jun",
-      text: "Deadline envio de POs",
+      date: "24.Jun",
+      text: "SU27 W40 BOTTOMS UP L4L",
       warn: true
     },
     {
-      date: "18.Jun",
-      text: "SU27 W41 Forecast - Top Down PLan",
+      date: "24.Jun",
+      text: "VAI BRASIL! JOGO ÀS 19H00 BRASIL X ESCÓCIA",
+      warn: true
+    },
+    {
+      date: "26.Jun",
+      text: "SP27 envio de POs HAF",
       warn: true
     }
   ],
@@ -45,21 +50,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-       {
-      side: "left",
-      label: "JUN.08",
-      iso: "2026-06-08",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["10.6 Simulador 5+7 Prévia"]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["08.6 Base BKGS FINAL", "11.6 BKGS Review Leadership", "12.6 OTB Revisão 1"]
-        }
-      ]
-    },
     {
       side: "right",
       label: "JUN.15",
