@@ -117,6 +117,10 @@ window.REPORT = {
           items: [""]
         },
         {
+          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
+          items: ["08.7 Global Top Up Meeting"]
+        },
+        {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
           items: ["10.7 SU27 OTB Revisão 2"]
         }
