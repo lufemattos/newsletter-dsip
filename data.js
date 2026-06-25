@@ -99,7 +99,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["02.7 W39 SU27 ZELUS BOTTOMS UP"]
+          items: ["02.7 W39 SU27 ZELUS BOTTOMS UP","02.7 CHANNELS DEADLINE GATE I ALLOCATIONS - FK"]
         },
         {
           tag: { text: "HO27", bg: "#eab308", fg: "#111111" },
@@ -122,9 +122,205 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["10.7 SU27 OTB Revisão 2"]
+          items: ["06.7 Envio Allocations FK Forecast","07.7 DEADLINE CHANNELS GATE II BIG 3","08.7 SU27 OTB Revisão 2","06.7 a 08.7 Harmonizações Merch"]
         }
       ]
+    },
+    {
+      side: "right",
+      label: "JUL.13",
+      iso: "2026-07-13",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["13.7 Demand&Buy Review","14.7 Envio GATE II Allocations - BIG3","16.7 W37 Bottoms Up"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "JUL.20",
+      iso: "2026-07-20",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["20.7 A 23.7 XMPU","23.7 DEADLINE CHANNELS GATE III Allocations - Others&Families"]
+        }
+      ]
+    },
+    {
+      side: "right",
+      label: "JUL.27",
+      iso: "2026-07-27",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["27.7 Envio GATE III Allocations - Others&Families","W35 Bottoms Up ZELUS"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "AGO.03",
+      iso: "2026-08-03",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["W34 Bottoms Up Nike"]
+        }
+      ]
+    },
+    {
+      side: "right",
+      label: "AGO.10",
+      iso: "2026-08-10",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["10.8 Abertura do Portal","13.8 Allocations feedback from Nike"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "AGO.17",
+      iso: "2026-08-17",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["21.8 DEADLINE BOOKINGS Allocations/NBA/NOCTA/ZELUS"]
+        },
+        {
+          tag: { text: "HO27", bg: "#eab308", fg: "#111111" },
+          items: ["20.8 HO27 W59 TOP DOWN PLAN - ZELUS "]
+        }
+      ]
+    },
+    {
+      side: "right",
+      label: "AGO.24",
+      iso: "2026-08-24",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["26.8 BUYS Allocations/NBA/NOCTA/ZELUS","27.8 W31 Bottoms Up"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "AGO.31",
+      iso: "2026-08-31",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["31.8 Fechamento do Portal (exceto DISTRO)","01.9 Prévia BKGS MPO","02.9 Bookings Review Supply-Merch","04.9 Fechamento Portal"]
+        }
+      ]
+    },
+     {
+      side: "right",
+      label: "SET.07",
+      iso: "2026-09-07",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["08.9 Bookings FINAIS","10.9 Alinhamento BKGS Liderança"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["11.9 OTB REV 1 FA27"]
+        }
+      ]
+    },
+    {
+      side: "left",
+      label: "SET.14",
+      iso: "2026-09-14",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["16.9 Envio BUYS Regular Process"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["17.9 W41 TOP DOWN PLAN"]
+        }
+      ]
+    },
+    {
+      side: "right",
+      label: "SET.21",
+      iso: "2026-09-21",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["24.9 W40 BOTTOMS UP L4L"]
+        }
+        ]
+    },
+    {
+      side: "left",
+      label: "SET.28",
+      iso: "2026-09-28",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: [""]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["01.10 W39 BOTTOMS UP ZELUS"]
+        },
+        {
+          tag: { text: "SP28", bg: "#eab308", fg: "#111111" },
+          items: ["01.10 SP28 W65 LONG RANGE PLAN - L4L"]
+        }
+        ]
     }
   ]
 };
