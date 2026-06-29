@@ -4,34 +4,34 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "SP27 BOOKINGS NIKE",
-      text: "TOTAL R$ 637.2M CMV (+5% YoY) e 6.23M units (+15% YoY), sendo 57% IMP e 43% L4L",
+      title: "SU27 W40 (Bottoms Up L4L) - units",
+      text: "L4L 3.21M pcs | FTW 1.57M e APP 1.64M",
       check: true
     },
     {
       accent: true,
-      title: "SU27 W41 - units",
-      text: "TOTAL 7.4M pcs | IMP 4.1M e L4L 3.2M pcs",
+      title: "HO27 W65 (Long Range Plan L4L) - units",
+      text: "L4L 3.39M pcs | FTW 1.75M e APP 1.64M",
       check: true
     },
     {
-      date: "23.Jun",
-      text: "IBP CALL",
+      date: "29.Jun",
+      text: "VAI BRASIL! Jogo às 14h contra o Japão - etapa 16 avos",
       warn: true
     },
     {
-      date: "24.Jun",
-      text: "SU27 W40 BOTTOMS UP L4L",
+      date: "02.Jul",
+      text: "SU27 W39 BOTTOMS UP ZELUS",
       warn: true
     },
     {
-      date: "24.Jun",
-      text: "VAI BRASIL! JOGO ÀS 19H00 BRASIL X ESCÓCIA",
+      date: "02.Jul",
+      text: "W65 HO27 Long Range Plan",
       warn: true
     },
     {
-      date: "26.Jun",
-      text: "SP27 envio de POs HAF",
+      date: "02.Jul",
+      text: "Deadline envio CANAIS forecast FK Allocations",
       warn: true
     }
   ],
@@ -50,25 +50,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "JUN.15",
-      iso: "2026-06-15",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["15.6 Reunião S&OP"]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["17.6 BUYS SP27"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["18.6 W41 SU27 TOP DOWN PLAN"]
-        }
-      ]
-    },
     {
       side: "left",
       label: "JUN.22",
