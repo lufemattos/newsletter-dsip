@@ -95,7 +95,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["10.7 Versão prévia S&OP"]
         },
         {
           tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
@@ -129,7 +129,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["22.7 Versão FINAL S&OP"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
@@ -144,7 +144,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["28.7 MBR","28.7 S&OP Executivo"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
