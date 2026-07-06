@@ -1,5 +1,5 @@
 window.REPORT = {
-  lastUpdate: "Jun/2026",
+  lastUpdate: "Jul/2026",
 
   justTrackIt: [
     {
@@ -15,23 +15,28 @@ window.REPORT = {
       check: true
     },
     {
-      date: "29.Jun",
-      text: "VAI BRASIL! Jogo às 14h contra o Japão - etapa 16 avos",
+      date: "10.Jul",
+      text: "Prévia S&OP",
       warn: true
     },
     {
-      date: "02.Jul",
-      text: "SU27 W39 BOTTOMS UP ZELUS",
+      date: "07.Jul",
+      text: "Deadline CANAIS GATE II BIG 3 - forecast",
       warn: true
     },
     {
-      date: "02.Jul",
-      text: "W65 HO27 Long Range Plan",
+      date: "08.Jul",
+      text: "OTB Revisão 2 - SU27",
       warn: true
     },
     {
-      date: "02.Jul",
-      text: "Deadline envio CANAIS forecast FK Allocations",
+      date: "06 a 08.Jul",
+      text: "Harmonizações Merch SU27",
+      warn: true
+    },
+    {
+      date: "08.Jul",
+      text: "SU27 1º BLIND BUY - FK e LLTM",
       warn: true
     }
   ],
@@ -50,25 +55,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "JUN.22",
-      iso: "2026-06-22",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["26.6 BUYS HAF SP27"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["25.6 W40 SU27 BOTTOMS UP L4L"]
-        }
-      ]
-    },
     {
       side: "right",
       label: "JUN.29",
@@ -103,7 +89,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["06.7 Envio Allocations FK Forecast","07.7 DEADLINE CHANNELS GATE II BIG 3","08.7 SU27 OTB Revisão 2","06.7 a 08.7 Harmonizações Merch"]
+          items: ["06.7 Envio Allocations FK Forecast","07.7 DEADLINE CHANNELS GATE II BIG 3","08.7 SU27 OTB Revisão 2","06.7 a 08.7 Harmonizações Merch","08.7 1º SU27 BLIND BUY - FK e LLTM"]
         }
       ]
     },
@@ -118,7 +104,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["13.7 Demand&Buy Review","14.7 Envio GATE II Allocations - BIG3","16.7 W37 Bottoms Up"]
+          items: ["13.7 SP27 Demand&Buy Review","14.7 Envio GATE II Allocations - BIG3","16.7 W37 Bottoms Up"]
         }
       ]
     },
