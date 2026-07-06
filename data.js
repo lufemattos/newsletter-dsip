@@ -30,11 +30,6 @@ window.REPORT = {
       warn: true
     },
     {
-      date: "06 a 08.Jul",
-      text: "Harmonizações Merch SU27",
-      warn: true
-    },
-    {
       date: "08.Jul",
       text: "SU27 1º BLIND BUY - FK e LLTM",
       warn: true
