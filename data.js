@@ -86,7 +86,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["22.7 Versão FINAL S&OP"]
+          items: ["22.7 Versão FINAL S&OP","24.7 IBP CALL"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
