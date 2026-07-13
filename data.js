@@ -15,28 +15,18 @@ window.REPORT = {
       check: true
     },
     {
-      date: "10.Jul",
-      text: "Prévia S&OP",
+      date: "13.Jul",
+      text: "Demand & Buy Review SP27",
       warn: true
     },
     {
-      date: "07.Jul",
-      text: "Deadline CANAIS GATE II BIG 3 - forecast",
+      date: "14.Jul",
+      text: "Deadline GATE II BIG 3",
       warn: true
     },
     {
-      date: "08.Jul",
-      text: "OTB Revisão 2 - SU27",
-      warn: true
-    },
-    {
-      date: "08.Jul",
-      text: "SU27 1º BLIND BUY - FK e LLTM",
-      warn: true
-    },
-    {
-      date: "06 a 08.Jul",
-      text: "Harmonizações Merch SU27",
+      date: "16.Jul",
+      text: "W37 Bottoms Up SU27",
       warn: true
     }
   ],
@@ -55,26 +45,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "JUN.29",
-      iso: "2026-06-29",
-      sections: [
         {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["01.7 Fechamento Inventário"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["02.7 W39 SU27 ZELUS BOTTOMS UP","02.7 CHANNELS DEADLINE GATE I ALLOCATIONS - FK"]
-        },
-        {
-          tag: { text: "HO27", bg: "#eab308", fg: "#111111" },
-          items: ["02.7 HO27 W65 LONG RANGE PLAN - L4L "]
-        }
-      ]
-    },
-    {
       side: "left",
       label: "JUL.06",
       iso: "2026-07-06",
