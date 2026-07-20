@@ -4,29 +4,28 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "SU27 W40 (Bottoms Up L4L) - units",
-      text: "L4L 3.21M pcs | FTW 1.57M e APP 1.64M",
+      title: "SU27 W37 (Bottoms Up) - units",
+      text: "L4L 3.21M pcs | IMP 3.94M",
       check: true
     },
     {
-      accent: true,
-      title: "HO27 W65 (Long Range Plan L4L) - units",
-      text: "L4L 3.39M pcs | FTW 1.75M e APP 1.64M",
-      check: true
-    },
-    {
-      date: "13.Jul",
-      text: "Demand & Buy Review SP27",
+      date: "20.Jul a 23.Jul",
+      text: "XMPU SU27",
       warn: true
     },
     {
-      date: "14.Jul",
-      text: "Deadline GATE II BIG 3",
+      date: "23.Jul",
+      text: "Deadline CHANNELS - GATE III Others",
       warn: true
     },
     {
-      date: "16.Jul",
-      text: "W37 Bottoms Up SU27",
+      date: "23.Jul",
+      text: "2nd BLIND BUY SU27",
+      warn: true
+    },
+    {
+      date: "24.Jul",
+      text: "IBP Call",
       warn: true
     }
   ],
@@ -45,26 +44,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-        {
-      side: "left",
-      label: "JUL.06",
-      iso: "2026-07-06",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["10.7 Versão prévia S&OP"]
-        },
-        {
-          tag: { text: "SP27", bg: "#eab308", fg: "#111111" },
-          items: ["08.7 Global Top Up Meeting"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["06.7 Envio Allocations FK Forecast","07.7 DEADLINE CHANNELS GATE II BIG 3","08.7 SU27 OTB Revisão 2","06.7 a 08.7 Harmonizações Merch","08.7 1º SU27 BLIND BUY - FK e LLTM"]
-        }
-      ]
-    },
-    {
+            {
       side: "right",
       label: "JUL.13",
       iso: "2026-07-13",
@@ -90,7 +70,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["20.7 A 23.7 XMPU","23.7 DEADLINE CHANNELS GATE III Allocations - Others&Families"]
+          items: ["20.7 A 23.7 XMPU","23.7 DEADLINE CHANNELS GATE III Allocations - Others&Families","24.7 IBP Call"]
         }
       ]
     },
