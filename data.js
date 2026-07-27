@@ -9,25 +9,30 @@ window.REPORT = {
       check: true
     },
     {
-      date: "20.Jul a 23.Jul",
-      text: "XMPU SU27",
+      date: "27.Jul",
+      text: "Deadline - GATE III Others",
       warn: true
     },
     {
-      date: "23.Jul",
-      text: "Deadline CHANNELS - GATE III Others",
+      date: "28.Jul",
+      text: "1st GFB Buy",
       warn: true
     },
     {
-      date: "23.Jul",
-      text: "2nd BLIND BUY SU27",
+      date: "28.Jul",
+      text: "SU27 Consensus L4L",
       warn: true
     },
     {
-      date: "24.Jul",
-      text: "IBP Call",
+      date: "28.Jul",
+      text: "S&OP Meeting Executivo",
       warn: true
-    }
+    },
+    {
+      date: "30.Jul",
+      text: "SU27 W35 ZELUS - Bottoms Up",
+      warn: true
+    },
   ],
 
   timeline: [
@@ -44,21 +49,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-            {
-      side: "right",
-      label: "JUL.13",
-      iso: "2026-07-13",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["13.7 SP27 Demand&Buy Review","14.7 Envio GATE II Allocations - BIG3","16.7 W37 Bottoms Up"]
-        }
-      ]
-    },
     {
       side: "left",
       label: "JUL.20",
@@ -85,7 +75,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["27.7 Envio GATE III Allocations - Others&Families","W35 Bottoms Up ZELUS"]
+          items: ["27.7 Envio GATE III Allocations - Others&Families","28.7 1st Global FTB Buys","W35 Bottoms Up ZELUS"]
         }
       ]
     },
@@ -100,7 +90,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["W34 Bottoms Up Nike"]
+          items: ["W34 Bottoms Up Nike","2nd Global FTB Buys"]
         }
       ]
     },
