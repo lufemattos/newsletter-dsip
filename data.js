@@ -76,7 +76,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["05.8 Deadline CHANNELS GFB Buy","06.8 W34 Bottoms Up Nike","06.8 3rd Blind Buy","07.8 2nd Global FTB Buys"]
+          items: ["05.8 Deadline CHANNELS GFB Buy","06.8 W34 Bottoms Up Nike","06.8 3rd Blind Buy","07.8 2nd Global FTB Buys","05.8 1st HAF qty"]
         }
       ]
     },
@@ -174,7 +174,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["16.9 Envio BUYS Regular Process"]
+          items: ["16.9 Envio BUYS Regular Process", "18.9 Bookings Review JR286 - DSM>Merch"]
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
@@ -192,6 +192,10 @@ window.REPORT = {
           items: [""]
         },
         {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["22.9 Bookings Review JR286 - Merch>DSM","24.9 Deadline ajustes ND JR286", "25.9 Extract MPO JR286"]
+        },
+        {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
           items: ["24.9 W40 BOTTOMS UP L4L"]
         }
@@ -207,11 +211,15 @@ window.REPORT = {
           items: [""]
         },
         {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["01.10 JR286 ORDERS"]
+        },
+        {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
           items: ["01.10 W39 BOTTOMS UP ZELUS"]
         },
         {
-          tag: { text: "SP28", bg: "#eab308", fg: "#111111" },
+          tag: { text: "SP28", bg: "#4ea72eff", fg: "#111111" },
           items: ["01.10 SP28 W65 LONG RANGE PLAN - L4L"]
         }
         ]
