@@ -1,38 +1,39 @@
 window.REPORT = {
-  lastUpdate: "Jul/2026",
+  lastUpdate: "Ago/2026",
 
   justTrackIt: [
     {
       accent: true,
-      title: "SU27 W37 (Bottoms Up) - units",
-      text: "L4L 3.21M pcs | IMP 3.94M",
+      title: "SU27 W34 (Bottoms Up) - units",
+      text: "L4L 3.21M pcs | IMP 4.03M",
       check: true
     },
     {
-      date: "27.Jul",
-      text: "Deadline - GATE III Others",
+      accent: true,
+      title: "SU27 W35 ZELUS - units",
+      text: "TOTAL: 322.1K | Replica Jsy VDG 101.8K e AMN 76.7K",
+      check: true
+    },
+    {
+      date: "03.Ago",
+      text: "Fechamento Inventário",
       warn: true
     },
     {
-      date: "28.Jul",
-      text: "1st GFB Buy",
+      date: "05.Ago",
+      text: "DEADLINE CHANNELS - CHUTEIRAS BUY W34 (GFB)",
       warn: true
     },
     {
-      date: "28.Jul",
-      text: "SU27 Consensus L4L",
+      date: "06.Ago",
+      text: "SU27 W34 Bottoms Up Forecast",
       warn: true
     },
     {
-      date: "28.Jul",
-      text: "S&OP Meeting Executivo",
+      date: "07.Ago",
+      text: "GFB Buy - orders",
       warn: true
-    },
-    {
-      date: "30.Jul",
-      text: "SU27 W35 ZELUS - Bottoms Up",
-      warn: true
-    },
+    }
   ],
 
   timeline: [
@@ -49,22 +50,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "JUL.20",
-      iso: "2026-07-20",
-      sections: [
         {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["22.7 Versão FINAL S&OP","24.7 IBP CALL"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["20.7 A 23.7 XMPU","23.7 DEADLINE CHANNELS GATE III Allocations - Others&Families","24.7 IBP Call"]
-        }
-      ]
-    },
-    {
       side: "right",
       label: "JUL.27",
       iso: "2026-07-27",
@@ -86,11 +72,11 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["03.8 Fechamento Inventário Julho"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["W34 Bottoms Up Nike","2nd Global FTB Buys"]
+          items: ["05.8 Deadline CHANNELS GFB Buy","06.8 W34 Bottoms Up Nike","06.8 3rd Blind Buy","07.8 2nd Global FTB Buys"]
         }
       ]
     },
@@ -101,7 +87,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["12.Ago S&OP Meeting"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
