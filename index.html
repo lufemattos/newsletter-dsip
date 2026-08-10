@@ -34,11 +34,10 @@
                 <div class="absolute top-0 right-0 w-40 h-40 bg-[#E97132] opacity-5 rounded-full transform translate-x-10 -translate-y-10"></div>
                 <div class="relative z-10 flex items-center justify-between gap-4 flex-wrap">
                     <h2 class="text-3xl font-black italic tracking-wide uppercase text-white">JUST TRACK IT!</h2>
-                    <div class="flex gap-2 no-export flex-wrap">
+                    <div class="flex gap-2 flex-wrap">
                         <a href="kpi.html" class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">KPIs</a>
                         <a href="code.html" class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">CODE</a>
                         <a href="organograma.html" class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">ORGANOGRAMA</a>
-                        <button id="exportPdfBtn" class="inline-flex items-center border border-gray-400 text-gray-200 px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-gray-200 hover:text-black transition-colors">Exportar PDF</button>
                     </div>
                 </div>
             </div>
@@ -84,16 +83,16 @@
 
     tbody.innerHTML = REPORT.justTrackIt.map((it) => {
       if (it.accent) {
-  return `
-    <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
-      <td class="py-4 pl-4 border-l-4 border-[#E97132]">
-        <span class="font-bold text-black block md:inline">${it.title || ""}</span> 
-        <span class="text-gray-700">${it.text || ""}</span>
-        ${it.check ? '<span class="ml-2 inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-600 text-white text-xs font-bold">✓</span>' : ""}
-      </td>
-    </tr>
-  `;
-}
+        return `
+          <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
+            <td class="py-4 pl-4 border-l-4 border-[#E97132]">
+              <span class="font-bold text-black block md:inline">${it.title || ""}</span> 
+              <span class="text-gray-700">${it.text || ""}</span>
+              ${it.check ? '<span class="ml-2 inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-600 text-white text-xs font-bold">✓</span>' : ""}
+            </td>
+          </tr>
+        `;
+      }
 
       return `
         <tr class="border-b border-gray-100 group hover:bg-gray-50 transition-colors">
@@ -121,7 +120,6 @@
 
   viewport.style.paddingLeft = SAFE_PADDING + "px";
   viewport.style.paddingRight = SAFE_PADDING + "px";
-
   viewport.style.overflow = "visible";
 
   const toTime = (iso) => {
@@ -160,10 +158,10 @@
     vline.style.bottom = "0";
     vline.style.left = "50%";
     vline.style.transform = "translateX(-50%)";
-    vline.style.width = "1px";
+    vline.style.width = "2px";
     vline.style.backgroundImage =
       "repeating-linear-gradient(to bottom, #ef4444 0 6px, transparent 6px 12px)";
-    vline.style.opacity = "0.6";
+    vline.style.opacity = "0.9";
 
     marker.appendChild(vline);
     viewport.appendChild(marker);
@@ -239,6 +237,9 @@
     const today = new Date(now.getFullYear(), now.getMonth(), now.getDate()).getTime();
 
     const viewportRect = viewport.getBoundingClientRect();
+    const computedStyle = window.getComputedStyle(viewport);
+    const paddingLeft = parseFloat(computedStyle.paddingLeft) || 0;
+    const borderLeft = parseFloat(computedStyle.borderLeftWidth) || 0;
 
     const nodes = Array.from(container.querySelectorAll('[data-iso]'))
       .map(el => {
@@ -248,7 +249,7 @@
         if (!dot || t === null) return null;
 
         const r = dot.getBoundingClientRect();
-        const xCenter = (r.left - viewportRect.left) + (r.width / 2);
+        const xCenter = (r.left + r.width / 2) - (viewportRect.left + borderLeft + paddingLeft);
         return { t, x: xCenter };
       })
       .filter(Boolean)
@@ -270,12 +271,13 @@
     marker.style.left = `${x}px`;
   };
 
-  applyScale();
+  window.addEventListener("load", applyScale);
   window.addEventListener("resize", applyScale);
+  applyScale();
 })();
 </script>
 
-    <script>
+<script>
 (function () {
   if (!window.REPORT || !Array.isArray(REPORT.datesGates)) return;
 
@@ -413,73 +415,6 @@
   container.innerHTML = REPORT.datesGates
     .map((item, idx) => renderCard(item, idx === todayIdx))
     .join("");
-})();
-</script>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-
-<script>
-(function () {
-  const btn = document.getElementById("exportPdfBtn");
-  const target = document.getElementById("newsletter");
-
-  if (!btn || !target) return;
-
-  btn.addEventListener("click", async function () {
-    const originalText = btn.textContent;
-    btn.textContent = "Gerando PDF...";
-    btn.disabled = true;
-
-    const hidden = [];
-    document.querySelectorAll(".no-export").forEach(el => {
-      hidden.push({ el, display: el.style.display });
-      el.style.display = "none";
-    });
-
-    await new Promise(r => setTimeout(r, 200));
-    const originalTransform = target.style.transform;
-    const originalTransformOrigin = target.style.transformOrigin;
-
-    const lastUpdate = (window.REPORT && REPORT.lastUpdate) ? REPORT.lastUpdate : "newsletter";
-    const safeName = String(lastUpdate).replace(/[^\w\-]+/g, "_");
-    const filename = `Newsletter_DSIP_${safeName}.pdf`;
-    target.style.transformOrigin = "top left";
-    target.style.transform = "scale(0.75)";
-
-    const originalWidth = target.style.width;
-    target.style.width = (100 / 0.75) + "%"; 
-
-    await new Promise(r => setTimeout(r, 250));
-
-    const opt = {
-      margin:       [10, 10, 10, 10], 
-      filename:     filename,
-      image:        { type: "jpeg", quality: 0.98 },
-      html2canvas:  {
-        scale: 2,
-        useCORS: true,
-        backgroundColor: "#ffffff"
-      },
-      jsPDF:        { unit: "mm", format: "a4", orientation: "portrait" },
-      pagebreak:    { mode: ["css", "legacy"] }
-    };
-
-    try {
-      await html2pdf().set(opt).from(target).save();
-    } catch (e) {
-      alert("Não consegui gerar o PDF. Veja o Console (F12) para detalhes.");
-      console.error(e);
-    } finally {
-      target.style.transform = originalTransform;
-      target.style.transformOrigin = originalTransformOrigin;
-      target.style.width = originalWidth;
-
-      hidden.forEach(x => x.el.style.display = x.display);
-
-      btn.textContent = originalText;
-      btn.disabled = false;
-    }
-  });
 })();
 </script>
 
