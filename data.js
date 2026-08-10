@@ -15,26 +15,16 @@ window.REPORT = {
       check: true
     },
     {
-      date: "03.Ago",
-      text: "Fechamento Inventário",
+      date: "12.Ago",
+      text: "S&OP Meeting",
       warn: true
     },
     {
-      date: "05.Ago",
-      text: "DEADLINE CHANNELS - CHUTEIRAS BUY W34 (GFB)",
-      warn: true
-    },
-    {
-      date: "06.Ago",
-      text: "SU27 W34 Bottoms Up Forecast",
-      warn: true
-    },
-    {
-      date: "07.Ago",
-      text: "GFB Buy - orders",
+      date: "13.Ago",
+      text: "Feedback Allocations - Nike",
       warn: true
     }
-  ],
+      ],
 
   timeline: [
     { side: "top",    date: "20/Jul", iso: "2026-07-20", color: "#E97132", boxType: "dark",  title: "X-MPU",        subtitle: "20-23 Abr",    tooltip: "Reunião de Merch para fazer o download da coleção" },
@@ -50,22 +40,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-        {
-      side: "right",
-      label: "JUL.27",
-      iso: "2026-07-27",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["28.7 MBR","28.7 S&OP Executivo"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["27.7 Envio GATE III Allocations - Others&Families","28.7 1st Global FTB Buys","W35 Bottoms Up ZELUS"]
-        }
-      ]
-    },
-    {
+            {
       side: "left",
       label: "AGO.03",
       iso: "2026-08-03",
