@@ -68,7 +68,7 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["18.8 MBR Meeting", "20.8 Ciclo V2 Simulador - Canais]
+          items: ["18.8 MBR Meeting", "20.8 Ciclo V2 Simulador - Canais"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
