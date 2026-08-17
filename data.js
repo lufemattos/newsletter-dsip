@@ -15,13 +15,19 @@ window.REPORT = {
       check: true
     },
     {
+      accent: true,
+      title: "21/ago DEADLINE BOOKINGS",
+      text: "Allocations, NBA, NOCTA, ZELUS e SKIMS",
+      check: true
+    },
+    {
       date: "17.Ago",
       text: "MBR Meeting",
       warn: true
     },
     {
-      date: "13.Ago",
-      text: "Feedback Allocations - Nike",
+      date: "20.Ago",
+      text: "W59 HO27 Top Down Plan ZELUS",
       warn: true
     }
       ],
