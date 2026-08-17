@@ -15,8 +15,8 @@ window.REPORT = {
       check: true
     },
     {
-      date: "12.Ago",
-      text: "S&OP Meeting",
+      date: "17.Ago",
+      text: "MBR Meeting",
       warn: true
     },
     {
@@ -40,21 +40,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-            {
-      side: "left",
-      label: "AGO.03",
-      iso: "2026-08-03",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["03.8 Fechamento Inventário Julho"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["05.8 Deadline CHANNELS GFB Buy","06.8 W34 Bottoms Up Nike","06.8 3rd Blind Buy","07.8 2nd Global FTB Buys","05.8 1st HAF qty"]
-        }
-      ]
-    },
     {
       side: "right",
       label: "AGO.10",
@@ -77,11 +62,11 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["18.8 MBR Meeting", "20.8 Ciclo V2 Simulador - Canais]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["21.8 DEADLINE BOOKINGS Allocations/NBA/NOCTA/ZELUS"]
+          items: ["19.8 Prebuild WC - Canais","20.8 NOCTA BUYS","20.8 4th Blind Buy Window","21.8 DEADLINE BOOKINGS Allocations/NBA/NOCTA/ZELUS","21.8 OTB Rev4"]
         },
         {
           tag: { text: "HO27", bg: "#eab308", fg: "#111111" },
@@ -96,11 +81,11 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["24.8 Simulador Rev2"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["26.8 BUYS Allocations/NBA/NOCTA/ZELUS","27.8 W31 Bottoms Up"]
+          items: ["26.8 BUYS Allocations/NBA/ZELUS","27.8 W31 Bottoms Up","28.8 SKIMS BUY"]
         }
       ]
     },
@@ -115,7 +100,7 @@ window.REPORT = {
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["31.8 Fechamento do Portal (exceto DISTRO)","01.9 Prévia BKGS MPO","02.9 Bookings Review Supply-Merch","04.9 Fechamento Portal"]
+          items: ["31.8 Fechamento do Portal (exceto DISTRO)","01.9 Prévia BKGS MPO","02.9 Bookings Review Supply-Merch","03.9 5th Blind Buy Window","04.9 Fechamento Portal"]
         }
       ]
     },
