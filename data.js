@@ -15,19 +15,23 @@ window.REPORT = {
       check: true
     },
     {
-      accent: true,
-      title: "21/ago DEADLINE BOOKINGS",
-      text: "Allocations, NBA, NOCTA, ZELUS e SKIMS",
-      check: true
-    },
-    {
-      date: "17.Ago",
-      text: "MBR Meeting",
+      date: "26.Ago",
+      text: "Allocations/NBA Buy",
       warn: true
     },
     {
-      date: "20.Ago",
-      text: "W59 HO27 Top Down Plan ZELUS",
+      date: "27.Ago",
+      text: "SU27 WK31 Bottoms Up",
+      warn: true
+    },
+    {
+      date: "28.Ago",
+      text: "IBP Call",
+      warn: true
+    },
+     {
+      date: "28.Ago",
+      text: "SKIMS Buy",
       warn: true
     }
       ],
@@ -46,21 +50,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "AGO.10",
-      iso: "2026-08-10",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["12.Ago S&OP Meeting"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["10.8 Abertura do Portal","13.8 Allocations feedback from Nike"]
-        }
-      ]
-    },
     {
       side: "left",
       label: "AGO.17",
@@ -87,11 +76,11 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["24.8 Simulador Rev2"]
+          items: ["24.8 Simulador Rev2","28.08 IBP Call"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["26.8 BUYS Allocations/NBA/ZELUS","27.8 W31 Bottoms Up","28.8 SKIMS BUY"]
+          items: ["26.8 BUYS Allocations/NBA","27.8 W31 Bottoms Up","28.8 SKIMS BUY"]
         }
       ]
     },
