@@ -37,7 +37,7 @@
                     <div class="flex gap-2 flex-wrap">
                         <a href="kpi.html" class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">KPIs</a>
                         <a href="code.html" class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">CODE</a>
-                        <a href="organograma.html" class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">ORGANOGRAMA</a>
+                        <a href="organograma-dsip.html" class="inline-flex items-center border border-white text-white px-4 py-2 text-sm font-bold uppercase tracking-wider hover:bg-white hover:text-black transition-colors">ORGANOGRAMA</a>
                     </div>
                 </div>
             </div>
@@ -74,6 +74,7 @@
     </div>
 
     <script src="data.js"></script>
+
 <script>
   (function () {
     if (!window.REPORT || !Array.isArray(REPORT.justTrackIt)) return;
@@ -356,7 +357,14 @@
 
   const renderCard = (item, isToday) => {
     const side = (item.side === "right") ? "right" : "left";
-    const sections = Array.isArray(item.sections) ? item.sections : [];
+    const rawSections = Array.isArray(item.sections) ? item.sections : [];
+
+    const sections = rawSections.filter(sec => {
+      const list = Array.isArray(sec.items) ? sec.items.filter(x => x && x.trim() !== "") : [];
+      return list.length > 0;
+    });
+
+    if (sections.length === 0) return "";
 
     const tagHtml = (sec) => {
       const bg = sec?.tag?.bg || "#111";
@@ -366,7 +374,7 @@
     };
 
     const itemsHtml = (sec) => {
-      const list = Array.isArray(sec.items) ? sec.items : [];
+      const list = Array.isArray(sec.items) ? sec.items.filter(x => x && x.trim() !== "") : [];
       return `
         <ul class="dg-list text-xs text-gray-700 leading-relaxed font-medium dg-text">
           ${list.map(x => `<li>• ${esc(x)}</li>`).join("")}
