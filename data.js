@@ -9,18 +9,18 @@ window.REPORT = {
       check: true
     },
     {
-      date: "31.Ago",
-      text: "1st bookings extract - ex Distro",
-      warn: true
-    },
-    {
       date: "31.Ago a 04.Set ",
       text: "Bookings Review",
       warn: true
     },
     {
+      date: "01.Set",
+      text: "1st bookings extract - ex Distro",
+      warn: true
+    },
+    {
       date: "03.Set",
-      text: "H027 ZELUS Top Down Plan",
+      text: "HO27 ZELUS Top Down Plan",
       warn: true
     },
     {
