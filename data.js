@@ -4,34 +4,28 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "SU27 W34 (Bottoms Up) - units",
-      text: "L4L 3.21M pcs | IMP 4.03M",
+      title: "SU27 W31 (Bottoms Up) - units",
+      text: "TOTAL: 7.17M | L4L 3.18M pcs  IMP 4M",
       check: true
     },
     {
-      accent: true,
-      title: "SU27 W35 ZELUS - units",
-      text: "TOTAL: 322.1K | Replica Jsy VDG 101.8K e AMN 76.7K",
-      check: true
-    },
-    {
-      date: "26.Ago",
-      text: "Allocations/NBA Buy",
+      date: "31.Ago",
+      text: "1st bookings extract - ex Distro",
       warn: true
     },
     {
-      date: "27.Ago",
-      text: "SU27 WK31 Bottoms Up",
+      date: "31.Ago a 04.Set ",
+      text: "Bookings Review",
       warn: true
     },
     {
-      date: "28.Ago",
-      text: "IBP Call",
+      date: "03.Set",
+      text: "H027 ZELUS Top Down Plan",
       warn: true
     },
-     {
-      date: "28.Ago",
-      text: "SKIMS Buy",
+    {
+      date: "03.Set",
+      text: "Early Buys Window",
       warn: true
     }
       ],
@@ -50,26 +44,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "left",
-      label: "AGO.17",
-      iso: "2026-08-17",
-      sections: [
         {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["18.8 MBR Meeting", "20.8 Ciclo V2 Simulador - Canais"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["19.8 Prebuild WC - Canais","20.8 NOCTA BUYS","20.8 4th Blind Buy Window","21.8 DEADLINE BOOKINGS Allocations/NBA/NOCTA/ZELUS","21.8 OTB Rev4"]
-        },
-        {
-          tag: { text: "HO27", bg: "#eab308", fg: "#111111" },
-          items: ["20.8 HO27 W59 TOP DOWN PLAN - ZELUS "]
-        }
-      ]
-    },
-    {
       side: "right",
       label: "AGO.24",
       iso: "2026-08-24",
