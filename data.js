@@ -9,18 +9,13 @@ window.REPORT = {
       check: true
     },
     {
-      date: "08.Set a 11.Set ",
-      text: "Bookings Review",
+      date: "01.Oct",
+      text: "JR286 ORDERS",
       warn: true
     },
     {
-      date: "08.Set",
-      text: "2nd bookings extract - FINAL",
-      warn: true
-    },
-    {
-      date: "11.Set",
-      text: "Alinhamento Liderança - BUYS SU27",
+      date: "01.Oct",
+      text: "WK65 SP28 Long Range Plan APP L4L",
       warn: true
     }
       ],
