@@ -4,20 +4,8 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "NIKE SU27 BKGS 01.09 (ex-distro) - units",
-      text: "TOTAL: 7.2M | L4L 3.03M  IMP 4.2M",
-      check: true
-    },
-    {
-      accent: true,
-      title: "ZELUS SU27 BKGS 01.09 (ex-distro) - units",
-      text: "TOTAL: 157.6K | L4L 54K  IMP 103.7K",
-      check: true
-    },
-    {
-      accent: true,
-      title: "JR286 SU27 BKGS 01.09 (ex-distro) - units",
-      text: "TOTAL: 53.6K",
+      title: "TOTAL SU27 BUYS",
+      text: "TOTAL: 7.2M",
       check: true
     },
     {
@@ -127,7 +115,7 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["13.10 Deadline Channels GATE II - BIG 3", "15.10 Allocations BIG 3 template,"16.10 W37 BOTTOMS UP",]
+          items: ["13.10 Deadline Channels GATE II - BIG 3", "15.10 Allocations BIG 3 template"," 16.10 W37 BOTTOMS UP",]
         }
         ]
         }
