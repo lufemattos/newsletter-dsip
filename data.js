@@ -52,62 +52,13 @@ window.REPORT = {
 
   datesGates: [
     {
-      side: "left",
-      label: "AGO.31",
-      iso: "2026-08-31",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["31.8 Fechamento do Portal (exceto DISTRO)","01.9 Prévia BKGS MPO","02.9 Bookings Review Supply-Merch","03.9 5th Blind Buy Window","04.9 Fechamento Portal"]
-        }
-      ]
-    },
-     {
-      side: "right",
-      label: "SET.07",
-      iso: "2026-09-07",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["08.9 Bookings FINAIS","11.9 Alinhamento BKGS Liderança"]
-        },
-      ]
-    },
-    {
-      side: "left",
-      label: "SET.14",
-      iso: "2026-09-14",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["16.9 Envio BUYS Regular Process", "18.9 Bookings Review JR286 - DSM>Merch"]
-        },
-        {
-          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["17.9 W41 TOP DOWN PLAN", "11.9 OTB REV 1 FA27"]
-        }
-      ]
-    },
-    {
       side: "right",
       label: "SET.21",
       iso: "2026-09-21",
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["21.09 Update Channels V2 S&OP 9+3"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
@@ -126,21 +77,59 @@ window.REPORT = {
       sections: [
         {
           tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: [""]
+          items: ["01.10 Fechamento Setembro"]
         },
         {
           tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["01.10 JR286 ORDERS"]
+          items: ["30.09 HAF ORDERS","01.10 JR286 ORDERS"]
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["01.10 W39 BOTTOMS UP ZELUS"]
+          items: ["01.10 W39 BOTTOMS UP ZELUS - postponed"]
         },
         {
           tag: { text: "SP28", bg: "#4ea72eff", fg: "#111111" },
-          items: ["01.10 SP28 W65 LONG RANGE PLAN - L4L"]
+          items: ["01.10 SP28 W65 LONG RANGE PLAN - APP L4L"]
         }
         ]
-    }
+    },
+    {
+      side: "right",
+      label: "OCT.05",
+      iso: "2026-10-05",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["05.10 Fechamento Setembro"]
+        },
+        {
+          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
+          items: ["07.10 Global Top Up Meeting"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["06.10 Deadline Channels GATE I - FK", "07.10 Allocations FK forecast","08.10 W39 BOTTOMS UP ZELUS",]
+        },
+        {
+          tag: { text: "SP28", bg: "#4ea72eff", fg: "#111111" },
+          items: ["01.10 SP28 W65 LONG RANGE PLAN - FTW L4L"]
+        }
+        ]
+    },
+    {
+      side: "left",
+      label: "OCT.12",
+      iso: "2026-10-12",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["13.10 S&OP 1st version"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["13.10 Deadline Channels GATE II - BIG 3", "15.10 Allocations BIG 3 template,"16.10 W37 BOTTOMS UP",]
+        }
+        ]
+        }
   ]
 };
