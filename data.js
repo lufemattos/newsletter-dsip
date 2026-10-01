@@ -1,5 +1,5 @@
 window.REPORT = {
-  lastUpdate: "Set/2026",
+  lastUpdate: "Oct/2026",
 
   justTrackIt: [
     {
@@ -91,11 +91,11 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["06.10 Deadline Channels GATE I - FK", "07.10 Allocations FK forecast","08.10 W39 BOTTOMS UP ZELUS",]
+          items: ["06.10 Deadline Channels GATE I - FK", "07.10 Allocations FK forecast","08.10 W39 BOTTOMS UP ZELUS","09.10 OTB Extract 2"]
         },
         {
           tag: { text: "SP28", bg: "#4ea72eff", fg: "#111111" },
-          items: ["01.10 SP28 W65 LONG RANGE PLAN - FTW L4L"]
+          items: ["01.10 SP28 W65 LONG RANGE PLAN - FTW L4L","09.10 3YLP L4L"]
         }
         ]
     },
@@ -111,6 +111,96 @@ window.REPORT = {
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
           items: ["13.10 Deadline Channels GATE II - BIG 3", "15.10 Allocations BIG 3 template"," 16.10 W37 BOTTOMS UP",]
+        }
+        ]
+        },
+      {
+      side: "right",
+      label: "OCT.19",
+      iso: "2026-10-19",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["21.10 MBR"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["21.10 Confirmation GATE I - FK", "21.10 1st Blind Buy","20 a 23.10 XMPU"]
+        }
+        ]
+        },
+    {
+      side: "left",
+      label: "OCT.26",
+      iso: "2026-10-26",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["26.10 S&OP 2nd version"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["26.10 Deadline Channels Allocations GATE III - Others","27.10 CONSENSUS L4L","28.10 Allocations Gate III","29.10 W35 Zelus Bottoms Up","30.10 OTB Extract 3"]
+        }
+        ]
+        },
+    {
+      side: "right",
+      label: "NOV.02",
+      iso: "2026-11-02",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["02.11 Fechamento Outubro"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["04.11 2nd Blind Buys","06.11 Allocations GATE IV - Running", "06.11 W34 Bottoms Up"]
+        }
+        ]
+        },
+    {
+      side: "left",
+      label: "NOV.09",
+      iso: "2026-11-09",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["10.11 S&OP 1st version"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["12.11 Allocations Approval File","13.11 Deadline BOOKINGS NOCTA"]
+        }
+        ]
+        },
+    {
+      side: "right",
+      label: "NOV.16",
+      iso: "2026-11-16",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["19.11 MBR"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["16.11 Extract NOCTA","18.11 3rd Blind Buy","19.11 Deadline BOOKINGS NBA/ZELUS/Allocations","19.11 OTB Extract 4"]
+        }
+        ]
+        },
+    {
+      side: "left",
+      label: "NOV.23",
+      iso: "2026-11-23",
+      sections: [
+        {
+          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
+          items: ["24.11 S&OP 2nd version"]
+        },
+        {
+          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
+          items: ["26.11 W31 Bottoms Up","25.11 Allocations Buy"]
         }
         ]
         }
