@@ -4,8 +4,8 @@ window.REPORT = {
   justTrackIt: [
     {
       accent: true,
-      title: "TOTAL SU27 BUYS",
-      text: "TOTAL: 7.2M",
+      title: "L4L FA27 Forecast - units",
+      text: "TOTAL: 3.5M | APP 2M pcs / FTW 1.6M pcs",
       check: true
     },
     {
