@@ -9,19 +9,34 @@ window.REPORT = {
       check: true
     },
     {
-      date: "01.Oct",
-      text: "JR286 ORDERS",
+      date: "05.Oct",
+      text: "Fechamento de Inventário Setembro",
       warn: true
     },
     {
-      date: "01.Oct",
-      text: "WK65 SP28 Long Range Plan APP L4L",
+      date: "06.Oct",
+      text: "SP28 Long Range Plan FTW L4L",
+      warn: true
+    },
+    {
+      date: "07.Oct",
+      text: "FA27 Allocations GATE I - FK - DEADLINE FORECAST CHANNELS",
+      warn: true
+    },
+    {
+      date: "08.Oct",
+      text: "FA27 ZELUS Bottoms Up",
+      warn: true
+    },
+    {
+      date: "09.Oct",
+      text: "OTB Extract - Rev 2",
       warn: true
     }
       ],
 
   timeline: [
-    { side: "top",    date: "20/Jul", iso: "2026-07-20", color: "#E97132", boxType: "dark",  title: "X-MPU",        subtitle: "20-23 Abr",    tooltip: "Reunião de Merch para fazer o download da coleção" },
+    { side: "top",    date: "20/Out", iso: "2026-10-20", color: "#E97132", boxType: "dark",  title: "X-MPU",        subtitle: "20-23 Oct",    tooltip: "Reunião de Merch para fazer o download da coleção" },
     { side: "bottom", date: "10/Ago", iso: "2026-08-10", color: "#60A5FA", boxType: "light", title: "Abertura",    subtitle: "Portal",       tooltip: "Primeira abertura de portal" },
     { side: "top",    date: "21/Ago", iso: "2026-08-21", color: "#22C55E", boxType: "light", title: "Bookings",    subtitle: "Alocados, Zelus, NBA e NOCTA", tooltip: "Digitação de bookings para early buys Alocados, NBA, Zelus e Nocta" },
     { side: "bottom", date: "31/Ago", iso: "2026-08-31", color: "#FACC15", boxType: "light", title: "Fechamento", subtitle: "Portal (ex-Distr)", tooltip: "Finalização de pedidos desconsiderando Distribuidores" },
@@ -34,25 +49,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-    {
-      side: "right",
-      label: "SET.21",
-      iso: "2026-09-21",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["21.09 Update Channels V2 S&OP 9+3"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["22.9 Bookings Review JR286 - Merch>DSM","24.9 Deadline ajustes ND JR286", "25.9 Extract MPO JR286"]
-        },
-        {
-          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["24.9 W40 BOTTOMS UP L4L"]
-        }
-        ]
-    },
     {
       side: "left",
       label: "SET.28",
@@ -91,11 +87,11 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["06.10 Deadline Channels GATE I - FK", "07.10 Allocations FK forecast","08.10 W39 BOTTOMS UP ZELUS","09.10 OTB Extract 2"]
+          items: ["07.10 Deadline Channels GATE I - FK", "08.10 Allocations FK forecast","08.10 W39 BOTTOMS UP ZELUS","09.10 OTB Extract 2"]
         },
         {
           tag: { text: "SP28", bg: "#4ea72eff", fg: "#111111" },
-          items: ["01.10 SP28 W65 LONG RANGE PLAN - FTW L4L","09.10 3YLP L4L"]
+          items: ["06.10 SP28 W65 LONG RANGE PLAN - FTW L4L","09.10 3YLP L4L"]
         }
         ]
     },
