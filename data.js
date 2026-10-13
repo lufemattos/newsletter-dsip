@@ -44,8 +44,8 @@ window.REPORT = {
   timeline: [
     { side: "top",    date: "20/Out", iso: "2026-10-20", color: "#E97132", boxType: "dark",  title: "X-MPU",        subtitle: "20-23 Oct",    tooltip: "Reunião de Merch para fazer o download da coleção" },
     { side: "bottom", date: "09/Nov", iso: "2026-11-09", color: "#60A5FA", boxType: "light", title: "Abertura",    subtitle: "Portal",       tooltip: "Primeira abertura de portal" },
-    { side: "top",    date: "13/Nov", iso: "2026-11-13", color: "#22C55E", boxType: "light", title: "Bookings",    subtitle: "NBA e NOCTA", tooltip: "Digitação de bookings para early buys NBA e Nocta" },
-    { side: "top",    date: "19/Nov", iso: "2026-11-19", color: "#22C55E", boxType: "light", title: "Bookings",    subtitle: "ALLOCATIONS e ZELUS", tooltip: "Digitação de bookings para early buys de Alocados e ZELUS" },
+    { side: "top",    date: "15/Nov", iso: "2026-11-15", color: "#22C55E", boxType: "light", title: "Bookings",    subtitle: "NBA, NOCTA e SKIMS", tooltip: "Digitação de bookings para early buys NBA, Nocta e SKIMS" },
+    { side: "top",    date: "22/Nov", iso: "2026-11-22", color: "#22C55E", boxType: "light", title: "Bookings",    subtitle: "ALLOCATIONS e ZELUS", tooltip: "Digitação de bookings para early buys de Alocados e ZELUS" },
     { side: "bottom", date: "30/Nov", iso: "2026-11-30", color: "#FACC15", boxType: "light", title: "Fechamento", subtitle: "Portal (ex-Distr)", tooltip: "Finalização de pedidos desconsiderando Distribuidores" },
     { side: "top",    date: "01/Dez", iso: "2026-12-01", color: "#FB923C", boxType: "light", title: "Bookings",    subtitle: "Prévia (MPO)",      tooltip: "MPO gera os bookings prévio com o que tem no SAP" },
     { side: "bottom", date: "02/Dez", iso: "2026-12-02", color: "#F472B6", boxType: "light", title: "Booking",     subtitle: "Review (Supply)",    tooltip: "Supply analisa, prepara e disponibiliza a base para Merch" },
