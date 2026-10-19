@@ -14,11 +14,6 @@ window.REPORT = {
       warn: true
     },
     {
-      date: "13.Oct",
-      text: "Allocations GATE I FK - Revisão de Vomero Phantom",
-      warn: true
-    },
-    {
       date: "21.Oct",
       text: "1st Blind Buy",
       warn: true
