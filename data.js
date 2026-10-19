@@ -9,14 +9,8 @@ window.REPORT = {
       check: true
     },
     {
-      accent: true,
-      title: "FA27 ZELUS Bottoms Up Forecast - units",
-      text: "TOTAL: 136.2K | AMN 45.8K / VDG 90.5K",
-      check: true
-    },
-    {
-      date: "13.Oct",
-      text: "S&OP - 1st version",
+      date: "21.Oct",
+      text: "MBR",
       warn: true
     },
     {
@@ -25,18 +19,13 @@ window.REPORT = {
       warn: true
     },
     {
-      date: "14.Oct",
-      text: "FA27 Allocations GATE II - BIG 3 - DEADLINE FORECAST CHANNELS",
+      date: "21.Oct",
+      text: "1st Blind Buy",
       warn: true
     },
     {
-      date: "16.Oct",
-      text: "FA27 NIKE WK37 Bottoms Up",
-      warn: true
-    },
-    {
-      date: "13.Oct",
-      text: "Demand&Buy Review SU27",
+      date: "20 a 23.Oct",
+      text: "XMPU FA27",
       warn: true
     }
       ],
@@ -56,30 +45,7 @@ window.REPORT = {
   ],
 
   datesGates: [
-        {
-      side: "right",
-      label: "OCT.05",
-      iso: "2026-10-05",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["05.10 Fechamento Setembro"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["07.10 Global Top Up Meeting"]
-        },
-        {
-          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["07.10 Deadline Channels GATE I - FK", "08.10 Allocations FK forecast","08.10 W39 BOTTOMS UP ZELUS","09.10 OTB Extract 2"]
-        },
-        {
-          tag: { text: "SP28", bg: "#4ea72eff", fg: "#111111" },
-          items: ["06.10 SP28 W65 LONG RANGE PLAN - FTW L4L","09.10 3YLP L4L"]
-        }
-        ]
-    },
-    {
+            {
       side: "left",
       label: "OCT.12",
       iso: "2026-10-12",
@@ -124,7 +90,7 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["26.10 Deadline Channels Allocations GATE III - Others","27.10 CONSENSUS L4L","28.10 Allocations Gate III","29.10 W35 Zelus Bottoms Up","30.10 OTB Extract 3"]
+          items: ["26.10 Deadline Channels Allocations GATE III - Others","27.10 CONSENSUS L4L","28.10 Allocations Gate III","29.10 W35 Zelus Bottoms Up","30.10 OTB Extract 3", "30.10 JR286 Forecast"]
         }
         ]
         },
@@ -154,7 +120,7 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["12.11 Allocations Approval File","13.11 Deadline BOOKINGS NOCTA"]
+          items: ["12.11 Allocations Approval File","13.11 Deadline BOOKINGS NOCTA, NBA e SKIMS","09.11 HAF"]
         }
         ]
         },
@@ -169,7 +135,7 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["16.11 Extract NOCTA","18.11 3rd Blind Buy","19.11 Deadline BOOKINGS NBA/ZELUS/Allocations","19.11 OTB Extract 4"]
+          items: ["16.11 Extract NOCTA, NBA e SKIMS","18.11 3rd Blind Buy + NOCTA/NBA","19.11 Buys SKIMS", "19.11 Deadline BOOKINGS ZELUS/Allocations","19.11 OTB Extract 4"]
         }
         ]
         },
@@ -184,7 +150,7 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["26.11 W31 Bottoms Up","25.11 Allocations Buy"]
+          items: ["26.11 W31 Bottoms Up","23.11 Extract MPO Zelus/Allocations","25.11 Allocations Buy","25.11 Zelus BKGS adjustments","26.11 Zelus MPO Extract"]
         }
         ]
         }
