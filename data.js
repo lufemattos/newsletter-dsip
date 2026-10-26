@@ -9,18 +9,33 @@ window.REPORT = {
       check: true
     },
     {
-      date: "21.Oct",
-      text: "MBR",
+      date: "26.Oct",
+      text: "S&OP 2nd version",
       warn: true
     },
     {
-      date: "21.Oct",
-      text: "1st Blind Buy",
+      date: "26.Oct",
+      text: "FA27 Allocations GATE III - deadline channels",
       warn: true
     },
     {
-      date: "20 a 23.Oct",
-      text: "XMPU FA27",
+      date: "27.Oct",
+      text: "FA27 Consensus L4L",
+      warn: true
+    },
+    {
+      date: "29.Oct",
+      text: "FA27 ZELUS Bottoms Up WK35",
+      warn: true
+    },
+    {
+      date: "30.Oct",
+      text: "Forecast JR286 DDP",
+      warn: true
+    },
+    {
+      date: "30.Oct",
+      text: "OTB Extract 3",
       warn: true
     }
       ],
@@ -40,25 +55,6 @@ window.REPORT = {
   ],
 
   datesGates: [
-            {
-      side: "left",
-      label: "OCT.12",
-      iso: "2026-10-12",
-      sections: [
-        {
-          tag: { text: "INVENTORY", bg: "#6d28d9", fg: "#ffffff" },
-          items: ["13.10 S&OP 1st version"]
-        },
-        {
-          tag: { text: "SU27", bg: "#E97132", fg: "#ffffff" },
-          items: ["13.10 Demand&Buy Review Meeting"]
-        },
-        {
-          tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["14.10 Deadline Channels GATE II - BIG 3"," 16.10 W37 BOTTOMS UP",]
-        }
-        ]
-        },
       {
       side: "right",
       label: "OCT.19",
@@ -85,7 +81,7 @@ window.REPORT = {
         },
         {
           tag: { text: "FA27", bg: "#eab308", fg: "#111111" },
-          items: ["26.10 Deadline Channels Allocations GATE III - Others","27.10 CONSENSUS L4L","28.10 Allocations Gate III","29.10 W35 Zelus Bottoms Up","30.10 OTB Extract 3", "30.10 JR286 Forecast"]
+          items: ["26.10 Deadline Channels Allocations GATE III - Others","27.10 CONSENSUS L4L","28.10 Allocations Gate III","29.10 W35 Zelus Bottoms Up","29.10 Merch Sessions - ACG e SKIMS","30.10 OTB Extract 3", "30.10 JR286 Forecast"]
         }
         ]
         },
